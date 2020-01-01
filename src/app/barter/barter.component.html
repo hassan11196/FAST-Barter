@@ -1,0 +1,28 @@
+
+<nb-layout>
+  
+  <nb-layout-header >
+    <h1>
+      {{title}}
+    </h1>
+    
+    <!-- <button  nbButton [nbContextMenu]="items" placement="right">Profile</button> -->
+    <nb-menu [items]='items' autoCollapse=true></nb-menu>
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item>Help</button>
+    </mat-menu>
+
+  </nb-layout-header>
+  
+  <nb-layout-column>
+    
+    <router-outlet></router-outlet>
+    
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+  </nb-layout-footer>
+
+</nb-layout>
+
