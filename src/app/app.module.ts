@@ -11,20 +11,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 @NgModule({
    declarations: [
       AppComponent,
    ],
    imports: [
-
       AngularFireModule.initializeApp(environment.firebaseConfig),
       AngularFirestoreModule,
       AngularFireAuthModule,
-     
       BrowserModule,
       BarterModule,
       BrowserAnimationsModule
-
    ],
    providers: [],
    bootstrap: [

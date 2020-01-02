@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from './user.model'; // optional
+import { User } from '../models/user.model'; // optional
 
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
