@@ -8,12 +8,15 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { FirebaseAuth } from '@angular/fire';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   user$: Observable<User>;
+
+
   constructor(private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router)
@@ -37,13 +40,22 @@ export class AuthService {
      async googleSignin() {
       const provider = new auth.GoogleAuthProvider();
       const credential = await this.afAuth.auth.signInWithPopup(provider);
+      console.log(credential);
+      if (credential !== null){
+        this.router.navigate(['/home']);
+      }
+
       return this.updateUserData(credential.user);
     }
   
     private updateUserData(user) {
       // Sets user data to firestore on login
       const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
-  
+      
+      console.log(' this is users udpate user data');
+      console.log(user);
+
+
       const data = { 
         uid: user.uid, 
         email: user.email, 
@@ -57,6 +69,14 @@ export class AuthService {
   
     async signOut() {
       await this.afAuth.auth.signOut();
-      this.router.navigate(['/']);
+      console.log('Signin Out');
+      this.router.navigate(['/login']);
+    }
+
+    get authenticated(): boolean{
+      console.log(
+        this.afAuth.authState
+      );
+      return this.afAuth !== null;
     }
 }

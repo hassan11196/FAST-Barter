@@ -1,0 +1,34 @@
+<nb-layout>
+
+  <nb-layout-header>
+    <a [routerLink]="['/']" routerLinkActive="router-link-active">
+      <h1>
+        {{title}}
+      </h1>
+    </a>
+    <div *ngIf="auth.user$ | async ">
+      <nb-user name="Test" > </nb-user>
+    </div>
+    
+  
+  </nb-layout-header>
+
+      <!-- <button  nbButton [nbContextMenu]="items" placement="right">Profile</button> -->
+      <!-- <nb-menu [items]='items' autoCollapse=true></nb-menu> -->
+
+  
+  <nb-layout-column>
+    <div > 
+      <button  *ngIf="auth.user$ | async " nbButton style="float: right;" shape="rectangle" (click)="auth.signOut()">
+        Logout
+      </button>
+    </div>
+    <router-outlet></router-outlet>
+
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    DSC-NUCES
+  </nb-layout-footer>
+
+</nb-layout>

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./barter.component.css']
 })
 export class BarterComponent implements OnInit {
-  title = 'FastBarter';
+  
   items = [
     {
       title: 'Profile',

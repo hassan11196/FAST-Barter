@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -21,12 +22,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       AngularFirestoreModule,
       AngularFireAuthModule,
       BrowserModule,
+      BrowserAnimationsModule,
       BarterModule,
-      BrowserAnimationsModule
+      // AppRoutingModule,
    ],
    providers: [],
    bootstrap: [
-      AppComponent
+      AppComponent,
+      
    ]
 })
 export class AppModule { }

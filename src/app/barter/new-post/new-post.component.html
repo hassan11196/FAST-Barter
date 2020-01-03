@@ -1,0 +1,14 @@
+<div>
+  
+  <nb-card>
+    <h2>
+      New Post
+    </h2>
+
+    <nb-card-body class="example-items-col">
+      <input (change)="postTitleChange($event)"  type="text" nbInput fullWidth fieldSize="small" placeholder="Title">
+      <textarea (change)="postDescriptionChange($event)" nbInput fullWidth placeholder="Description"></textarea>
+    </nb-card-body>
+    
+  </nb-card>
+</div>

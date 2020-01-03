@@ -1,11 +1,17 @@
 import { Routes, RouterModule } from '@angular/router';
-import {BarterHomeComponent} from './barter-home/barter-home.component';
+import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { LoginComponent } from './login/login.component'
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+
+
+const RedirectToHome = ()=> redirectLoggedInTo(['home']);
+const RedirectToLogin = ()=> redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
-  { path:'', component: UserProfileComponent},
-  { path:'login', component: LoginComponent}
+  { path:'', redirectTo: '/home', pathMatch:'full'},
+  { path:'login', component: LoginComponent, canActivate:[AngularFireAuthGuard], data: {authGuardPipe: RedirectToHome}},
+  { path:'home', component: BarterHomeComponent, canActivate:[AngularFireAuthGuard],  data: { authGuardPipe: RedirectToLogin}},
+  // { path: '**',  },
 ];
 
 export const BarterRoutes = RouterModule.forRoot(routes);

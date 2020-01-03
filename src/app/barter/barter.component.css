@@ -1,3 +1,6 @@
-/* :host nb-layout-header ::ng-deep nav {
-    justify-content: flex-end;
-  } */
+#logoutbox{
+  align-content: right;
+  right: true;
+  float: right;
+
+}
