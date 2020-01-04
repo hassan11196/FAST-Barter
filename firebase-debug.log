@@ -1,0 +1,17 @@
+[debug] [2020-01-04T22:12:54.540Z] ----------------------------------------------------------------------
+[debug] [2020-01-04T22:12:54.542Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hassa\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js open
+[debug] [2020-01-04T22:12:54.542Z] CLI Version:   7.11.0
+[debug] [2020-01-04T22:12:54.542Z] Platform:      win32
+[debug] [2020-01-04T22:12:54.542Z] Node Version:  v10.16.2
+[debug] [2020-01-04T22:12:54.543Z] Time:          Sun Jan 05 2020 03:12:54 GMT+0500 (Pakistan Standard Time)
+[debug] [2020-01-04T22:12:54.543Z] ----------------------------------------------------------------------
+[debug] [2020-01-04T22:12:54.543Z] 
+[debug] [2020-01-04T22:12:54.549Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-04T22:12:54.549Z] > authorizing via signed-in user
+[debug] [2020-01-04T22:12:54.550Z] [iam] checking project nufastbarter for permissions ["firebase.projects.get"]
+[debug] [2020-01-04T22:12:54.552Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/nufastbarter:testIamPermissions  
+
+[debug] [2020-01-04T22:12:56.152Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-04T22:12:56.153Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/nufastbarter  
+ 
+[debug] [2020-01-04T22:12:56.629Z] <<< HTTP RESPONSE 200
