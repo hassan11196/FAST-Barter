@@ -1,3 +1,12 @@
-<p>
-  forum-post works!
-</p>
+<div *ngFor="let post of postcrud.posts | async" >
+<nb-card>
+<nb-card-body class="example-items-col">
+      <h1>
+        {{post.title}}
+      </h1>
+      <p>
+        {{post.description}}
+      </p>
+    </nb-card-body>
+  </nb-card>
+</div>

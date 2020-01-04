@@ -8,6 +8,9 @@
     <nb-card-body class="example-items-col">
       <input (change)="postTitleChange($event)"  type="text" nbInput fullWidth fieldSize="small" placeholder="Title">
       <textarea (change)="postDescriptionChange($event)" nbInput fullWidth placeholder="Description"></textarea>
+      <button nbButton (click)="postSave()">
+        Submit Post
+      </button>
     </nb-card-body>
     
   </nb-card>

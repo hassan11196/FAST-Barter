@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatGridListModule } from '@angular/material'
 import { BarterComponent } from './barter.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { ForumPostComponent } from './forum-post/forum-post.component';
 import { LoginComponent } from './login/login.component'
 import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { BarterLayoutComponent } from './barter-layout/barter-layout.component';
@@ -38,7 +39,7 @@ import { BarterRoutes } from './barter.routing';
   providers:[
     AngularFireAuthGuard
   ],
-  declarations: [BarterComponent, BarterHomeComponent, LoginComponent, BarterLayoutComponent, NewPostComponent],
+  declarations: [BarterComponent, BarterHomeComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent],
   exports:[BarterComponent]
 })
 export class BarterModule { }
