@@ -1,17 +1,29 @@
-<div>
-  
+
+
+<!-- <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+      <div>
+  <br>
+
   <nb-card>
     <h2>
       New Post
     </h2>
 
-    <nb-card-body class="example-items-col">
+    <!-- <nb-card-body class="example-items-col"> -->
+      
       <input (change)="postTitleChange($event)"  type="text" nbInput fullWidth fieldSize="small" placeholder="Title">
       <textarea (change)="postDescriptionChange($event)" nbInput fullWidth placeholder="Description"></textarea>
       <button nbButton (click)="postSave()">
         Submit Post
       </button>
-    </nb-card-body>
-    
+    <!-- </nb-card-body> -->
+    <button type="button" class="btn btn-primary">Button</button>
   </nb-card>
 </div>

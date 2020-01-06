@@ -4,3 +4,29 @@ div {
   align-items: center;
   justify-content: center;
 }
+/* #background{
+  background-image:url('./../../icons/google-icon.svg') ;
+  opacity: 0.5;
+} */
+#uppernav{
+  background-color: #2956C1 ;
+  width: 100%;
+  line-height: 70px;
+  /* font-size: 60px; */
+}
+#brand{
+  font-size: 50px;
+  letter-spacing: 2px;
+  color:white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
+  /* line-height: 100px; */
+  font-weight: bold;
+}
+#fast{
+  background: none;
+  color: white;
+}
+#barter{
+  background: yellow;
+  color:#2956C1;
+}
