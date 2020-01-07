@@ -6,7 +6,7 @@ import { AuthService } from './../../services/auth.service';
   styleUrls: ['./barter-home.component.css']
 })
 export class BarterHomeComponent implements OnInit {
-  
+  text:any="Muhammad Ahsan";
   constructor(public auth: AuthService) { }
 
   ngOnInit() {

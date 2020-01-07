@@ -1,5 +1,106 @@
-/* :host nb-layout-header ::ng-deep nav {
-    layout:'row';
-    layout-align:'space-between center'
-  } */
-  
+*{
+  box-sizing: border-box;
+}
+/* .menu{
+  overflow: hidden;
+  background: #666999;
+  border-bottom: 1px solid #fff;
+}
+.navbar h2{
+  float: left;
+  display: inline-block;
+  color:#fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+ text-transform: uppercase;   font-weight: bold;
+}
+.menu a{
+  float: left;
+  display: block;
+  color:#fff;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.menu a:hover{
+  background: black;
+  color: green;
+} */
+.nav{
+  border-bottom: 1px solid #EAEAEB;
+  text-align: right;
+  height: 70px;
+  line-height: 70px;
+
+} 
+.menu{
+  margin: 0 30px 0 0;
+}
+.menu a{
+  clear:right;
+  /* display: block; */
+  text-decoration: none;
+  color: gray;
+  margin: 0 10px;
+  padding: 20px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 70px;
+  font-weight: bold;
+}
+.menu a:hover{
+  background: plum;
+  color:black;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+span{
+  color: #54d17a;
+
+}
+label{
+  margin: 0 40px 0 0;
+  font-size:26px;
+  line-height: 70px;
+  display: none;
+  width: 26px;
+  float: right;
+}
+#toggle{
+  display: none;
+}
+@media only screen and (max-width:500px)
+{
+  label{
+    display: block;
+    cursor: pointer;
+  }
+  .menu{
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+  .menu a{
+    display: block;
+    border-bottom: 1px solid #EAEAEB; ;
+    margin: 0;
+  }
+  #toggle:checked +.menu{
+    display: block;
+  }
+}
+/* @media(max-width:600px)
+{
+  .navbar a{
+      float: none;
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin :0;
+      padding:14px;
+  }
+} */

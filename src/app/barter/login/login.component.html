@@ -1,11 +1,26 @@
-<div >
-<nb-card>
-  <nb-card-body>
+<nav class="navbar navbar-light" id="uppernav">
+    <a class="navbar-brand" id="brand"[routerLink]="['/']" routerLinkActive="router-link-active"><span id="fast"> FAST </span><span id="barter"> BARTER</span></a>
     
-    <button nbButton (click)="auth.googleSignin()">
+    <div *ngIf="auth.user$ | async as user" style="display:inline-flex">
+        
+      <h3 style="padding-top:1rem;padding-right:1rem;">Howdy, {{ user.displayName }}</h3>
+      <img  [src]="user.photoURL" style="width:3.5rem;height:3.5rem;border-radius: 50%;">
+      <!-- <p>UID: {{ user.uid }}</p> -->
+    </div>  
+  </nav>
+  <div id="background">
+
+  <nb-card>
+  <nb-card-body>
+    <button class="ui google plus button"(click)="auth.googleSignin()" style="opacity:1;">
+      <!-- <img src={{gicon}}   style="width:3rem; height:3rem; padding-right: 1rem;" > -->
+      <i class="google plus icon"></i>
+      Login with Google
+    </button>
+    <!-- <button (click)="auth.googleSignin()" style="border-radius: 10px; background-color: blue;">
       <img src={{gicon}}  width="30" height="30" >
        Login with Google
-    </button>  
+    </button>   -->
   </nb-card-body>
 </nb-card>
 

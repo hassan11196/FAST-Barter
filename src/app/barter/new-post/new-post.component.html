@@ -1,17 +1,54 @@
-<div>
-  
+<!-- <div>
+  <br>
+
   <nb-card>
     <h2>
       New Post
     </h2>
-
-    <nb-card-body class="example-items-col">
+      
       <input (change)="postTitleChange($event)"  type="text" nbInput fullWidth fieldSize="small" placeholder="Title">
       <textarea (change)="postDescriptionChange($event)" nbInput fullWidth placeholder="Description"></textarea>
       <button nbButton (click)="postSave()">
         Submit Post
       </button>
-    </nb-card-body>
-    
+    <button type="button" class="btn btn-primary">Button</button>
   </nb-card>
+</div> -->
+<div style="padding-right: 2rem;">
+<button class="ui primary button" data-toggle="modal" data-target="#basicExampleModal" style="float:right;">
+  <i class="shop icon"></i>
+  Post an Add
+</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="md-form">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Post Ad</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" (change)="postTitleChange($event)" id="defaultContactFormName" class="form-control mb-4" placeholder="Title">
+
+        <div class="form-group">
+            <textarea (change)="postDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Description"></textarea>
+        </div>
+    
+      </div>
+ 
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+        <button (click)="postSave()" class="ui secondary button" data-dismiss="modal">
+          Submit Post
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
 </div>

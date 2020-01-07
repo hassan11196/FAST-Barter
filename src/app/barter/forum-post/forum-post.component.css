@@ -1,0 +1,17 @@
+nb-card {
+    width: 18rem;
+  }
+ #feature{
+     text-align: center;
+ } 
+ #card{
+     border: 1px solid grey;
+ }
+ #button1{
+     border: 1px solid darkblue;
+     border-radius: 3px;
+     width:100%;
+     height:25px;
+     background-color: darkblue;
+     color:white;
+ }

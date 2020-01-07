@@ -14,7 +14,8 @@ import { LoginComponent } from './login/login.component'
 import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { BarterLayoutComponent } from './barter-layout/barter-layout.component';
 import { BarterRoutes } from './barter.routing';
-
+import {FormsModule} from '@angular/forms' 
+// import {Button} from 'bootstrap';
 @NgModule({
   imports: [
     CommonModule,
@@ -34,7 +35,9 @@ import { BarterRoutes } from './barter.routing';
     MatMenuModule,
     NbCardModule,
     FontAwesomeModule,
-    MatGridListModule
+    MatGridListModule,
+    FormsModule,
+    // Button,
   ],
   providers:[
     AngularFireAuthGuard
