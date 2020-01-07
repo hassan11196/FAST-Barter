@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from './../../services/auth.service'
+declare let require:any;
 const fasticon=require('./../../icons/fast.jpg');
 @Component({
   selector: 'app-barter-layout',
