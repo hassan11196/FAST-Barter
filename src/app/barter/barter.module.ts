@@ -15,9 +15,12 @@ import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { BarterLayoutComponent } from './barter-layout/barter-layout.component';
 import { BarterRoutes } from './barter.routing';
 import {FormsModule} from '@angular/forms' 
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireStorageModule} from 'angularfire2/storage';
 // import {Button} from 'bootstrap';
 @NgModule({
   imports: [
+    AngularFireStorageModule,
     CommonModule,
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
