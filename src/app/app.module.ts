@@ -28,6 +28,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
       BrowserAnimationsModule,
       BarterModule,
       FormsModule,
+      
       // AppRoutingModule,
    ],
    providers: [],

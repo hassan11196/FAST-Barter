@@ -24,9 +24,9 @@ export class NewPostComponent implements OnInit {
   postTitle = '';
   postDescription = '';
   user = null;
-  constructor(private postcrud: PostCrudService, auth:AuthService,afs:AngularFireStorage) {
+  constructor(private postcrud: PostCrudService, auth:AuthService, afStorage:AngularFireStorage) {
     auth.user$.subscribe( user => this.user = user);
-    this.afStorage=afs;
+    this.afStorage=afStorage;
   }
 
   ngOnInit() {
