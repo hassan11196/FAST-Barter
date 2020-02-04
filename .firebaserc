@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "nufastbarter"
+    "default": "FAST-barter",
+    "dev2": "fast-barter"
   }
 }
