@@ -5,6 +5,7 @@ export interface Post {
     timestamp: Date,
     title: string,
     description: string,
-    user: User
+    user: User,
+    picId: string,
 
 }

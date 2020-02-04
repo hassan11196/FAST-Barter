@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { environment } from './../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 
 
@@ -20,12 +21,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    ],
    imports: [
       AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFireStorageModule,
       AngularFirestoreModule,
       AngularFireAuthModule,
       BrowserModule,
       BrowserAnimationsModule,
       BarterModule,
       FormsModule,
+      
       // AppRoutingModule,
    ],
    providers: [],

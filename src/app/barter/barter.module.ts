@@ -15,9 +15,12 @@ import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { BarterLayoutComponent } from './barter-layout/barter-layout.component';
 import { BarterRoutes } from './barter.routing';
 import {FormsModule} from '@angular/forms' 
-// import {Button} from 'bootstrap';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireStorageModule, AngularFireStorage} from 'angularfire2/storage';
+import { environment } from './../../environments/environment';
 @NgModule({
   imports: [
+    
     CommonModule,
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
@@ -37,10 +40,13 @@ import {FormsModule} from '@angular/forms'
     FontAwesomeModule,
     MatGridListModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule,
+    AngularFireStorageModule,
     // Button,
   ],
   providers:[
-    AngularFireAuthGuard
+    AngularFireAuthGuard, AngularFireStorage
   ],
   declarations: [BarterComponent, BarterHomeComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent],
   exports:[BarterComponent]
