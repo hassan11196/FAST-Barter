@@ -28,7 +28,7 @@
 <div *ngFor="let post of postcrud.posts | async" >
   <div class="col-sm">
   <div class="card" id="card" style="width: 18.1rem; height: 38rem">
-  <img class="card-img-top" src={{gicon}} alt="Card image cap">
+  <img class="card-img-top" src={{post.picId}} alt="Card image cap">
   <div class="card-body" bac>
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-text">{{post.description}}</p>

@@ -51,7 +51,7 @@
 </div>
   </div>
   <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
-    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+    File uploaded: <a [href]="downloadSrc" id="link">{{downloadSrc}}</a>
 </div>
 </div>
       <div class="modal-footer">
