@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PostCrudService } from './../../services/post-crud.service';
 import { AuthService } from './../../services/auth.service';
 import { Post } from './../../models/post.model';
-import {AngularFireStorage,AngularFireStorageReference,AngularFireUploadTask} from 'angularfire2/storage' ;
+import {AngularFireStorage,AngularFireStorageReference,AngularFireUploadTask} from '@angular/fire/storage' ;
 import { Observable} from 'rxjs/Observable';
-import { AngularFirestore, QuerySnapshot } from 'angularfire2/firestore';
+import { AngularFirestore, QuerySnapshot } from '@angular/fire/firestore';
 import { timestamp,finalize,tap,map } from 'rxjs/operators';
 import { from,combineLatest } from 'rxjs';
 
