@@ -1,5 +1,23 @@
 # Fastbarter
 
+
+## To Setup Firebase : 
+ `firebase login`
+ `firebase deploy` to deploy to firebase. 
+
+
+## Referneces: 
+If you find article that helped you, you can add them here so that it may also help others working on the project.
+
+
+[https://medium.com/codingthesmartway-com-blog/firebase-cloud-storage-with-angular-394566fd529](https://medium.com/codingthesmartway-com-blog/firebase-cloud-storage-with-angular-394566fd529)
+
+[https://codesearchonline.com/index.php/angular-firebase-cheat-sheet/](https://codesearchonline.com/index.php/angular-firebase-cheat-sheet/)
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
 ## Development server
@@ -25,16 +43,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## User Account for Firebase:
-    qrsms.portal@gmail.com
-    password: googleqrsms
-
-## To Setup Firebase : 
- `firebase login`
- `firebase deploy` to deploy to firebase. 
-
-
-## Referneces: 
-
-[https://medium.com/codingthesmartway-com-blog/firebase-cloud-storage-with-angular-394566fd529](https://medium.com/codingthesmartway-com-blog/firebase-cloud-storage-with-angular-394566fd529)

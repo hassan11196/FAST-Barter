@@ -44,14 +44,14 @@ export class NewPostComponent implements OnInit {
    }
   postSave(event){
     console.log('Post');
-    const mid =document.getElementById('link').getAttribute('href')
+    // const mid =document.getElementById('link').getAttribute('href')
     console.log(this.postcrud);
-        let p:Post ={
+    let p:Post ={
       timestamp : new Date(),
       title: this.postTitle,
       description:this.postDescription,
       user : this.user,
-      picId: mid,
+      picId: null,
 
   
     }
