@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostCrudService } from './../../services/post-crud.service';
 import { AuthService } from './../../services/auth.service';
 import { Post } from './../../models/post.model';
@@ -18,10 +18,10 @@ import { from,combineLatest } from 'rxjs';
 export class NewPostComponent implements OnInit {
   
   
-  uploads: any[];
+  uploads: any[] = [];
   allPercentage: Observable<any>;
   files: Observable<any>;
-  
+  picsBase64Encoded: any[] = [];
   
   
   downloadURL: Observable<string>;
@@ -33,6 +33,9 @@ export class NewPostComponent implements OnInit {
   postDescription = '';
   user = null;
   id = '';
+  return_item='';
+  condition='';
+
   constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) {
     auth.user$.subscribe( user => this.user = user);
     //this.afStorage=afStorage;
@@ -51,7 +54,9 @@ export class NewPostComponent implements OnInit {
       title: this.postTitle,
       description:this.postDescription,
       user : this.user,
-      picId: null,
+      pics: this.picsBase64Encoded,
+      return_item: this.return_item,
+      condition: this.condition
 
   
     }
@@ -60,50 +65,60 @@ export class NewPostComponent implements OnInit {
     this.postcrud.addPost(p);
   }
   upload(event){
-    this.uploads = [];
+    this.uploads = [...this.uploads,...event.target.files];
+    console.log(this.uploads);
+    
     const filelist = event.target.files;
-    const allPercentage: Observable<number>[] = [];
+    const reader = new FileReader();
+    
+    // const allPercentage: Observable<number>[] = [];
 
     for (const file of filelist) {
+      reader.readAsDataURL(file);
+      
+      reader.onload = () => {
+        this.picsBase64Encoded = [... this.picsBase64Encoded,reader.result];
+        console.log(reader.result);
+      };
+      
+    //   const path = `files/${file.name}`;
+    //   const ref = this.storage.ref(path);
+    //   const task = this.storage.upload(path, file);
+    //   const _percentage$ = task.percentageChanges();
+    //   allPercentage.push(_percentage$);
 
-      const path = `files/${file.name}`;
-      const ref = this.storage.ref(path);
-      const task = this.storage.upload(path, file);
-      const _percentage$ = task.percentageChanges();
-      allPercentage.push(_percentage$);
+    //   // create composed object with different information. ADAPT THIS ACCORDING YOUR NEED
+    //   const uploadTrack = {
+    //     fileName: file.name,
+    //     percentage: _percentage$
+    //  }
 
-      // create composed object with different information. ADAPT THIS ACCORDING YOUR NEED
-      const uploadTrack = {
-        fileName: file.name,
-        percentage: _percentage$
-      }
+    //   // push each upload into the array
+    //   this.uploads.push(uploadTrack);
 
-      // push each upload into the array
-      this.uploads.push(uploadTrack);
-
-      // for every upload do whatever you want in firestore with the uploaded file
-      const _t = task.then((f) => {
-        return f.ref.getDownloadURL().then((url) => {
-          return this.afStorage.collection('files').add({
-            name: f.metadata.name,
-            url: url
-          });
-        })
-      })
+    //   // for every upload do whatever you want in firestore with the uploaded file
+    //   const _t = task.then((f) => {
+    //     return f.ref.getDownloadURL().then((url) => {
+    //       return this.afStorage.collection('files').add({
+    //         name: f.metadata.name,
+    //         url: url
+    //       });
+    //     })
+    //   })
 
     }
 
-    this.allPercentage = combineLatest(allPercentage)
-      .pipe(
-      map((percentages) => {
-        let result = 0;
-        for (const percentage of percentages) {
-          result = result + percentage;
-        }
-        return result / percentages.length;
-      }),
-      tap(console.log)
-      );
+    // this.allPercentage = combineLatest(allPercentage)
+    //   .pipe(
+    //   map((percentages) => {
+    //     let result = 0;
+    //     for (const percentage of percentages) {
+    //       result = result + percentage;
+    //     }
+    //     return result / percentages.length;
+    //   }),
+    //   tap(console.log)
+    //   );
 
     // const id = Math.random().toString(36).substring(2);
     // this.ref = this.afStorage.ref(id);
@@ -124,6 +139,7 @@ export class NewPostComponent implements OnInit {
     console.log(event);
     this.postDescription = event.target.value;
     console.log(this.postDescription);
+    
   }
 
 }

@@ -50,8 +50,13 @@
     <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
 </div>
   </div>
-  <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
-    File uploaded: <a [href]="downloadSrc" id="link">{{downloadSrc}}</a>
+  <div *ngIf="uploads" class="alert alert-info" role="alert">
+    <div *ngFor="let pic of uploads">
+      <p>
+        Picture uploaded: {{pic.name}}
+      </p>
+    </div>
+    
 </div>
 </div>
       <div class="modal-footer">

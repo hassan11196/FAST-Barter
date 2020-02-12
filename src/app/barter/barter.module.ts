@@ -19,6 +19,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireStorageModule, AngularFireStorage} from '@angular/fire/storage';
 import { environment } from './../../environments/environment';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 @NgModule({
   imports: [
     
@@ -47,6 +48,7 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestor
     AngularFirestoreModule.enablePersistence(),
     AngularFireModule,
     AngularFireStorageModule,
+    CarouselModule.forRoot()
     
     // Button,
   ],
