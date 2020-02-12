@@ -44,20 +44,25 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Select picture for upload:</h5>
-      <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+      <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
     </div>
   <div class="progress">
     <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
 </div>
   </div>
-  <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
-    File uploaded: <a [href]="downloadSrc" id="link">{{downloadSrc}}</a>
+  <div *ngIf="uploads" class="alert alert-info" role="alert">
+    <div *ngFor="let pic of uploads">
+      <p>
+        Picture uploaded: {{pic.name}}
+      </p>
+    </div>
+    
 </div>
 </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button> -->
-        <button (click)="postSave()" class="ui secondary button" data-dismiss="modal">
+        <button (click)="postSave($event)" class="ui secondary button" data-dismiss="modal">
           Submit Post
         </button>
       </div>

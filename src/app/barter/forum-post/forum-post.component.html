@@ -17,29 +17,40 @@
 <div class="container">
   <nav class="navbar navbar-light" style="background-color: grey; text-align: center;color:white">
     <!-- <a class="navbar-brand" id="feature" href="#"> -->
-      <!-- <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> -->
-      <h2 style="text-align: center;">Featured Posts</h2>
+    <!-- <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> -->
+    <h2 style="text-align: center;">Featured Posts</h2>
     <!-- </a> -->
   </nav>
   <br><br>
-  
+
   <div class="row">
-    
-<div *ngFor="let post of postcrud.posts | async" >
-  <div class="col-sm">
-  <div class="card" id="card" style="width: 18.1rem; height: 38rem">
-  <img class="card-img-top" src={{post.picId}} alt="Card image cap">
-  <div class="card-body" bac>
-    <h5 class="card-title">{{post.title}}</h5>
-    <p class="card-text">{{post.description}}</p>
+
+    <div *ngFor="let post of postsList">
+      <div class="col-sm">
+        <div class="card" id="card" style="width: 18.1rem; height: 38rem">
+
+          <carousel *ngIf="post">
+            <div *ngFor="let picture of post.pics">
+              <slide >
+                <img [src]="picture" alt="Loading" width="200px"> 
+            </slide>
+            </div>
+            
+
+          </carousel>
+
+          <!-- <img *ngIf="post.picId != null" class="card-img-top" src={{post.picId[0]}} alt="Card image cap"> -->
+          <div class="card-body" bac>
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.description}}</p>
+          </div>
+          <div class="card-footer">
+            <h5 class="text-center">Rs 2500</h5>
+            <button id="button1">View Details</button>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
   </div>
-  <div class="card-footer">
-    <h5 class="text-center">Rs 2500</h5>
-    <button id="button1">View Details</button>
-  </div>
-</div>
-<br>
-</div>
- </div> 
-</div>
 </div>

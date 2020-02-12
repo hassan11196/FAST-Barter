@@ -6,6 +6,8 @@ export interface Post {
     title: string,
     description: string,
     user: User,
-    picId: string,
+    pics: ArrayBuffer[]|string[],
+    condition: string,
+    return_item: string
 
 }
