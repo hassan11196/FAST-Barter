@@ -13,7 +13,7 @@ export class ForumPostComponent implements OnInit {
   gicon=googleicon;
   postsList= []
 
-  constructor( private postcrud: PostCrudService) {
+  constructor( public postcrud: PostCrudService) {
     postcrud.posts.subscribe(post=> this.postsList.push(post));
     console.log(this.postsList);
    }

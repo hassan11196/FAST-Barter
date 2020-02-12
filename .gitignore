@@ -40,7 +40,11 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/.firebase
+
 
 # System Files
 .DS_Store
 Thumbs.db
+.firebase/hosting.ZGlzdFxmYXN0YmFydGVy.cache
+.firebase/hosting.ZGlzdFxmYXN0YmFydGVy.cache
