@@ -17,6 +17,16 @@ export class ForumPostComponent implements OnInit {
     postcrud.posts.subscribe(post=> this.postsList.push(post));
     console.log(this.postsList);
    }
+   postdetails(post){
+     var cart={}
+     cart=post;
+     localStorage.setItem('cart', JSON.stringify(cart));
+    //  localStorage.setItem('cart',post);
+    //  console.log("Ahsan")
+    //  var user = JSON.parse(localStorage.getItem('cart'));
+    //  console.log(user) 
+    }
+    
 
   ngOnInit() {
   }
