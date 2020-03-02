@@ -5,6 +5,9 @@ export interface Post {
     timestamp: Date,
     title: string,
     description: string,
-    user: User
+    user: User,
+    pics: ArrayBuffer[]|string[],
+    condition: string,
+    return_item: string
 
 }

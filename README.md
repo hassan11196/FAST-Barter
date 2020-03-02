@@ -1,5 +1,23 @@
 # Fastbarter
 
+
+## To Setup Firebase : 
+ `firebase login`
+ `firebase deploy` to deploy to firebase. 
+
+
+## Referneces: 
+If you find article that helped you, you can add them here so that it may also help others working on the project.
+
+
+[https://medium.com/codingthesmartway-com-blog/firebase-cloud-storage-with-angular-394566fd529](https://medium.com/codingthesmartway-com-blog/firebase-cloud-storage-with-angular-394566fd529)
+
+[https://codesearchonline.com/index.php/angular-firebase-cheat-sheet/](https://codesearchonline.com/index.php/angular-firebase-cheat-sheet/)
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
 ## Development server

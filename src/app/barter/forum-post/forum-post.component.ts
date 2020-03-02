@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PostCrudService } from './../../services/post-crud.service';
+import { Post } from 'src/app/models/post.model';
 declare var require: any
 const googleicon = require('./../../icons/hassan.jpg');
 @Component({
@@ -9,9 +11,9 @@ const googleicon = require('./../../icons/hassan.jpg');
 })
 export class ForumPostComponent implements OnInit {
   gicon=googleicon;
-  postsList = []
+  postsList= []
 
-  constructor( private postcrud: PostCrudService) {
+  constructor( public postcrud: PostCrudService) {
     postcrud.posts.subscribe(post=> this.postsList.push(post));
     console.log(this.postsList);
    }
