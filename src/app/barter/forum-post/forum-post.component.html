@@ -43,10 +43,10 @@
           <div class="card-body" bac>
             <!-- <p>{{post.id}}</p> -->
             <h5 class="card-title">{{post.title}}</h5>
-            <p class="card-text">{{post.description}}</p>
+            <p class="card-text" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; ">{{post.description}}</p>
           </div>
           <div class="card-footer">
-            <h5 class="text-center">Rs 2500</h5>
+            <!-- <h5 class="text-center">Rs 2500</h5> -->
             <button [routerLink]="['/detailpost']" id="button1" (click)="postdetails(post)">View Details</button>
           </div>
         </div>

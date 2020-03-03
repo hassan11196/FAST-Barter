@@ -35,6 +35,8 @@ export class NewPostComponent implements OnInit {
   id = '';
   return_item='';
   condition='';
+  state='';
+  city='';
 
   constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) {
     auth.user$.subscribe( user => this.user = user);
@@ -56,8 +58,7 @@ export class NewPostComponent implements OnInit {
       user : this.user,
       pics: this.picsBase64Encoded,
       return_item: this.return_item,
-      condition: this.condition
-      
+      condition: this.condition,
   
     }
   
@@ -139,7 +140,25 @@ export class NewPostComponent implements OnInit {
     console.log(event);
     this.postDescription = event.target.value;
     console.log(this.postDescription);
-    
+  }
+  postConditionChange(event,val){
+    console.log(event);
+    console.log(val);
+    if (val==0)
+    this.condition = 'New';
+    else 
+    this.condition = 'Used';
+    console.log(this.condition);
+  }
+  postStateChange(event){
+    console.log(event);
+    this.state = event.target.value;
+    console.log(this.state);
+  }
+  postcityChange(event){
+    console.log(event);
+    this.city = event.target.value;
+    console.log(this.city);
   }
 
 }
