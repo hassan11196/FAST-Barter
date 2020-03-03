@@ -47,7 +47,7 @@
           </div>
           <div class="card-footer">
             <!-- <h5 class="text-center">Rs 2500</h5> -->
-            <button [routerLink]="['/detailpost']" id="button1" (click)="postdetails(post)">View Details</button>
+            <button [routerLink]="['/detailpost',post.timestamp['seconds']] " id="button1" (click)="postdetails(post)">View Details</button>
           </div>
         </div>
         <br>

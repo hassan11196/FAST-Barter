@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 // const googleicon = require('./../../icons/google-icon.svg');
 @Component({
   selector: 'app-detail-post',
@@ -9,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class DetailPostComponent implements OnInit {
   // icon=googleicon;
   size:number=0;
+  timestamp:string='';
   details={
+    timestamp:0,
     title:"",
     description:"",
     pics:[],
@@ -19,7 +21,7 @@ export class DetailPostComponent implements OnInit {
     },
   }
   name:string=""
-  constructor() { } 
+  constructor(private route:ActivatedRoute) { } 
 
   ngOnInit() {
     
@@ -29,7 +31,9 @@ export class DetailPostComponent implements OnInit {
     console.log(cart);
     // this.details=cart[];
     console.log(cart)
-    this.details.title=cart['title']
+    this.details.title=cart['title'];
+    this.timestamp=this.route.snapshot.paramMap.get("timestamp");
+    console.log(this.timestamp);
     this.details.description=cart['description']
     this.details.pics=cart['pics']
     this.details.user=cart['user']

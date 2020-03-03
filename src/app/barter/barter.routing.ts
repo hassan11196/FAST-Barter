@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule,A } from '@angular/router';
 import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { LoginComponent } from './login/login.component'
 import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:'login', component: LoginComponent, canActivate:[AngularFireAuthGuard], data: {authGuardPipe: RedirectToHome}},
   { path:'home', component: BarterHomeComponent, canActivate:[AngularFireAuthGuard],  data: { authGuardPipe: RedirectToLogin}},
   { path:'newpost', component: NewPostComponent },
-  { path:'detailpost', component: DetailPostComponent },
+  { path:'detailpost/:timestamp', component: DetailPostComponent },
   // { path: '**',  },
 ];
 
