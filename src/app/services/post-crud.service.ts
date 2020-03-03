@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Post } from './../models/post.model';
+import { Comment } from './../models/comment.model';
+
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
 
@@ -8,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class PostCrudService {
   private postCollection: AngularFirestoreCollection<Post>;
+  private commentCollection: AngularFirestoreCollection<Comment>;
 
   posts: Observable<Post[]>;
 
@@ -18,5 +21,7 @@ constructor(private afs: AngularFirestore) {
  addPost(post: Post){
    this.postCollection.add(post);
  }
-
+ addComment(comment: Comment){
+  this.commentCollection.add(comment);
+}
 }
