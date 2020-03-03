@@ -13,15 +13,18 @@ export class PostCrudService {
   private commentCollection: AngularFirestoreCollection<Comment>;
 
   posts: Observable<Post[]>;
+  comments:Observable<Comment[]>;
 
 constructor(private afs: AngularFirestore) {
   this.postCollection = afs.collection<Post>('posts');
   this.posts = this.postCollection.valueChanges();
+  this.commentCollection = afs.collection<Comment>('comments');
+  this.comments = this.commentCollection.valueChanges();
  }
  addPost(post: Post){
    this.postCollection.add(post);
  }
- addComment(comment: Comment){
-  this.commentCollection.add(comment);
+ addComment(comments: Comment){
+  this.commentCollection.add(comments);
 }
 }

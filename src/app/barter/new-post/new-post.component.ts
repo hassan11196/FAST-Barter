@@ -56,8 +56,8 @@ export class NewPostComponent implements OnInit {
       user : this.user,
       pics: this.picsBase64Encoded,
       return_item: this.return_item,
-      condition: this.condition
-
+      condition: this.condition,
+      comment:[]
   
     }
   

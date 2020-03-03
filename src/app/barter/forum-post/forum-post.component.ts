@@ -61,8 +61,6 @@ console.log("hello");
       description:this.commentDescription,
       user : this.user,
       pics: this.picsBase64Encoded,
-      post:null,
-
   
     }
   
