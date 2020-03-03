@@ -46,8 +46,8 @@
             <p class="card-text" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; ">{{post.description}}</p>
           </div>
           <div class="card-footer">
-            <!-- <h5 class="text-center">Rs 2500</h5> -->
-            <button [routerLink]="['/detailpost',post.timestamp['seconds']] " id="button1" (click)="postdetails(post)">View Details</button>
+            <h5 class="text-center">Rs 2500</h5>
+            <button (click)="postdetails(post)" [routerLink]="['/detailpost']" id="button1" >View Details</button>
           </div>
         </div>
         <br>
@@ -55,3 +55,6 @@
     </div>
   </div>
 </div>
+
+
+

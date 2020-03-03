@@ -50,12 +50,62 @@
             </div>
           </div>
         </div>
-        <div>
-          
-
-        </div>
+ 
       </div>
     </div>
 </div>
 </div>
 </div>
+
+       <div>
+
+
+        
+
+      <div class="container">
+ <div class="card">
+    <div class="card-body">
+            <h5 class="modal-title" style="font-weight:bolder">Comments</h5>
+
+ </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder">Add a comment</h5>
+            <textarea (change)="commentDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Comment"></textarea>
+        </div>
+    </div>
+   <div class="container">
+      <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder">Select picture for upload:</h5>
+      <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
+     
+    
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
+</div>
+
+  </div>
+  <div *ngIf="uploads" class="alert alert-info" role="alert">
+    <div *ngFor="let pic of uploads">
+      <p>
+        Picture uploaded: {{pic.name}}
+      </p>
+    </div>
+   
+     </div>
+      <button id = 'button11' (click)="commentSave($event)" style="float:right" class="ui secondary button" data-dismiss="modal" >
+          Add Comment
+        </button>
+    </div>
+    </div>
+       
+
+
+
+
+
+        
+          
+
+        </div>
