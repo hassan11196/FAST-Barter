@@ -1,26 +1,9 @@
-<!-- <div>
-  <br>
-
-  <nb-card>
-    <h2>
-      New Post
-    </h2>
-      
-      <input (change)="postTitleChange($event)"  type="text" nbInput fullWidth fieldSize="small" placeholder="Title">
-      <textarea (change)="postDescriptionChange($event)" nbInput fullWidth placeholder="Description"></textarea>
-      <button nbButton (click)="postSave()">
-        Submit Post
-      </button>
-    <button type="button" class="btn btn-primary">Button</button>
-  </nb-card>
-</div> -->
-<div style="padding-right: 2rem;">
+<!-- <div style="padding-right: 2rem;">
 <button class="ui primary button" data-toggle="modal" data-target="#basicExampleModal" style="float:right;">
   <i class="shop icon"></i>
   Post an Add
 </button>
 </div>
-<!-- Modal -->
 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -60,8 +43,6 @@
 </div>
 </div>
       <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button> -->
         <button (click)="postSave($event)" class="ui secondary button" data-dismiss="modal">
           Submit Post
         </button>
@@ -69,4 +50,109 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div>
+  <h1 style="text-align: center; padding-top:1rem;">POST YOUR AD</h1>
+    <div class="container">
+     <div class="card">
+      <div class="content">
+        <h4 class="ui horizontal divider header" style="padding-left:1rem; padding-right:1rem; padding-top:1rem">
+          <i class="tag icon"></i>
+          Description
+        </h4>
+        <form class="ui form">
+          <div class="form-group" style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
+            <!-- <label>  Title</label>   -->
+            <input type="text" (change)="postTitleChange($event)" id="defaultContactFormName" class="form-control mb-4" placeholder="Title">
+            
+          </div>
+          <div class="form-group" style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
+            <textarea (change)="postDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Description"></textarea>
+        </div>
+          <div class="field" style="padding-left:1rem;padding-right:1rem;">
+          <!-- <div class="card-body"> -->
+          <!-- <h5 class="card-title">Select picture for upload:</h5> -->
+          <!-- <label>Upload photos</label> -->
+          <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
+        <!-- </div> -->
+      <!-- </div>
+        <div class="field"style="padding-right:1.5rem;">
+        <div>
+          <input style="height:3rem" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Price">        
+        </div> -->
+      </div>
+      <div class="progress" style="padding-left:2rem; padding-right:2rem; padding-top:1rem">
+        <div style="padding-left:2rem; padding-right:2rem; padding-top:1rem" class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
+      </div>   
+      <div *ngIf="uploads" class="alert alert-info" role="alert">
+      <div *ngFor="let pic of uploads">
+        <p>
+          Picture uploaded: {{pic.name}}
+        </p>
+      </div>
+      
+    </div>
+    
+    <h4 class="ui horizontal divider header">
+      <i class="user icon"></i>
+      User Details
+    </h4>
+    <div class="two fields" style="padding-left: 2rem;">
+      <div class="field">
+        <select class="form-control" name="state" style="width:100%; height:3rem">
+          <option data-value="1">Sindh</option>
+          <option data-value="2">Balochistan</option>
+          <option data-value="3">Central Punjab</option>
+          <option data-value="4">South Punjab</option>
+          <option data-value="5">KPK</option>
+          <option data-value="6">Azad Kashmir</option>
+        </select>
+      </div>
+      <div class="field" style="padding-right:1.5rem;">
+        
+        <select class="form-control" name="city" style="width:100%; height:3rem">
+          <div class="default text">State</div>
+          <option data-value="1">Karachi</option>
+          <option data-value="0">Lahore</option>
+        </select>
+        
+      </div>
+     
+  </div>
+
+  <h4 class="ui horizontal divider header">
+    <i class="check circle icon"></i>
+    Confirmation
+  </h4>
+  <!-- <h3 style="padding-top:1rem;padding-right:1rem;">Howdy, {{ user.displayName }}</h3> -->
+  <div class="two fields" style="padding-left:2rem;padding-top:1rem;">  
+  <div class="field" style="width:10%">
+    <img  [src]="user.photoURL" style="width:5.5rem;height:5.5rem;border-radius: 50%;">
+  </div>
+  <div class="field" style="padding-top: 0.5rem;">
+    <input style="height:4.5rem; width: 50%; border:1px solid black; font-weight:bold " value={{user.displayName}} type="name" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+  </div>
+  </div>
+  <div>
+    <h3 style="padding-left:2rem;">Let's verify your account</h3>
+    <h5 style="padding-left:2rem;">We will send you a confirmation code by sms on the next step.</h5>
+    <div style="padding-left:2rem;">
+    <input style="height:2.5rem; width: 40%; border:1px solid black; font-weight:bold;" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Phone Number i.e +92XXXXXXXXX">
+  </div>
+  </div>
+
+
+
+    <div style="text-align: center; padding-bottom:1rem;">
+    <button (click)="postSave($event)" class="ui secondary button" [routerLink]="['/home']">
+      Post Now
+    </button>
+  </div>    
+        </form>
+      </div>
+     </div>   
+  </div>
+  <br>
+  <br>
 </div>

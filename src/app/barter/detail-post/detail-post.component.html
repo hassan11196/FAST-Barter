@@ -1,0 +1,107 @@
+<!-- <p>
+  {{details.title}}
+  Ahsan
+</p> -->
+<div>
+  <div class="container">
+    <br/> 
+  <div class="row">
+    <div class="col-md-5">
+    <div class="card" style="width: 100%;height: 30rem">
+      <carousel style="padding-left:1rem; padding-right:1rem; padding-bottom:1rem;padding-top:1rem;">
+        <div *ngFor="let picture of details.pics">
+          <slide style="height:10%">
+            <img [src]="picture" alt="Loading" width="100%" height="390rem" > 
+        </slide>
+        </div>
+      </carousel>
+    <!-- <img class="card-img-top" src="{{details.pics[0]}}"style="height:80%" alt="Card image cap"> -->
+    <!-- <div class="row" style="padding-left: 0.5rem;">
+      <div class="col-md-3" *ngFor="let picture of details.pics">
+        <div class="card" style="height:5rem; width:5rem;">
+          <img [src]="picture" alt="Loading" width="100%" height="90%" >
+        </div>
+        
+      </div>
+    </div> -->
+  </div>
+  </div>
+  <div class="col-md-7">
+      <!-- <h2 style="text-align: center; font-weight:bold">Product Details</h2> -->
+      <h2 style="padding-left:2rem; line-spacing:0rem;font-weight:bold;text-transform:uppercase; ">{{details.title}}</h2>
+      <h4 style="padding-left:2rem;line-spacing:0rem; ">{{details.description}}</h4>
+      <div class="card">
+        <h2 style="text-align: center; padding-top:1rem;">Seller Description</h2>
+        <div class="ui comments" style="padding-left:1rem;">
+          <div class="comment">
+            <a class="avatar">
+              <img [src]="details.user.photoURL"style="width:5.5rem;height:5.5rem;border-radius: 50%;">
+            </a>
+            <div class="content" style="padding-left:3rem;padding-top:0.3rem">
+              <h2 >{{details.user.displayName}}</h2>
+      
+              <div class="text">
+                <span><i class="phone icon"></i>+92XXXXXXXXXX</span>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+</div>
+</div>
+</div>
+
+       <div>
+
+
+        
+
+      <div class="container">
+ <div class="card">
+    <div class="card-body">
+            <h5 class="modal-title" style="font-weight:bolder">Comments</h5>
+
+ </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder">Add a comment</h5>
+            <textarea (change)="commentDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Comment"></textarea>
+        </div>
+    </div>
+   <div class="container">
+      <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder">Select picture for upload:</h5>
+      <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
+     
+    
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
+</div>
+
+  </div>
+  <div *ngIf="uploads" class="alert alert-info" role="alert">
+    <div *ngFor="let pic of uploads">
+      <p>
+        Picture uploaded: {{pic.name}}
+      </p>
+    </div>
+   
+     </div>
+      <button id = 'button11' (click)="commentSave($event)" style="float:right" class="ui secondary button" data-dismiss="modal" >
+          Add Comment
+        </button>
+    </div>
+    </div>
+       
+
+
+
+
+
+        
+          
+
+        </div>
