@@ -1,4 +1,4 @@
-import { Routes, RouterModule,A } from '@angular/router';
+import { Routes, RouterModule, } from '@angular/router';
 import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { LoginComponent } from './login/login.component'
 import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
