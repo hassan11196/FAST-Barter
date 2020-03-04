@@ -7,6 +7,8 @@ import { Observable} from 'rxjs/Observable';
 import { AngularFirestore, QuerySnapshot } from '@angular/fire/firestore';
 import { timestamp,finalize,tap,map } from 'rxjs/operators';
 import { from,combineLatest } from 'rxjs';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormControl } from '@angular/forms';
 
 
 
@@ -17,13 +19,58 @@ import { from,combineLatest } from 'rxjs';
 })
 export class NewPostComponent implements OnInit {
   
-  
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+      spellcheck: true,
+      height: '200px',
+      minHeight: '0',
+      maxHeight: 'auto',
+      width: 'auto',
+      minWidth: '0',
+      translate: 'yes',
+      enableToolbar: true,
+      showToolbar: true,
+      placeholder: 'Enter text here...',
+      defaultParagraphSeparator: '',
+      defaultFontName: '',
+      defaultFontSize: '',
+      fonts: [
+        {class: 'arial', name: 'Arial'},
+        {class: 'times-new-roman', name: 'Times New Roman'},
+        {class: 'calibri', name: 'Calibri'},
+        {class: 'comic-sans-ms', name: 'Comic Sans MS'}
+      ],
+      customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+    uploadUrl: 'v1/image',
+    uploadWithCredentials: false,
+    sanitize: true,
+    toolbarPosition: 'top',
+    toolbarHiddenButtons: [
+      ['bold', 'italic'],
+      ['fontSize']
+    ]
+};
   uploads: any[] = [];
   allPercentage: Observable<any>;
   files: Observable<any>;
   picsBase64Encoded: any[] = [];
   
-  
+  // name = new FormControl('');
+  htmlContent='';
   downloadURL: Observable<string>;
   uploadProgress: Observable<number>;
   //afStorage: AngularFireStorage;
@@ -51,6 +98,7 @@ export class NewPostComponent implements OnInit {
     console.log('Post');
     // const mid =document.getElementById('link').getAttribute('href')
     console.log(this.postcrud);
+    // console.log(this.htmlContent);
     let p:Post ={
       timestamp : new Date(),
       title: this.postTitle,
@@ -136,11 +184,11 @@ export class NewPostComponent implements OnInit {
     console.log(event);
     this.postTitle = event.target.value;
   }
-  postDescriptionChange(event){
-    console.log(event);
-    this.postDescription = event.target.value;
-    console.log(this.postDescription);
-  }
+  // postDescriptionChange(event){
+  //   console.log(event);
+  //   this.postDescription = event.target.value;
+  //   console.log(this.postDescription);
+  // }
   postConditionChange(event,val){
     console.log(event);
     console.log(val);

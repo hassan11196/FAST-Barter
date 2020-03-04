@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireAuthGuard} from '@angular/fire/auth-guard'
 import { MatMenuModule } from '@angular/material/menu'
@@ -21,10 +22,13 @@ import {AngularFireStorageModule, AngularFireStorage} from '@angular/fire/storag
 import { environment } from './../../environments/environment';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 @NgModule({
   imports: [
     
     CommonModule,
+    HttpClientModule,
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
     NbSidebarModule, // NbSidebarModule.forRoot(), //if this is your app.module
@@ -49,7 +53,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     AngularFirestoreModule.enablePersistence(),
     AngularFireModule,
     AngularFireStorageModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    AngularEditorModule
     
     // Button,
   ],
