@@ -6,6 +6,8 @@ nb-card {
  } 
  #card{
      border: 1px solid grey;
+     text-align: center;
+     padding-top: 1 rem;
  }
  #button1{
      border: 1px solid darkblue;
