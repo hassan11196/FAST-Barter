@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:'login', component: LoginComponent, canActivate:[AngularFireAuthGuard], data: {authGuardPipe: RedirectToHome}},
   { path:'home', component: BarterHomeComponent, canActivate:[AngularFireAuthGuard],  data: { authGuardPipe: RedirectToLogin}},
   { path:'newpost', component: NewPostComponent },
-  { path:'detailpost/:timestamp', component: DetailPostComponent },
+  { path:'detailpost/:id', component: DetailPostComponent },
   // { path: '**',  },
 ];
 

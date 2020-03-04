@@ -59,8 +59,8 @@ export class DetailPostComponent implements OnInit {
     // this.details=cart[];
     console.log(cart)
     this.details.title=cart['title'];
-    this.timestamp=this.route.snapshot.paramMap.get("timestamp");
-    console.log(this.timestamp);
+    // this.timestamp=this.route.snapshot.paramMap.get("timestamp");
+    // console.log(this.timestamp);
     this.details.description=cart['description']
     this.details.pics=cart['pics']
     this.details.user=cart['user']
