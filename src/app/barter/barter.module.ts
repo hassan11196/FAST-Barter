@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component'
 import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { BarterLayoutComponent } from './barter-layout/barter-layout.component';
 import { DetailPostComponent} from './detail-post/detail-post.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
 import { BarterRoutes } from './barter.routing';
 import {FormsModule} from '@angular/forms' 
 import {AngularFireModule} from '@angular/fire';
@@ -56,7 +57,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
   providers:[
     AngularFireAuthGuard, AngularFireStorage, AngularFirestore
   ],
-  declarations: [BarterComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent],
+  declarations: [BarterComponent,UserProfileComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent],
   exports:[BarterComponent]
 })
 export class BarterModule { }

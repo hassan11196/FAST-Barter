@@ -1,56 +1,3 @@
-<!-- <div style="padding-right: 2rem;">
-<button class="ui primary button" data-toggle="modal" data-target="#basicExampleModal" style="float:right;">
-  <i class="shop icon"></i>
-  Post an Add
-</button>
-</div>
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="md-form">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Post Ad</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input type="text" (change)="postTitleChange($event)" id="defaultContactFormName" class="form-control mb-4" placeholder="Title">
-
-        <div class="form-group">
-            <textarea (change)="postDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Description"></textarea>
-        </div>
-    
-      </div>
-     <div class="container">
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Select picture for upload:</h5>
-      <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg,.jpeg" />
-    </div>
-  <div class="progress">
-    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
-</div>
-  </div>
-  <div *ngIf="uploads" class="alert alert-info" role="alert">
-    <div *ngFor="let pic of uploads">
-      <p>
-        Picture uploaded: {{pic.name}}
-      </p>
-    </div>
-    
-</div>
-</div>
-      <div class="modal-footer">
-        <button (click)="postSave($event)" class="ui secondary button" data-dismiss="modal">
-          Submit Post
-        </button>
-      </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <div>
   <h1 style="text-align: center; padding-top:1rem;">POST YOUR AD</h1>
@@ -70,7 +17,26 @@
           <div class="form-group" style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
             <textarea (change)="postDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Description"></textarea>
         </div>
+        <div class="row">
+          <div class="col">
         <div class="grouped fields" style="padding-left:1rem;">
+          <label>Type: </label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="type" checked="checked" (change)="postTypeChange($event,'service')">
+              <label>Service</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="type" (change)="postTypeChange($event,'product')">
+              <label>Product</label>
+            </div>
+          </div>
+        </div>  
+        </div>
+        <div class="col">
+        <div *ngIf="showCondition===true" class="grouped fields" style="padding-left:1rem;">
           <label>Condition: </label>
           <div class="field">
             <div class="ui radio checkbox">
@@ -85,8 +51,10 @@
             </div>
           </div>
           
-          
         </div>
+      </div>
+            
+      </div>
           <div class="field" style="padding-left:1rem;padding-right:1rem;">
           <!-- <div class="card-body"> -->
           <!-- <h5 class="card-title">Select picture for upload:</h5> -->
@@ -117,23 +85,11 @@
     </h4>
     <div class="two fields" style="padding-left: 2rem;padding-right:1rem;">
       <div class="field">
-        <select class="form-control" name="state" style="width:96%; height:3rem" (change)="postStateChange($event)">
-          <option data-value="Sindh">Sindh</option>
-          <option data-value="Balochistan">Balochistan</option>
-          <option data-value="Central Punjab">Central Punjab</option>
-          <option data-value="South Punjab">South Punjab</option>
-          <option data-value="KPK">KPK</option>
-          <option data-value="Azad Kashmir">Azad Kashmir</option>
-        </select>
+        <input type="text" name="state" style="width:96%; height:3rem" (change)="postStateChange($event)" id="defaultContactFormName" class="form-control mb-4" placeholder="Enter Your State">
+        
       </div>
       <div class="field" style="padding-right:1.5rem;">
-        
-        <select class="form-control" name="city" style="width:100%; height:3rem"(change)="postcityChange($event)">
-          <div class="default text">State</div>
-          <option data-value="Karachi">Karachi</option>
-          <option data-value="Lahore">Lahore</option>
-        </select>
-        
+        <input type="text" name="city" style="width:100%; height:3rem" (change)="postcityChange($event)" id="defaultContactFormName" class="form-control mb-4" placeholder="Enter Your City">       
       </div>
      
   </div>
@@ -155,7 +111,7 @@
     <h3 style="padding-left:2rem;">Let's verify your account</h3>
     <h5 style="padding-left:2rem;">We will send you a confirmation code by sms on the next step.</h5>
     <div style="padding-left:2rem;">
-    <input style="height:2.5rem; width: 40%; border:1px solid black; font-weight:bold;" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Phone Number i.e +92XXXXXXXXX">
+    <input (change)="userPhoneChange($event)" style="height:2.5rem; width: 40%; border:1px solid black; font-weight:bold;" type="tel" id="defaultContactFormName" class="form-control mb-4" name="phone" placeholder="Phone Number i.e +92XXXXXXXXX">
   </div>
   </div>
 

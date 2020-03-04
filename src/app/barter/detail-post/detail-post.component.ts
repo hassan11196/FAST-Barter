@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, QuerySnapshot } from '@angular/fire/firestore';
 import { AuthService } from './../../services/auth.service';
-import { Observable} from 'rxjs/Observable';
-import { PostCrudService } from './../../services/post-crud.service';
+
+import { AngularFirestore, QuerySnapshot } from '@angular/fire/firestore';
+import { ActivatedRoute } from '@angular/router';
+import { PostCrudService } from 'src/app/services/post-crud.service';
+import { Observable } from 'rxjs';
 import { Comment } from './../../models/comment.model';
-
-
 import {AngularFireStorage,AngularFireStorageReference,AngularFireUploadTask} from '@angular/fire/storage' ;
-const googleicon = require('./../../icons/google-icon.svg');
+
+// const googleicon = require('./../../icons/google-icon.svg');
 @Component({
   selector: 'app-detail-post',
   templateUrl: './detail-post.component.html',
@@ -15,8 +16,10 @@ const googleicon = require('./../../icons/google-icon.svg');
 })
 export class DetailPostComponent implements OnInit {
   // icon=googleicon;
+  fetchPost$:Observable<any>;
   size:number=0;
   timestamp:string='';
+  
   details={
     timestamp:0,
     title:"",
@@ -40,36 +43,62 @@ export class DetailPostComponent implements OnInit {
    ref:AngularFireStorageReference;
    task:AngularFireUploadTask;
 
-
+  user=null;
   commentDescription = '';
-  user = null;
+  comments_user = null;
   id = '';
   post=null;
-  constructor(public postcrud: PostCrudService,auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) { 
-    auth.user$.subscribe( user => this.user = user);
-
-  } 
+  fetchedPost={}; 
+  // name:string="";
+  constructor(private route:ActivatedRoute, public postcrud: PostCrudService,auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) {
+    auth.user$.subscribe( user => this.user = user);    
+    // var postInfo = this.postcrud.getPostByTimeStamp(this.timestamp).subscribe(post=> {
+    //   console.log(post);
+    //   this.fetchedPost = post;
+    // });
+    // console.log(postInfo);
+    
+   } 
 
   ngOnInit() {
-    
-    this.files = this.afStorage.collection('files').valueChanges();
+     
+    console.log(this.fetchedPost);
     var cart={}
+    console.log("fetch")
+    console.log(this.fetchedPost);
     cart = JSON.parse(localStorage.getItem('cart'));
     console.log(cart);
     // this.details=cart[];
     console.log(cart)
     this.details.title=cart['title'];
-    // this.timestamp=this.route.snapshot.paramMap.get("timestamp");
-    // console.log(this.timestamp);
-    this.details.description=cart['description']
-    this.details.pics=cart['pics']
-    this.details.user=cart['user']
-    this.details.condition=cart['condition']
+    this.details.description=cart['description'];
+    this.details.pics=cart['pics'];
+    this.details.user=cart['user'];
+    this.timestamp=this.route.snapshot.paramMap.get("timestamp");
+    console.log(this.timestamp);
+    this.fetchedPost=this.postcrud.posts.subscribe((post2:any)=> {
+      console.log(post2);
+      for (let index = 0; index < post2.length; index++) {
+        if(post2[index].timestamp['seconds'] == this.timestamp){
+          console.log(post2[index]);
+          console.log("Ahsan")
+          this.details.description=post2[index]['description']
+          this.details.pics=post2[index]['pics']
+          this.details.user=post2[index]['user']
+          this.details.condition=post2[index]['condition']
+          return post2[index];
+         }
+        
+      }
+    });
+    console.log(this.fetchedPost);
+    // cart = this.postcrud.getPostByTimeStamp(this.timestamp);
+    console.log(cart);
+    
     // this.details.user.name=cart.user['name']
     // this.size=this.details.pics.length;
     console.log(this.details.user)
   }
-  
   commentSave(event){
     console.log('Post');
     // const mid =document.getElementById('link').getAttribute('href')
@@ -77,7 +106,7 @@ export class DetailPostComponent implements OnInit {
     let p:Comment ={
       timestamp : new Date(),
       description:this.commentDescription,
-      user : this.user,
+      comments_user : this.user,
       pics: this.picsBase64Encoded,
   
     }
@@ -85,8 +114,6 @@ export class DetailPostComponent implements OnInit {
     console.log('Hitting Firebase');
     this.postcrud.addComment(p);
   }
-
-
   upload(event){
     this.uploads = [...this.uploads,...event.target.files];
     console.log(this.uploads);
@@ -105,13 +132,15 @@ export class DetailPostComponent implements OnInit {
     }
 
   }
-
   commentDescriptionChange(event){
     console.log(event);
     this.commentDescription = event.target.value;
     console.log(this.commentDescription);
     
   }
- 
+
+
+  
+
 
 }

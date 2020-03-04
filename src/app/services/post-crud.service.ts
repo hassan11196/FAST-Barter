@@ -27,4 +27,20 @@ constructor(private afs: AngularFirestore) {
  addComment(comments: Comment){
   this.commentCollection.add(comments);
 }
+ 
+ getPostByTimeStamp(timeStamp: string){
+  return this.posts.subscribe((post2:any)=> {
+    console.log(post2);
+    for (let index = 0; index < post2.length; index++) {
+      if(post2[index].timestamp['seconds'] == timeStamp){
+        console.log(post2[index]);
+        return post2[index];
+      }
+      
+    }
+  });
+  // return this.afs.doc<Post>(`/post/1`).valueChanges();
+  // db.collection('books').where(FieldPath.documentId(), '==', '88ft3QNysSExne4u9hm9').get()
+ }
+
 }
