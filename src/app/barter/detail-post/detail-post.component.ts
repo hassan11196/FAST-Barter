@@ -4,7 +4,7 @@ import { AuthService } from './../../services/auth.service';
 import { Observable} from 'rxjs/Observable';
 import { PostCrudService } from './../../services/post-crud.service';
 import { Comment } from './../../models/comment.model';
-
+declare const require: any;
 
 import {AngularFireStorage,AngularFireStorageReference,AngularFireUploadTask} from '@angular/fire/storage' ;
 const googleicon = require('./../../icons/google-icon.svg');
