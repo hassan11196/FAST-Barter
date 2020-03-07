@@ -25,7 +25,7 @@ export class ForumPostComponent implements OnInit {
   show(){
 console.log("hello");
   }
-   postdetails(post){
+   postdetails(post){1
     console.log(post.timestamp['seconds']) 
     var cart={}
     cart=post;
