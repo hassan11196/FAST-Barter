@@ -8,6 +8,7 @@ export interface Post {
     user: User,
     pics: ArrayBuffer[]|string[],
     condition: string,
-    return_item: string
+    return_item: string,
+    comment:string[],
 
 }

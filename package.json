@@ -31,6 +31,7 @@
     "@kolkov/angular-editor": "^1.1.1",
     "@nebular/eva-icons": "4.6.0",
     "@nebular/theme": "^4.6.0",
+    "@ng-bootstrap/ng-bootstrap": "^6.0.0",
     "bootstrap": "^4.4.1",
     "eva-icons": "^1.1.2",
     "firebase": ">= 5.5.7 <8",

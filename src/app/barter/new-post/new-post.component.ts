@@ -84,7 +84,9 @@ export class NewPostComponent implements OnInit {
   condition='';
   state='';
   city='';
-
+  phone="";
+  type="";
+  showCondition=true;
   constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) {
     auth.user$.subscribe( user => this.user = user);
     //this.afStorage=afStorage;
@@ -107,6 +109,7 @@ export class NewPostComponent implements OnInit {
       pics: this.picsBase64Encoded,
       return_item: this.return_item,
       condition: this.condition,
+      comment:[]
   
     }
   
@@ -208,5 +211,21 @@ export class NewPostComponent implements OnInit {
     this.city = event.target.value;
     console.log(this.city);
   }
-
+  userPhoneChange(event){
+    console.log(event);
+    this.phone = event.target.value;
+    console.log(this.phone);
+  }
+  postTypeChange(event,name){
+    console.log(event);
+    this.type = name;
+    console.log(this.type);
+    if(this.type==='service'){
+      this.showCondition=false;
+      this.condition='Not Applicable'
+    }
+    else{
+      this.showCondition=true;
+    }
+  }
 }
