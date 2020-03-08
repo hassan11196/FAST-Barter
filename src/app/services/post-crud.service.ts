@@ -4,6 +4,7 @@ import { Comment } from './../models/comment.model';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
+import { User } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,9 @@ constructor(private afs: AngularFirestore) {
  addComment(comments: Comment){
   this.commentCollection.add(comments);
 }
- 
+
  getPostByTimeStamp(timeStamp: string){
+
   return this.posts.subscribe((post2:any)=> {
     console.log(post2);
     for (let index = 0; index < post2.length; index++) {
@@ -36,7 +38,7 @@ constructor(private afs: AngularFirestore) {
         console.log(post2[index]);
         return post2[index];
       }
-      
+
     }
   });
   

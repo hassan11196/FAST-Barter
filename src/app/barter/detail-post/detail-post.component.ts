@@ -7,7 +7,7 @@ import { PostCrudService } from 'src/app/services/post-crud.service';
 import { Observable } from 'rxjs';
 import { Comment } from './../../models/comment.model';
 import {AngularFireStorage,AngularFireStorageReference,AngularFireUploadTask} from '@angular/fire/storage' ;
-
+declare const require:any;
 // const googleicon = require('./../../icons/google-icon.svg');
 @Component({
   selector: 'app-detail-post',
@@ -19,7 +19,7 @@ export class DetailPostComponent implements OnInit {
   fetchPost$:Observable<any>;
   size:number=0;
   timestamp:string='';
-  
+
   details={
     timestamp:0,
     title:"",
@@ -35,8 +35,8 @@ export class DetailPostComponent implements OnInit {
    allPercentage: Observable<any>;
    files: Observable<any>;
    picsBase64Encoded: any[] = [];
-   
-   
+
+
    downloadURL: Observable<string>;
    uploadProgress: Observable<number>;
    //afStorage: AngularFireStorage;
@@ -48,20 +48,20 @@ export class DetailPostComponent implements OnInit {
   comments_user = null;
   id = '';
   post=null;
-  fetchedPost={}; 
+  fetchedPost={};
   // name:string="";
   constructor(private route:ActivatedRoute, public postcrud: PostCrudService,auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) {
-    auth.user$.subscribe( user => this.user = user);    
+    auth.user$.subscribe( user => this.user = user);
     // var postInfo = this.postcrud.getPostByTimeStamp(this.timestamp).subscribe(post=> {
     //   console.log(post);
     //   this.fetchedPost = post;
     // });
     // console.log(postInfo);
-    
-   } 
+
+   }
 
   ngOnInit() {
-     
+
     console.log(this.fetchedPost);
     var cart={}
     console.log("fetch")
@@ -88,13 +88,13 @@ export class DetailPostComponent implements OnInit {
           this.details.condition=post2[index]['condition']
           return post2[index];
          }
-        
+
       }
     });
     console.log(this.fetchedPost);
     // cart = this.postcrud.getPostByTimeStamp(this.timestamp);
     console.log(cart);
-    
+
     // this.details.user.name=cart.user['name']
     // this.size=this.details.pics.length;
     console.log(this.details.user)
@@ -106,24 +106,24 @@ export class DetailPostComponent implements OnInit {
     let p:Comment ={
       timestamp : new Date(),
       description:this.commentDescription,
-      comments_user : this.user,
+      comments_user: this.user,
       pics: this.picsBase64Encoded,
-  
+
     }
-  
+
     console.log('Hitting Firebase');
     this.postcrud.addComment(p);
   }
   upload(event){
     this.uploads = [...this.uploads,...event.target.files];
     console.log(this.uploads);
-    
+
     const filelist = event.target.files;
     const reader = new FileReader();
-    
+
     for (const file of filelist) {
       reader.readAsDataURL(file);
-      
+
       reader.onload = () => {
         this.picsBase64Encoded = [... this.picsBase64Encoded,reader.result];
         console.log(reader.result);
@@ -136,11 +136,11 @@ export class DetailPostComponent implements OnInit {
     console.log(event);
     this.commentDescription = event.target.value;
     console.log(this.commentDescription);
-    
+
   }
 
 
-  
+
 
 
 }
