@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostCrudService } from 'src/app/services/post-crud.service';
 import { Observable } from 'rxjs';
+
 // const googleicon = require('./../../icons/google-icon.svg');
 @Component({
   selector: 'app-detail-post',
@@ -20,6 +21,8 @@ export class DetailPostComponent implements OnInit {
     pics:[],
     condition:'',
     user:{
+      photoURL:'',
+      displayName:''
 
     },
   }
