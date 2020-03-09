@@ -73,6 +73,7 @@ export class DetailPostComponent implements OnInit {
       description:this.commentDescription,
       user : this.user,
       pics: this.picsBase64Encoded,
+      parent: ''
   
     }
   
