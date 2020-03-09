@@ -12,7 +12,7 @@
 
   <div class="col-md-8">
 
-    <h1 class="text-center" style="font-size: 40px;padding-top:5rem;">K173650 Muhammad Ahsan Siddiq</h1>
+    <h1 class="text-center" style="font-size: 40px;padding-top:5rem;">{{user.displayName}}</h1>
     <div style="padding-left:1rem;padding-right:1rem;">
     <div class="ui divider" ></div>
   </div>
@@ -28,8 +28,36 @@
       </div>
     </h2>
   </div>
-    <div style="padding-left:2rem;padding-right:2rem;">
+    <div *ngFor="let item of posts" style="padding-left:2rem;padding-right:2rem;">
       <div class="card">
+
+        <div class="row">
+          <span>
+            <div style="padding-left:2rem;padding-bottom:2rem;">
+
+              <br>
+              <img src={{gicon}} style=" width:95%;height:75%;border-radius: 50%;">
+              <br>
+            </div>
+          </span>
+          <span>
+            <div style="padding-left:2rem;padding-bottom:2rem;">
+              <br>
+              <h3>{{item.title}}</h3>
+              <h4>{{item.condition}}</h4>
+
+              <p>{{item.description}}</p>
+              <button class="ui secondary button">
+                <i class="edit icon"></i>
+                Edit Post
+              </button>
+            </div>
+          </span>
+        </div>
+
+      </div>
+      <br>
+      <!-- <div class="card">
 
         <div class="row">
           <span>
@@ -79,32 +107,7 @@
           </span>
         </div>
 
-      </div>
-      <br>
-      <div class="card">
-
-        <div class="row">
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
-
-              <br>
-              <img src={{gicon}} style=" width:95%;height:75%;border-radius: 50%;">
-              <br>
-            </div>
-          </span>
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
-              <br>
-              <h3>Cricket Bat</h3>
-              <p>Condition: Used</p>
-              <button class="ui secondary button">
-                <i class="edit icon"></i>
-                Edit Post
-              </button>
-            </div>
-          </span>
-        </div>
-
+<<<<<<< HEAD
       </div>
     </div>
   </div>
@@ -151,3 +154,10 @@
   </div>
 </div>
 <br>
+=======
+      </div> -->
+    </div>
+  </div>
+
+</div>
+>>>>>>> d681446040bf4c75d5c4bc570432c0c8338f2e81

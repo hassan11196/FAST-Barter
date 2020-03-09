@@ -27,6 +27,8 @@ export class DetailPostComponent implements OnInit {
     pics:[],
     condition:'',
     user:{
+      photoURL:'',
+      displayName:''
 
     },
   }
