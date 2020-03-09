@@ -41,27 +41,25 @@ constructor(private afs: AngularFirestore) {
 
     }
   });
+  
 
   // return this.afs.doc<Post>(`/post/1`).valueChanges();
   // db.collection('books').where(FieldPath.documentId(), '==', '88ft3QNysSExne4u9hm9').get()
  }
 
-
- getPostByUser(user: User){
-
-  return this.posts.subscribe((post2:any)=> {
-    console.log(post2);
-    let posts_arr = [];
-    for (let index = 0; index < post2.length; index++) {
-      if(post2[index].user.uid == user.uid){
-        console.log(post2[index]);
-        posts_arr.push(post2[index]);
-      }
-
-    }
-    return posts_arr;
-    });
+ getPosts() {
+  return this.posts;
+  
 }
+//  GetStudent(id: string) {
+//   this.posts = this.postCollection.doc<Post>('/posts/' + id);
+//   return this.studentRef;
+// }
 
+// // Fetch Students List
+// GetStudentsList() {
+//   this.studentsRef = this.db.list('students-list');
+//   return this.studentsRef;
+// }  
 
 }
