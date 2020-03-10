@@ -26,13 +26,11 @@ export class ForumPostComponent implements OnInit {
 console.log("hello");
   }
    postdetails(post){
-     var cart={}
-     cart=post;
-     localStorage.setItem('cart', JSON.stringify(cart));
-    //  localStorage.setItem('cart',post);
-    //  console.log("Ahsan")
-    //  var user = JSON.parse(localStorage.getItem('cart'));
-    //  console.log(user) 
+     
+    console.log(post.timestamp['seconds']) 
+    var cart={}
+    cart=post;
+    localStorage.setItem('cart', JSON.stringify(cart));
     }
     
 
