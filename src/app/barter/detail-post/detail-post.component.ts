@@ -19,6 +19,7 @@ export class DetailPostComponent implements OnInit {
   fetchPost$:Observable<any>;
   size:number=0;
   timestamp:string='';
+  postId:string='';
 
   details={
     timestamp:0,
@@ -51,9 +52,15 @@ export class DetailPostComponent implements OnInit {
   id = '';
   post=null;
   fetchedPost={};
+  commentList = []
+  comments:Observable<Comment[]>;
   // name:string="";
   constructor(private route:ActivatedRoute, public postcrud: PostCrudService,auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) {
     auth.user$.subscribe( user => this.user = user);
+    postcrud.comments.subscribe(comment=> this.commentList.push(comment));
+    
+
+
     // var postInfo = this.postcrud.getPostByTimeStamp(this.timestamp).subscribe(post=> {
     //   console.log(post);
     //   this.fetchedPost = post;
@@ -63,7 +70,7 @@ export class DetailPostComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    
     console.log(this.fetchedPost);
     var cart={}
     console.log("fetch")
@@ -72,6 +79,7 @@ export class DetailPostComponent implements OnInit {
     console.log(cart);
     // this.details=cart[];
     console.log(cart)
+    this.id =  cart['customId']
     this.details.title=cart['title'];
     this.details.description=cart['description'];
     this.details.pics=cart['pics'];
@@ -93,7 +101,9 @@ export class DetailPostComponent implements OnInit {
 
       }
     });
-    console.log(this.fetchedPost);
+    this.comments = this.postcrud.getComments(this.id);
+
+        console.log(this.fetchedPost);
     // cart = this.postcrud.getPostByTimeStamp(this.timestamp);
     console.log(cart);
 
@@ -110,7 +120,7 @@ export class DetailPostComponent implements OnInit {
       description:this.commentDescription,
       comments_user: this.user,
       pics: this.picsBase64Encoded,
-
+      parent: this.id.toString(),
     }
 
     console.log('Hitting Firebase');
@@ -137,6 +147,7 @@ export class DetailPostComponent implements OnInit {
   commentDescriptionChange(event){
     console.log(event);
     this.commentDescription = event.target.value;
+    console.log("Ahsan")
     console.log(this.commentDescription);
 
   }

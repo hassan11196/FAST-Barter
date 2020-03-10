@@ -51,6 +51,12 @@ constructor(private afs: AngularFirestore) {
   return this.posts;
   
 }
+getComments(id) {
+  console.log("Im IN "+ id);
+  this.commentCollection = this.afs.collection<Comment>('comments',ref => ref.where('parent', '==', id ));
+  this.comments = this.commentCollection.valueChanges();
+  return this.comments;
+}
 //  GetStudent(id: string) {
 //   this.posts = this.postCollection.doc<Post>('/posts/' + id);
 //   return this.studentRef;

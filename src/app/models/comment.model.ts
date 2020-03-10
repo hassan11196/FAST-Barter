@@ -6,5 +6,6 @@ export interface Comment {
     description: string,
     comments_user: User,
     pics: ArrayBuffer[]|string[],
+    parent : string,
     
 }
