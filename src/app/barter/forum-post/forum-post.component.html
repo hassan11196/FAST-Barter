@@ -42,12 +42,13 @@
           <!-- <img *ngIf="post.picId != null" class="card-img-top" src={{post.picId[0]}} alt="Card image cap"> -->
           <div class="card-body" bac>
             <!-- <p>{{post.id}}</p> -->
-            <h5 class="card-title">{{post.title}}</h5>
-            <p class="card-text">{{post.description}}</p>
+            <h4 class="card-title" style="text-align: center; font-weight:bold; text-transform:capitalize">{{post.title}}</h4>
+            <p class="card-text" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; ">{{post.description}}</p>
           </div>
           <div class="card-footer">
-            <h5 class="text-center">Rs 2500</h5>
-            <button (click)="postdetails(post)" [routerLink]="['/detailpost']" id="button1" >View Details</button>
+            <!-- <h5 class="text-center">Rs 2500</h5> -->
+
+            <button style="font-family: Comic Sans MS;" [routerLink]="['/detailpost',post.timestamp['seconds']]"(click)="postdetails(post)" id="button1" >View Details</button>
           </div>
         </div>
         <br>

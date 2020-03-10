@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireAuthGuard} from '@angular/fire/auth-guard'
 import { MatMenuModule } from '@angular/material/menu'
@@ -14,6 +15,7 @@ import { LoginComponent } from './login/login.component'
 import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { BarterLayoutComponent } from './barter-layout/barter-layout.component';
 import { DetailPostComponent} from './detail-post/detail-post.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
 import { BarterRoutes } from './barter.routing';
 import {FormsModule} from '@angular/forms' 
 import {AngularFireModule} from '@angular/fire';
@@ -21,10 +23,13 @@ import {AngularFireStorageModule, AngularFireStorage} from '@angular/fire/storag
 import { environment } from './../../environments/environment';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 @NgModule({
   imports: [
     
     CommonModule,
+    HttpClientModule,
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
     NbSidebarModule, // NbSidebarModule.forRoot(), //if this is your app.module
@@ -49,14 +54,15 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     AngularFirestoreModule.enablePersistence(),
     AngularFireModule,
     AngularFireStorageModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    AngularEditorModule
     
     // Button,
   ],
   providers:[
     AngularFireAuthGuard, AngularFireStorage, AngularFirestore
   ],
-  declarations: [BarterComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent],
+  declarations: [BarterComponent,UserProfileComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent],
   exports:[BarterComponent]
 })
 export class BarterModule { }

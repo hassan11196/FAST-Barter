@@ -1,0 +1,114 @@
+<!-- <div class="container" style="text-align:center;padding-top:2rem;">
+<h2 class="ui icon header" >
+  <i class="user icon"></i>
+  <div class="content">
+    User Profile
+    <div class="sub header" >Manage Your Posts.</div>
+  </div>
+</h2>
+</div> -->
+<div class='row'>
+
+
+  <div class="col-md-8">
+
+    <h1 class="text-center" style="font-size: 40px;padding-top:5rem;">{{user.displayName}}</h1>
+    <div style="padding-left:1rem;padding-right:1rem;">
+    <div class="ui divider" ></div>
+  </div>
+    <!-- <h4 style="padding-left:1rem;" class="ui horizontal divider header">
+      <i class="user icon"></i>
+    </h4> -->
+    <div class="text-center">
+    <h2 class="ui icon header text-center" >
+      <i class="user icon"></i>
+      <div class="content">
+        User Profile
+        <div class="sub header" >Manage Your Posts.</div>
+      </div>
+    </h2>
+  </div>
+    <div *ngFor="let item of posts" style="padding-left:2rem;padding-right:2rem;">
+      <div class="card">
+
+        <div class="row">
+          <span>
+            <div style="padding-left:2rem;padding-bottom:2rem;">
+
+              <br>
+              <img src={{gicon}} style=" width:95%;height:75%;border-radius: 50%;">
+              <br>
+            </div>
+          </span>
+          <span>
+            <div style="padding-left:2rem;padding-bottom:2rem;">
+              <br>
+              <h3>{{item.title}}</h3>
+              <h4>{{item.condition}}</h4>
+
+              <p>{{item.description}}</p>
+              <button class="ui secondary button">
+                <i class="edit icon"></i>
+                Edit Post
+              </button>
+            </div>
+          </span>
+        </div>
+
+      </div>
+      <br>
+      <!-- <div class="card">
+
+        <div class="row">
+          <span>
+            <div style="padding-left:2rem;padding-bottom:2rem;">
+
+              <br>
+              <img src={{gicon}} style=" width:95%;height:75%;border-radius: 50%;">
+              <br>
+            </div>
+          </span>
+          <span>
+            <div style="padding-left:2rem;padding-bottom:2rem;">
+              <br>
+              <h3>Cricket Bat</h3>
+              <p>Condition: Used</p>
+              <button class="ui secondary button">
+                <i class="edit icon"></i>
+                Edit Post
+              </button>
+            </div>
+          </span>
+        </div>
+
+      </div>
+      <br>
+      <div class="card">
+
+        <div class="row">
+          <span>
+            <div style="padding-left:2rem;padding-bottom:2rem;">
+
+              <br>
+              <img src={{gicon}} style=" width:95%;height:75%;border-radius: 50%;">
+              <br>
+            </div>
+          </span>
+          <span>
+            <div style="padding-left:2rem;padding-bottom:2rem;">
+              <br>
+              <h3>Cricket Bat</h3>
+              <p>Condition: Used</p>
+              <button class="ui secondary button">
+                <i class="edit icon"></i>
+                Edit Post
+              </button>
+            </div>
+          </span>
+        </div>
+
+      </div> -->
+    </div>
+  </div>
+
+</div>

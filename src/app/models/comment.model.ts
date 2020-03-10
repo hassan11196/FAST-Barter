@@ -4,7 +4,8 @@ import {Post} from './post.model';
 export interface Comment {
     timestamp: Date
     description: string,
-    user: User,
+    comments_user: User,
     pics: ArrayBuffer[]|string[],
+    parent : string,
     
 }
