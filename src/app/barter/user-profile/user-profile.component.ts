@@ -6,7 +6,7 @@ import { Post } from './../../models/post.model';
 import { Observable, of } from 'rxjs';
 import { PostCrudService } from './../../services/post-crud.service';
 
-// const googleicon = require('./../../icons/google-icon.svg');
+const googleicon = require('./../../icons/google-icon.svg');
 
 @Component({
   selector: 'app-user-profile',
@@ -14,7 +14,7 @@ import { PostCrudService } from './../../services/post-crud.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  gicon = 'googleicon';
+  gicon = googleicon;
   user: any;
   posts = [];
   constructor(private postcrud: PostCrudService, public auth: AuthService) {
