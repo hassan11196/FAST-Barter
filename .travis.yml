@@ -1,6 +1,5 @@
 
 dist: trusty
-sudo: false
 
 language: node_js
 node_js:
@@ -18,14 +17,6 @@ install:
   - npm install
 
 script:
-  - npm run build
+  - ng build --prod
 after_success:
-  - firebase use --token "1//03tc3wmH3ol4kCgYIARAAGAMSNwF-L9IrE43hcPEsRuyGYJmwiv8re-FMiS5kC7XeTvNAWHLwD47TWqZPBjbLjlQPnIiJn8cCi7c" "fast-barter"
-  - firebase --non-interactive --token "1//03tc3wmH3ol4kCgYIARAAGAMSNwF-L9IrE43hcPEsRuyGYJmwiv8re-FMiS5kC7XeTvNAWHLwD47TWqZPBjbLjlQPnIiJn8cCi7c"
-deploy:
-  skip_cleanup: true
-  provider: firebase
-  edge: true
-  token:
-    secure: "1//03tc3wmH3ol4kCgYIARAAGAMSNwF-L9IrE43hcPEsRuyGYJmwiv8re-FMiS5kC7XeTvNAWHLwD47TWqZPBjbLjlQPnIiJn8cCi7c"
-  project: "dev2"
+  - firebase deploy --token "1//03tc3wmH3ol4kCgYIARAAGAMSNwF-L9IrE43hcPEsRuyGYJmwiv8re-FMiS5kC7XeTvNAWHLwD47TWqZPBjbLjlQPnIiJn8cCi7c" "fast-barter"
