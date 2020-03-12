@@ -20,6 +20,6 @@ install:
 script:
   - ng build --prod
 after_success:
-  - firebase use dev2
+  - firebase use dev2 --token "1//03tc3wmH3ol4kCgYIARAAGAMSNwF-L9IrE43hcPEsRuyGYJmwiv8re-FMiS5kC7XeTvNAWHLwD47TWqZPBjbLjlQPnIiJn8cCi7c"
   - firebase deploy --token "1//03tc3wmH3ol4kCgYIARAAGAMSNwF-L9IrE43hcPEsRuyGYJmwiv8re-FMiS5kC7XeTvNAWHLwD47TWqZPBjbLjlQPnIiJn8cCi7c"
 
