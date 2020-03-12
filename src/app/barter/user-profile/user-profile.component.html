@@ -47,7 +47,7 @@
               <h4>{{item.condition}}</h4>
 
               <p>{{item.description}}</p>
-              <button class="ui secondary button">
+              <button class="ui secondary button" [routerLink]="['/editpost']"(click)="postdetails(item)">
                 <i class="edit icon"></i>
                 Edit Post
               </button>

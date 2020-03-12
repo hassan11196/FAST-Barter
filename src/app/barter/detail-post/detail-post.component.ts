@@ -87,7 +87,7 @@ export class DetailPostComponent implements OnInit {
     this.details.pics=cart['pics'];
     this.details.user=cart['user'];
     this.timestamp=this.route.snapshot.paramMap.get("timestamp");
-    this.id ="Posts/" +  this.timestamp;
+    this.id ="posts/" +  this.timestamp;
     console.log(this.timestamp);
     this.fetchedPost=this.postcrud.posts.subscribe((post2:any)=> {
       console.log(post2);

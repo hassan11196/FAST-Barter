@@ -15,7 +15,8 @@ import { LoginComponent } from './login/login.component'
 import { BarterHomeComponent } from './barter-home/barter-home.component';
 import { BarterLayoutComponent } from './barter-layout/barter-layout.component';
 import { DetailPostComponent} from './detail-post/detail-post.component';
-import {UserProfileComponent} from './user-profile/user-profile.component';
+import { EditPostComponent} from './edit-post/edit-post.component';
+import {  UserProfileComponent} from './user-profile/user-profile.component';
 import { BarterRoutes } from './barter.routing';
 import {FormsModule} from '@angular/forms' 
 import {AngularFireModule} from '@angular/fire';
@@ -62,7 +63,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
   providers:[
     AngularFireAuthGuard, AngularFireStorage, AngularFirestore
   ],
-  declarations: [BarterComponent,UserProfileComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent],
+  declarations: [BarterComponent,UserProfileComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent,EditPostComponent],
   exports:[BarterComponent]
 })
 export class BarterModule { }

@@ -31,6 +31,13 @@ export class UserProfileComponent implements OnInit {
 
 
   }
+  postdetails(post){1
+    console.log(post.timestamp['seconds']) 
+    var detailPost={}
+    detailPost=post;
+    console.log(post)
+    localStorage.setItem('detailPost', JSON.stringify(detailPost));
+    }
   getPosts(){
     this.postcrud
       .getPosts()
