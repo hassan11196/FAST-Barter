@@ -32,16 +32,16 @@
       <div class="card">
 
         <div class="row">
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
+          <!-- <span> -->
+            <div class="col-md-2 col-sm-2 col-lg-3" style="padding-left:2rem;padding-bottom:2rem;">
 
               <br>
-              <img src="{{item.pics[0]}}" style=" width:9%;height:75%;border-radius: 50%;">
+              <img src="{{item.pics[0]}}" style=" width:100%;height:85%;border-radius: 50%;">
               <br>
             </div>
-          </span>
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
+          <!-- </span>
+          <span> -->
+            <div class="col-md-10 col-sm-10 col-lg-9" style="padding-left:2rem;padding-bottom:2rem;padding-right:2rem;">
               <br>
               <h3>{{item.title}}</h3>
               <h4>{{item.condition}}</h4>
@@ -52,7 +52,7 @@
                 Edit Post
               </button>
             </div>
-          </span>
+          <!-- </span> -->
         </div>
 
       </div>
@@ -63,7 +63,7 @@
           <div class="col-md-4">
             <br>
             <div style="text-align:center">
-              <img src={{gicon}} style=" width:50%;height:75%;border-radius: 50%;">
+              <img src="{{user.photoURL}}" style=" width:50%;height:75%;border-radius: 50%;">
               <br>
               <br>
               <br>

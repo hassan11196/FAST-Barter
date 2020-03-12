@@ -5,7 +5,7 @@ import { Post } from './../../models/post.model';
 
 import { Observable, of } from 'rxjs';
 import { PostCrudService } from './../../services/post-crud.service';
-
+declare const require:any;
 const googleicon = require('./../../icons/google-icon.svg');
 
 @Component({
@@ -17,7 +17,9 @@ export class UserProfileComponent implements OnInit {
   gicon = googleicon;
   user: any;
   posts = [];
+  name;
   constructor(private postcrud: PostCrudService, public auth: AuthService) {
+    auth.user$.subscribe(event => this.name=event);
   }
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));

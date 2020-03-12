@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from './../../services/auth.service'
 // import { userInfo } from 'os';
 declare let require:any;
+
 const fasticon=require('./../../icons/fast.jpg');
 @Component({
   selector: 'app-barter-layout',
@@ -10,7 +11,7 @@ const fasticon=require('./../../icons/fast.jpg');
 })
 export class BarterLayoutComponent implements OnInit {
   title = 'FastBarter';
-  ficon=fasticon;
+  // ficon=fasticon;
   name ;
   constructor(public auth: AuthService) {
     auth.user$.subscribe(event => this.name=event);
