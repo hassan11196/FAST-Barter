@@ -126,25 +126,14 @@
           </h4>
           <div class="two fields" style="padding-left: 2rem;padding-right:1rem;">
             <div class="field">
-              <select class="form-control" name="state" style="width:96%; height:3rem"
-                (change)="postStateChange($event)">
-                <option data-value="Sindh">Sindh</option>
-                <option data-value="Balochistan">Balochistan</option>
-                <option data-value="Central Punjab">Central Punjab</option>
-                <option data-value="South Punjab">South Punjab</option>
-                <option data-value="KPK">KPK</option>
-                <option data-value="Azad Kashmir">Azad Kashmir</option>
-              </select>
-            </div>
-            <div class="field" style="padding-right:1.5rem;">
+              <input class="form-control" name="state" style="width:96%; height:3rem"
+                (change)="postStateChange($event)"placeholder="Enter State">
+                            </div>
+            <div class="field" style="padding-right:1.5rem;" >
 
-              <select class="form-control" name="city" style="width:100%; height:3rem"
+              <input placeholder="Enter City" class="form-control" name="city" style="width:100%; height:3rem"
                 (change)="postcityChange($event)">
-                <div class="default text">State</div>
-                <option data-value="Karachi">Karachi</option>
-                <option data-value="Lahore">Lahore</option>
-              </select>
-
+                
             </div>
 
           </div>

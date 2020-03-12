@@ -98,7 +98,7 @@
           Contact us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/profile">Profile</a>
+        <a class="nav-link" href="/profile"><i class="user icon"></i> Profile</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="auth.user$ | async "  (click)="auth.signOut()"><i class="power off icon"></i> Logout</a>
