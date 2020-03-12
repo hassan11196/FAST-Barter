@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "fast-barter-web",
-    "public": "dist\\fastbarter",
+    "public": "dist/fastbarter",
     "ignore": [
       "firebase.json",
       "**/.*",
