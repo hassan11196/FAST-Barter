@@ -31,7 +31,7 @@ export class UserProfileComponent implements OnInit {
 
 
   }
-  postdetails(post){1
+  postdetails(post){
     console.log(post.timestamp['seconds']) 
     var detailPost={}
     detailPost=post;

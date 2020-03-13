@@ -25,6 +25,7 @@ import { environment } from './../../environments/environment';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { SearchPostComponent } from './search-post/search-post.component';
 
 @NgModule({
   imports: [
@@ -63,7 +64,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
   providers:[
     AngularFireAuthGuard, AngularFireStorage, AngularFirestore
   ],
-  declarations: [BarterComponent,UserProfileComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent,EditPostComponent],
+  declarations: [BarterComponent,UserProfileComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent,EditPostComponent, SearchPostComponent],
   exports:[BarterComponent]
 })
 export class BarterModule { }

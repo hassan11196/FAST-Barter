@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 import {AuthService} from './../../services/auth.service'
+import { Subject } from 'rxjs/Subject';
+import { Post } from '../../models/post.model';
+import { Observable } from 'rxjs/Rx';
+import { PostCrudService } from './../../services/post-crud.service';
+
+
 // import { userInfo } from 'os';
 declare let require:any;
 
@@ -13,13 +20,29 @@ export class BarterLayoutComponent implements OnInit {
   title = 'FastBarter';
   // ficon=fasticon;
   name ;
-  constructor(public auth: AuthService) {
+  searchValue: string = "";
+  chhh:string="";
+  postList=[];
+  private postCollection: AngularFirestoreCollection<Post>;
+  posts: Observable<Post[]>;
+ 
+
+  constructor(public auth: AuthService,public afs: AngularFirestore,public postcrud: PostCrudService) {
     auth.user$.subscribe(event => this.name=event);
 
   }
 
+
+
   ngOnInit() {
+    this.postcrud.currentSearch.subscribe(search =>this.searchValue=search);
+
 
   }
+
+
+ 
+
+
 
 }

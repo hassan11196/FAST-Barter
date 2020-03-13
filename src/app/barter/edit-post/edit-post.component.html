@@ -72,7 +72,7 @@
             <textarea (change)="postDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Description"></textarea>
         </div> -->
           <div style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
-            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" 
+            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" [(ngModel)]="details.description"
               name="first"></angular-editor>
 
           </div>

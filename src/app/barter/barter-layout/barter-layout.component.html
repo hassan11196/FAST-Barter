@@ -1,83 +1,14 @@
-<!-- <nb-layout>
-  <nb-layout-header class="main">
-    <a [routerLink]="['/']" routerLinkActive="router-link-active">
-      <h2>
-        {{title}}
-      </h2>
-    </a>
-    <div class="nav" *ngIf="auth.user$ | async ">
-      <label for="toggle">&#9776;</label>
-      <input type="checkbox" id ="toggle">
-      <div class="menu">
-      <a href="#">Home</a>
-      <a href="#">Forum</a>
-      <a href="#">Contact us</a>
-      <a href="#">About</a>
-      <a href="#">Products</a>
-      <a *ngIf="auth.user$ | async "  (click)="auth.signOut()">
-        Logout
-      </a>
-      <div  *ngIf="auth.user$ | async " >
-        <nb-user name="Test" class="userinfo"> </nb-user>
-        
-        
-      </div>
-      
-    </div>
-    </div>
-    
-  
-  
-    
-</nb-layout-header>
-      <button  nbButton [nbContextMenu]="items" placement="right">Profile</button>
-      <nb-menu [items]='items' autoCollapse=true></nb-menu>
-
-  <br>
-  <nb-layout-column>
-    <div > 
-      
-    </div>
-    <router-outlet></router-outlet>
-
-  </nb-layout-column>
-
-  <nb-layout-footer fixed>
-    DSC-NUCES
-  </nb-layout-footer>
-
-</nb-layout> -->
 <nav class="navbar navbar-light" id="uppernav" *ngIf="auth.user$ | async ">
-  <a class="navbar-brand" id="brand"[routerLink]="['/']" routerLinkActive="router-link-active"><span id="fast"> FAST </span><span id="barter"> BARTER</span></a>
-  
+  <a class="navbar-brand" id="brand" [routerLink]="['/']" routerLinkActive="router-link-active"><span id="fast"> FAST
+    </span><span id="barter"> BARTER</span></a>
+
   <div *ngIf="auth.user$ | async as user" style="display:inline-flex">
-      
+
     <h3 style="padding-top:1rem;padding-right:1rem;">Howdy, {{ user.displayName }}</h3>
-    <img  [src]="user.photoURL" style="width:3.5rem;height:3.5rem;border-radius: 50%;">
+    <img [src]="user.photoURL" style="width:3.5rem;height:3.5rem;border-radius: 50%;">
     <!-- <p>UID: {{ user.uid }}</p> -->
-  </div>  
-</nav>
-<!-- <div class="nav">
-  <label for="toggle">&#9776;</label>
-  <input type="checkbox" id ="toggle">
-  <div class="menu">
-  <a href="#">Home</a>
-  <a href="#">Forum</a>
-  <a href="#">Contact us</a>
-  <a href="#">About</a>
-  <a href="#">Products</a>
-  <a *ngIf="auth.user$ | async "  (click)="auth.signOut()">
-    Logout
-  </a>
-  <div  *ngIf="auth.user$ | async " >
-    <nb-user name="Test" class="userinfo"> </nb-user>
   </div>
-  
-</div>
-</div> -->
-<!-- <button  nbButton [nbContextMenu]="items" placement="right">Profile</button>
-<nb-menu [items]='items' autoCollapse=true></nb-menu> -->
-<!--Navbar -->
+</nav>
 <nav *ngIf="auth.user$ | async " class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1" id="lowernav">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,20 +32,12 @@
         <a class="nav-link" href="/profile"><i class="user icon"></i> Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="auth.user$ | async "  (click)="auth.signOut()"><i class="power off icon"></i> Logout</a>
+        <a class="nav-link" *ngIf="auth.user$ | async " (click)="auth.signOut()"><i class="power off icon"></i>
+          Logout</a>
       </li>
     </ul>
-    <form class="form-inline" style="padding-right: -25px; float:right;">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <div class="ui vertical animated button" id="searchbutton" tabindex="0">
-        <div class="hidden content">Shop</div>
-        <div class="visible content">
-          <i class="search icon"></i>
-        </div>
-      </div>
-    </form>
+    
   </div>
+  
 </nav>
 <!--/.Navbar -->
-<router-outlet></router-outlet>
-

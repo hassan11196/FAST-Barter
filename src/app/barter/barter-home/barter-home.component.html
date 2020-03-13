@@ -1,24 +1,19 @@
+
 <div>
   <br>
   <div style="padding-right: 2rem;" [routerLink]="['/newpost']">
     <button [routerLink]="['/newpost']"  class="ui primary button" data-target="#basicExampleModal" style="float:right;">
       <i class="shop icon"></i>
-      Post an Add
+      Post an Ad
     </button>
     </div>  
 <!-- <app-new-post>
   
 </app-new-post> -->
-<br><br>
-<app-forum-post>
-  
-</app-forum-post>
+<div>
+  <app-search-post></app-search-post>    
 </div>
-<!-- <br>
-<br>
-<br>
-<div *ngIf="auth.user$ | async as user">
-  <h3>Howdy, {{ user.displayName }}</h3>
-  <img  [src]="user.photoURL">
-  <p>UID: {{ user.uid }}</p>
-</div> -->
+<br><br>
+<app-forum-post></app-forum-post>
+</div>
+
