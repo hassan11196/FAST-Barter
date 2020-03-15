@@ -5,8 +5,10 @@
 <div>
   <div class="container">
     <br/> 
+
   <div class="row">
-    <div class="col-md-5">
+    <!-- <br/><br/> -->
+    <div class="col-md-5" style="padding-top:2rem">
     <div class="card" style="width: 100%;height: 30rem">
       <carousel style="padding-left:1rem; padding-right:1rem; padding-bottom:1rem;padding-top:1rem;">
         <div *ngFor="let picture of details.pics">
@@ -28,7 +30,7 @@
   </div>
   <div class="col-md-7">
       <!-- <h2 style="text-align: center; font-weight:bold">Product Details</h2> -->
-      <h2 style="padding-left:2rem; line-spacing:0rem;font-weight:bold;text-transform:uppercase; ">{{details.title}}</h2>
+      <h2 style="padding-left:2rem; line-spacing:0rem;font-weight:bold;text-transform:uppercase;padding-top:1rem;" >{{details.title}}</h2>
       
       <h4 style="padding-left:2rem;line-spacing:0rem; ">{{details.description}}</h4>
       <h3 style="padding-left:2rem;line-spacing:0rem;" ><span style="font-weight: bold;">Condition:</span><span style="padding-left:1rem; font-weight:lighter">{{details.condition}}</span></h3>
@@ -63,14 +65,99 @@
 
         <br>       
 
-      <div class="container">
- <div class="card">
+        <div class="container card">
+          <br>
+          <div style="padding:1rem;background-color:gray; padding-top: 1rem;color:white;"><h3>Reviews</h3></div>
+        <div class="ui comments" style="padding-top:2rem;padding-left:2rem;">
+          <div *ngFor="let comment of comments | async" class="comment">
+            <a class="avatar">
+              <img  style="border-radius: 50%;" src="{{comment.comments_user['photoURL']}}">
+            </a>
+            <div class="content">
+              <a class="author">{{comment.comments_user['displayName']}}</a>
+              <div class="metadata">
+                <div class="date">{{comment.timestamp.toDate()}}</div>
+              </div>
+              <div class="text">
+                <!-- <p>The hours, minutes and seconds stand as visible reminders that your effort put them all there. </p> -->
+                <p>{{comment.description}}</p>
+              <div style="width:100%;height:70%">
+                <carousel *ngIf="comment.parent" style="width:100%;height:70%">
+                  <div *ngFor="let picture of comment.pics">
+                    <slide style="width:100%;height:70%">
+                      <img style="margin-left:50px;width:50%;height:50%" [src]="picture" alt="Loading" width="100%" height="250rem"> 
+                  </slide>
+                  </div>
+                </carousel>
+              </div>
+              </div>
+             
+            </div>
+          </div>
+          <form class="ui reply form" style="padding-bottom:2rem;">
+            <div class="field">
+              <textarea placeholder="Write a comment..." style="width:100%" (change)="commentDescriptionChange($event )"></textarea>
+            </div>
+            <div >
+              <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder"></h5>
+              <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
+             
+              <br>
+          <div  class="progress">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
+            
+        
+          </div>
+          
+          <div style="padding-left:1rem;" *ngIf="uploads" class="alert alert-info" role="alert">
+            <div *ngFor="let pic of uploads">
+              <p>
+                Picture uploaded: {{pic.name}}
+              </p>
+            </div>
+          </div>   
+             </div>
+            <div class="ui primary submit labeled icon button" id = 'button11' (click)="commentSave($event)">
+              <i class="icon edit"></i> Add Comment
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+        
+      <!-- <div class="container"> -->
+ <!-- <div class="card">
     <div class="card-body">
             <h5 class="modal-title" style="font-weight:bolder">Comments</h5>
+  <div class="row">
+    <div *ngFor="let comment of comments | async">
+        <div class="card" id="card" style=" margin-left:20px;width: 76rem; height: 15rem">
+       
+          <div class="card-body">
+          <p class="card-text" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; ">{{comment.description}}</p>
+          </div>
+          <carousel *ngIf="comment.parent">
+            <div *ngFor="let picture of comment.pics">
+              <slide >
+                <img style="margin-left:50px;width:30%;height:50%" [src]="picture" alt="Loading" width="100%" height="250rem"> 
+            </slide>
+            </div>
+            
+
+          </carousel> -->
+
+          <!-- <img *ngIf="post.picId != null" class="card-img-top" src={{post.picId[0]}} alt="Card image cap"> -->
+            <!-- <p>{{post.id}}</p> -->
+         
+        <!-- </div>
+        <br>
+    </div>
+  </div>
 
  </div>
-</div>
-<div class="card">
+</div> -->
+<!-- <div class="card">
     <div class="card-body">
         <div class="form-group">
                 <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder">Add a comment</h5>
@@ -100,22 +187,13 @@
         </button>
     </div>
     </div>
-       
+        -->
 
 
 
 
 
         
-          
+     <br><br>     
 
         </div>
-
-
-
-        
-
-
-
-
-

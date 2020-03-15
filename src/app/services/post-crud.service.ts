@@ -4,7 +4,7 @@ import { Comment } from './../models/comment.model';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
-import { User } from 'firebase';
+import { BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,8 @@ import { User } from 'firebase';
 export class PostCrudService {
   private postCollection: AngularFirestoreCollection<Post>;
   private commentCollection: AngularFirestoreCollection<Comment>;
-
+  private search=new BehaviorSubject<string>('');
+  currentSearch=this.search.asObservable();
   posts: Observable<Post[]>;
   comments:Observable<Comment[]>;
 
@@ -22,11 +23,35 @@ constructor(private afs: AngularFirestore) {
   this.commentCollection = afs.collection<Comment>('comments');
   this.comments = this.commentCollection.valueChanges();
  }
+
+
  addPost(post: Post){
    this.postCollection.add(post);
  }
  addComment(comments: Comment){
   this.commentCollection.add(comments);
+}
+
+searchChange(search:string)
+{
+  this.search.next(search);
+
+}
+searchPost(searchValue)
+{
+  console.log(searchValue);
+    
+  // let q = event.target.value;
+  console.log('jjjj');
+  this.postCollection = this.afs.collection<Post>('posts', ref => {
+    // Compose a query using multiple .where() methods
+    return ref
+    .where('title', '>=', searchValue)
+    .where('title', '<=', searchValue+ '\uf8ff')
+  });
+  console.log(this.postCollection);
+  this.posts = this.postCollection.valueChanges();
+  return this.posts;
 }
 
  getPostByTimeStamp(timeStamp: string){
@@ -48,8 +73,17 @@ constructor(private afs: AngularFirestore) {
  }
 
  getPosts() {
+  this.postCollection = this.afs.collection<Post>('posts');
+  this.posts = this.postCollection.valueChanges();
+  console.log(this.posts);
   return this.posts;
   
+}
+getComments(id) {
+  console.log("Im IN "+ id);
+  this.commentCollection = this.afs.collection<Comment>('comments',ref => ref.where('parent', '==', id ));
+  this.comments = this.commentCollection.valueChanges();
+  return this.comments;
 }
 //  GetStudent(id: string) {
 //   this.posts = this.postCollection.doc<Post>('/posts/' + id);

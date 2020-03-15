@@ -10,7 +10,7 @@ import { from,combineLatest } from 'rxjs';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormControl } from '@angular/forms';
 
-
+declare const require:any;
 
 @Component({
   selector: 'app-new-post',

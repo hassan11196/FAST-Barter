@@ -5,8 +5,8 @@ import { Post } from './../../models/post.model';
 
 import { Observable, of } from 'rxjs';
 import { PostCrudService } from './../../services/post-crud.service';
-
-// const googleicon = require('./../../icons/google-icon.svg');
+declare const require:any;
+const googleicon = require('./../../icons/google-icon.svg');
 
 @Component({
   selector: 'app-user-profile',
@@ -14,10 +14,12 @@ import { PostCrudService } from './../../services/post-crud.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  gicon = 'googleicon';
+  gicon = googleicon;
   user: any;
   posts = [];
+  name;
   constructor(private postcrud: PostCrudService, public auth: AuthService) {
+    auth.user$.subscribe(event => this.name=event);
   }
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -29,6 +31,13 @@ export class UserProfileComponent implements OnInit {
 
 
   }
+  postdetails(post){
+    console.log(post.timestamp['seconds']) 
+    var detailPost={}
+    detailPost=post;
+    console.log(post)
+    localStorage.setItem('detailPost', JSON.stringify(detailPost));
+    }
   getPosts(){
     this.postcrud
       .getPosts()
