@@ -6,6 +6,9 @@ import { AngularEditorConfig } from '@kolkov/angular-editor'
   styleUrls: ['./edit-post.component.css']
 })
 export class EditPostComponent implements OnInit {
+  uploads=[];
+  uploadProgress;
+
   editorConfig: AngularEditorConfig = {
     editable: true,
       spellcheck: true,
