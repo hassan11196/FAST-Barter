@@ -5,7 +5,7 @@ import { Post } from './../../models/post.model';
 
 import { Observable, of } from 'rxjs';
 import { PostCrudService } from './../../services/post-crud.service';
-
+declare const require:any;
 const googleicon = require('./../../icons/google-icon.svg');
 
 @Component({
