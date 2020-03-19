@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireAuthGuard} from '@angular/fire/auth-guard'
-import { MatMenuModule } from '@angular/material/menu'
+import { MatMenuModule,  MatCardModule
+} from '@angular/material'
 import { NbUserModule, NbInputModule,NbCardModule, NbMenuModule ,NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbContextMenuModule, NbActionsModule, NbContextMenuDirective, NbLayoutComponent } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MatGridListModule } from '@angular/material'
+import { MatGridListModule,  MatIconModule} from '@angular/material'
 import { BarterComponent } from './barter.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { ForumPostComponent } from './forum-post/forum-post.component';
@@ -26,6 +27,8 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestor
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { SearchPostComponent } from './search-post/search-post.component';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+
 
 @NgModule({
   imports: [
@@ -57,8 +60,11 @@ import { SearchPostComponent } from './search-post/search-post.component';
     AngularFireModule,
     AngularFireStorageModule,
     CarouselModule.forRoot(),
-    AngularEditorModule
-    
+    AngularEditorModule,
+    NgxNavbarModule,
+    MatCardModule,
+    MatIconModule
+
     // Button,
   ],
   providers:[
