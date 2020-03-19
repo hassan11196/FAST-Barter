@@ -1,10 +1,7 @@
-
+<!-- 
 <div class="container">
   <nav class="navbar navbar-light" style="background-color: grey; text-align: center;color:white">
-    <!-- <a class="navbar-brand" id="feature" href="#"> -->
-    <!-- <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> -->
     <h2 style="text-align: center;">Featured Posts</h2>
-    <!-- </a> -->
   </nav>
   <br><br>
 
@@ -24,14 +21,11 @@
 
           </carousel>
 
-          <!-- <img *ngIf="post.picId != null" class="card-img-top" src={{post.picId[0]}} alt="Card image cap"> -->
           <div class="card-body" bac>
-            <!-- <p>{{post.id}}</p> -->
             <h4 class="card-title" style="text-align: center; font-weight:bold; text-transform:capitalize">{{post.title}}</h4>
             <p class="card-text" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; ">{{post.description}}</p>
           </div>
           <div class="card-footer">
-            <!-- <h5 class="text-center">Rs 2500</h5> -->
 
             <button style="font-family: Comic Sans MS;" [routerLink]="['/detailpost',post.timestamp['seconds']]"(click)="postdetails(post)" id="button1" >View Details</button>
           </div>
@@ -40,7 +34,43 @@
       </div>
     </div>
   </div>
+
+
+</div> -->
+<div class="container">
+  <nav class="navbar navbar-light" style="background-color: grey; text-align: center;color:white">
+    <h2 style="text-align: center;">Featured Posts</h2>
+  </nav>
+  <br><br>
+<div class="uk-grid-column-medium uk-grid-row-large uk-child-width-1-3@s uk-text-center" uk-grid>
+<div *ngFor="let post of postsList">
+  <div class="uk-card uk-card-hover uk-card-default">
+      <!-- <div class="uk-card-media-top">
+          <img src="{{post.pics[0]}}" alt="" width="100%" height="250rem">
+      </div> -->
+      <div class="uk-card-media-top uk-cover-container">
+        <img src="{{post.pics[0]}}" alt="" uk-cover>
+        <canvas width="600" height="450"></canvas>
+    </div>
+      <!-- <carousel *ngIf="post">
+        <div *ngFor="let picture of post.pics">
+          <slide >
+            <img [src]="picture" alt="Loading" width="100%" height="250rem"> 
+        </slide>
+        </div>
+        
+
+      </carousel> -->
+      <div class="uk-card-body">
+          <h3 class="uk-card-title uk-text-break">{{post.title}}</h3>
+          <!-- <p class="uk-text-justify uk-text-break" >{{post.description}}</p> -->
+      </div>
+      <div class="uk-card-footer">
+        <a  class="uk-button uk-button-text" [routerLink]="['/detailpost',post.timestamp['seconds']]"(click)="postdetails(post)">View Details</a>
+    </div>
+  </div>
 </div>
 
+</div>
 
-
+</div>
