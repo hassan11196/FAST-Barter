@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light" id="uppernav" *ngIf="auth.user$ | async ">
+<!-- <nav class="navbar navbar-light" id="uppernav" *ngIf="auth.user$ | async ">
   <a class="navbar-brand" id="brand" [routerLink]="['/']" routerLinkActive="router-link-active"><span id="fast"> FAST
     </span><span id="barter"> BARTER</span></a>
 
@@ -6,7 +6,6 @@
 
     <h3 style="padding-top:1rem;padding-right:1rem;">Howdy, {{ user.displayName }}</h3>
     <img [src]="user.photoURL" style="width:3.5rem;height:3.5rem;border-radius: 50%;">
-    <!-- <p>UID: {{ user.uid }}</p> -->
   </div>
 </nav>
 <nav *ngIf="auth.user$ | async " class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1" id="lowernav">
@@ -39,5 +38,44 @@
     
   </div>
   
-</nav>
+</nav> -->
 <!--/.Navbar -->
+
+
+<nav ngxNavbarDynamicExpand class="navbar-light bg-light">
+  <a class="navbar-brand" href="/">Tabdealit</a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="collapse.toggle()"
+    aria-controls="main-nav"
+    aria-expanded="false"
+    aria-label="Navigáció kapcsoló"
+  >
+    <span
+      class="navbar-toggler-icon d-flex align-items-center justify-content-center"
+    >
+    </span>
+  </button>
+  <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse" >
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#"
+          >Home </a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="auth.user$ | async " (click)="auth.signOut()"><i class="power off icon"></i>
+          Logout</a>      </li>
+    </ul>
+    <div *ngIf="auth.user$ | async as user" style="display:inline-flex">
+
+      <h3 style="padding-top:1rem;padding-right:1rem;">Howdy, {{ user.displayName }}</h3>
+      <img [src]="user.photoURL" style="width:3.5rem;height:3.5rem;border-radius: 50%;">
+    </div>
+  </ngx-navbar-collapse>
+</nav>

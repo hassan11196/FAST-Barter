@@ -18,7 +18,7 @@ const fasticon=require('./../../icons/fast.jpg');
 })
 export class BarterLayoutComponent implements OnInit {
   title = 'FastBarter';
-  // ficon=fasticon;
+  ficon=fasticon;
   name ;
   searchValue: string = "";
   chhh:string="";
