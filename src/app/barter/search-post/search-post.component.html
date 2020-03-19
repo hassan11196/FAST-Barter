@@ -1,9 +1,16 @@
-<div>
-    <input type="text" (keyup)="search()" [(ngModel)]="searchValue">
+<div style="margin-left: 10px;">
+    <!-- <input type="text" > -->
     <!-- <div class="search-results">
       <div class="search-result" *ngFor="let result of results | async">
         {{ result.username }}
       </div>
     </div> -->
 <!-- <button (click)="search($event)" >search</button> -->
+<form class="uk-search uk-search-default">
+  <span uk-search-icon></span>
+  <input class="uk-search-input" type="search" (keyup)="search()" [(ngModel)]="searchValue" placeholder="Search..." name="first">
+</form>
   </div>
+
+
+  
