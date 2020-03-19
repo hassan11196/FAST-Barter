@@ -7,87 +7,122 @@
   </div>
 </h2>
 </div> -->
-<div class='row'>
+<style>
+    th{
+        font-size: 18px;
+        font-weight: bold;
+        padding: 15px 15px 15px 15px;
+    }
+    td{
+        font-size: 14px;
+    }
+</style>
+  <div id="all">
+
+      <div id="content">
+          <div class="container">
+
+              <div class="col-md-12">
+                  <ul class="breadcrumb">
+                      <li><a href="#">Home</a>
+                      </li>
+                      <li>My properties</li>
+                  </ul>
+              </div>
+
+              <div class="col-md-9" id="checkout">
+
+                  <div class="box">
+
+                          <h1>My properties</h1>
 
 
-  <div class="col-md-8">
+                          <div class="content">
+                              <div class="table-responsive">
+                                  <table class="table">
+                                      <thead>
+                                          <tr>
+                                              <th colspan="2">Property</th>
+                                              <th>Title</th>
+                                              <th>condition</th>
+                                              <th>Discription</th>
 
-    <h1 class="text-center" style="font-size: 40px;padding-top:5rem;">{{user.displayName}}</h1>
-    <div style="padding-left:1rem;padding-right:1rem;">
-    <div class="ui divider" ></div>
-  </div>
-    <!-- <h4 style="padding-left:1rem;" class="ui horizontal divider header">
-      <i class="user icon"></i>
-    </h4> -->
-    <div class="text-center">
-    <h2 class="ui icon header text-center" >
-      <i class="user icon"></i>
-      <div class="content">
-        User Profile
-        <div class="sub header" >Manage Your Posts.</div>
-      </div>
-    </h2>
-  </div>
-    <div *ngFor="let item of posts" style="padding-left:2rem;padding-right:2rem;">
-      <div class="card">
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td>
+                                                  <a href="#">
+                                                      <img src="img/detailsquare.jpg" alt="img1">
+                                                  </a>
+                                              </td>
 
-        <div class="row">
-          <!-- <span> -->
-            <div class="col-md-2 col-sm-2 col-lg-3" style="padding-left:2rem;padding-bottom:2rem;">
+                                              <td></td>
+                                              <td>{{item.title}}</td>
+                                              <td>{{item.condition}}</td>
+                                              <td>{{item.description}}</td>
+                                              <td><button class="ui secondary button">
+                                                <i class="edit icon"></i>
+                                                Edit Post
+                                              </button></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <a href="#">
+                                                      <img src="img/basketsquare.jpg" alt="img2">
+                                                  </a>
+                                              </td>
 
-              <br>
-              <img src="{{item.pics[0]}}" style=" width:100%;height:85%;border-radius: 50%;">
-              <br>
-            </div>
-          <!-- </span>
-          <span> -->
-            <div class="col-md-10 col-sm-10 col-lg-9" style="padding-left:2rem;padding-bottom:2rem;padding-right:2rem;">
-              <br>
-              <h3>{{item.title}}</h3>
-              <h4>{{item.condition}}</h4>
+                                              <td></td>
+                                              <td>{{item.title}}</td>
+                                              <td>{{item.condition}}</td>
+                                              <td>{{item.description}}</td>
+                                              <td><button class="ui secondary button">
+                                                <i class="edit icon"></i>
+                                                Edit Post
+                                              </button></td>
+                                          </tr>
+                                      </tbody>
 
-              <p>{{item.description}}</p>
-              <button class="ui secondary button" [routerLink]="['/editpost']"(click)="postdetails(item)">
-                <i class="edit icon"></i>
-                Edit Post
-              </button>
-            </div>
-          <!-- </span> -->
-        </div>
+                                  </table>
 
-      </div>
-      <br>
-    </div>
-           
-          </div>
-          <div class="col-md-4">
-            <br>
-            <div style="text-align:center">
-              <img src="{{user.photoURL}}" style=" width:50%;height:75%;border-radius: 50%;">
-              <br>
-              <br>
-              <br>
-              <div style="padding-left:2rem;text-align:center">
-                <div class="ui card" style="width:90%">
-                  <div class="content">
-                    <div class="header">Linked Accounts</div>
+                              </div>
+                              <!-- /.table-responsive -->
+                          </div>
+                          <!-- /.content -->
+
+
                   </div>
-                  <div class="content">
-                    <!-- <h4 class="ui sub header">Activity</h4> -->
-                    <div class="ui small feed">
-                      <div class="event">
-                        <div class="content">
-                          <h4><span>Google</span><span style="float:right"><i class="google icon"></i></span></h4>
-                          <h4><span>Mail</span><span style="float:right"><i class="mail icon"></i></span></h4>
+                  <!-- /.box -->
+
+
+              </div>
+              <!-- /.col-md-9 -->
+
+              <div class="col-md-3">
+
+
+                    <div class="card hovercard">
+                    <div class="cardheader">
+
+                    </div>
+                    <div class="avatar">
+                        <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            <a target="_blank" href="https://scripteden.com/">{{user.displayName}}</a>
                         </div>
-                      </div>
+                        <div class="desc">User</div>
+
                     </div>
                   </div>
-                </div>
-                <br>
-                <br>
-              </div>
-            </div>
-        </div>
-        </div>
-        
+
+
+              <!-- /.col-md-3 -->
+
+          </div>
+          <!-- /.container -->
+      </div>
+      <!-- /#content -->
+      </div>
