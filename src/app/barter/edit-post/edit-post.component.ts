@@ -152,7 +152,7 @@ export class EditPostComponent implements OnInit {
       title: this.postTitle,
       description:this.postDescription,
       user : this.user,
-      // /pics: this.picsBase64Encoded,
+      pics: [],
       return_item: this.return_item,
       condition: this.condition,
       comment:[]

@@ -129,6 +129,8 @@ button {
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  margin-top: 5px;
+
 }
 a i.fa,
 button i.fa {
@@ -188,7 +190,8 @@ h1 {
 }
 #top ul.menu > li + li:before {
   content: "|\00a0";
-  padding: 0 5px;
+  padding: 15px 15px 15px 15px;
+  margin-top:10px;
   color: #f7f7f7;
 }
 #top ul.menu > .active {
