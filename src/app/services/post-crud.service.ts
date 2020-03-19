@@ -85,6 +85,9 @@ getComments(id) {
   this.comments = this.commentCollection.valueChanges();
   return this.comments;
 }
+updatePost(timestamp, value){
+  this.afs.collection('posts').doc(timestamp).update(value);
+}
 //  GetStudent(id: string) {
 //   this.posts = this.postCollection.doc<Post>('/posts/' + id);
 //   return this.studentRef;

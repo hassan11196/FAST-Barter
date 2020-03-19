@@ -61,11 +61,11 @@
           <i class="tag icon"></i>
           Description
         </h4>
-        <form class="ui form">
+        <form class="ui form" (submit)="editPost($event)" ngNativeValidate>
           <div class="form-group" style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
             <!-- <label>  Title</label>   -->
-            <input type="text"  id="defaultContactFormName" class="form-control mb-4" value="{{details.title}}"
-              placeholder="Title">
+            <input type="text" (change)="postTitleChange($event)"  id="defaultContactFormName" class="form-control mb-4" value="{{details.title}}"
+              placeholder="Title" required>
 
           </div>
           <!-- <div class="form-group" style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
@@ -73,20 +73,20 @@
         </div> -->
           <div style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
             <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" [(ngModel)]="details.description"
-              name="first"></angular-editor>
+              name="first" required></angular-editor>
 
           </div>
           <div class="grouped fields" style="padding-left:1rem;">
             <label>Condition: </label>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="condition" checked="checked" >
+                <input type="radio" name="condition" checked="checked" (change)="postConditionChange($event,0)">
                 <label>New</label>
               </div>
             </div>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="condition">
+                <input type="radio" name="condition" (change)="postConditionChange($event,1)">
                 <label>Used</label>
               </div>
             </div>
@@ -97,7 +97,7 @@
             <!-- <div class="card-body"> -->
             <!-- <h5 class="card-title">Select picture for upload:</h5> -->
             <!-- <label>Upload photos</label> -->
-            <input type="file" multiple=true  accept=".png,.jpg" />
+            <input type="file" multiple=true  accept=".png,.jpg" required/>
             <!-- </div> -->
             <!-- </div>
         <div class="field"style="padding-right:1.5rem;">
@@ -127,12 +127,12 @@
           <div class="two fields" style="padding-left: 2rem;padding-right:1rem;">
             <div class="field">
               <input class="form-control" name="state" style="width:96%; height:3rem"
-                placeholder="Enter State">
+                placeholder="Enter State" (change)="postStateChange($event)" required>
                             </div>
             <div class="field" style="padding-right:1.5rem;" >
 
               <input placeholder="Enter City" class="form-control" name="city" style="width:100%; height:3rem"
-                >
+              (change)="postcityChange($event)" required>
                 
             </div>
 
@@ -144,7 +144,7 @@
 
 
           <div style="text-align: center; padding-bottom:1rem;">
-            <button class="ui secondary button" >
+            <button type="submit" value="submit" class="ui secondary button" >
               Save Details
             </button>
           </div>

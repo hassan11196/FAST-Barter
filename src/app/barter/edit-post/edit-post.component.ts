@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor'
+import { PostCrudService } from './../../services/post-crud.service';
+import { AuthService } from './../../services/auth.service';
+import { Post } from './../../models/post.model';
+import {AngularFireStorage} from '@angular/fire/storage' ;
+import { AngularFirestore} from '@angular/fire/firestore';
+// import {moment} from '@moment.js';
 @Component({
   selector: 'app-edit-post',
   templateUrl: './edit-post.component.html',
@@ -54,8 +60,20 @@ export class EditPostComponent implements OnInit {
       ['fontSize']
     ]
 };
-details={
-  timestamp:0,
+  showCondition= true;
+  postTitle = '';
+  postDescription = '';
+  user = null;
+  id = '';
+  return_item='';
+  condition='';
+  state='';
+  city='';
+  phone="";
+  type="";
+
+  details={
+  timestamp:"",
   title:"",
   description:"",
   pics:[],
@@ -66,7 +84,9 @@ details={
 
   },
 }
-  constructor() { }
+  constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) { 
+    auth.user$.subscribe( user => this.user = user);
+  }
 
   ngOnInit() {
     var cart={}
@@ -76,6 +96,72 @@ details={
     this.details.pics=cart['pics'];
     this.details.user=cart['user'];
     this.details.condition=cart['condition'];
-   }
+    this.details.timestamp=cart['timestamp'];
+    console.log(this.details.timestamp)
+    // console.log(new Date())
+    // var d= new Date()
+    // d.setDate(this.details.timestamp['nanoseconds'])
+    // console.log(d)
+  }
+   postTitleChange(event){
+    console.log(event.target.value);
+    this.postTitle = event.target.value;
+  }
+  postConditionChange(event,val){
+    console.log(event);
+    console.log(val);
+    if (val==0)
+    this.condition = 'New';
+    else 
+    this.condition = 'Used';
+    console.log(this.condition);
+  }
+  postStateChange(event){
+    console.log(event.target.value);
+    this.state = event.target.value;
+    console.log(this.state);
+  }
+  postcityChange(event){
+    console.log(event.target.value);
+    this.city = event.target.value;
+    console.log(this.city);
+  }
+  userPhoneChange(event){
+    console.log(event);
+    this.phone = event.target.value;
+    console.log(this.phone);
+  }
+  postTypeChange(event,name){
+    console.log(event);
+    this.type = name;
+    console.log(this.type);
+    if(this.type==='service'){
+      this.showCondition=false;
+      this.condition='Not Applicable'
+    }
+    else{
+      this.showCondition=true;
+    }
+  }
+   editPost(event){
+    console.log('Post');
+    console.log(this.postcrud);
+    
+    let p:Post ={
+      timestamp :new Date(this.details.timestamp),
+      title: this.postTitle,
+      description:this.postDescription,
+      user : this.user,
+      // /pics: this.picsBase64Encoded,
+      return_item: this.return_item,
+      condition: this.condition,
+      comment:[]
+  
+    }
+  
+    console.log('Hitting Firebase');
+    console.log(this.details.timestamp)
+    this.postcrud.updatePost(this.details.timestamp,p);
+  }
 
 }
