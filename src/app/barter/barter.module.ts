@@ -69,7 +69,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
     // Button,
   ],
   providers:[
-    AngularFireAuthGuard, AngularFireStorage, AngularFirestore, AngularFireDatabase
+    AngularFireAuthGuard, AngularFireStorage, AngularFirestore
   ],
   declarations: [BarterComponent,UserProfileComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent,EditPostComponent, SearchPostComponent],
   exports:[BarterComponent]

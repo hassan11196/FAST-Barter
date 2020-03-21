@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Post } from './../models/post.model';
 import { Comment } from './../models/comment.model';
 
-import {AngularFireList, AngularFireDatabase} from '@angular/fire/database'
+
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
 import { BehaviorSubject} from 'rxjs/BehaviorSubject';
@@ -12,20 +12,17 @@ import { BehaviorSubject} from 'rxjs/BehaviorSubject';
 })
 export class PostCrudService {
   private postCollection: AngularFirestoreCollection<Post>;
-  private postList$ : AngularFireList<any[]>;
   private commentCollection: AngularFirestoreCollection<Comment>;
   private search=new BehaviorSubject<string>('');
   currentSearch=this.search.asObservable();
   posts: Observable<Post[]>;
   comments:Observable<Comment[]>;
 
-constructor(private afs: AngularFirestore, private afd:AngularFireDatabase) {
+constructor(private afs: AngularFirestore) {
   this.postCollection = afs.collection<Post>('posts');
   this.posts = this.postCollection.valueChanges();
   this.commentCollection = afs.collection<Comment>('comments');
   this.comments = this.commentCollection.valueChanges();
-  this.postList$ = afd.list('posts');
-
  }
  getPostList(){
    return  this.afs.collection<any>('posts').stateChanges();
