@@ -10,5 +10,6 @@ export interface Post {
     condition: string,
     return_item: string,
     comment:string[],
+    $key:any,
 
 }

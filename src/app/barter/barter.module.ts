@@ -19,7 +19,7 @@ import { DetailPostComponent} from './detail-post/detail-post.component';
 import { EditPostComponent} from './edit-post/edit-post.component';
 import {  UserProfileComponent} from './user-profile/user-profile.component';
 import { BarterRoutes } from './barter.routing';
-import {FormsModule} from '@angular/forms' 
+import {FormsModule} from '@angular/forms'
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireStorageModule, AngularFireStorage} from '@angular/fire/storage';
 import { environment } from './../../environments/environment';
@@ -28,11 +28,12 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { SearchPostComponent } from './search-post/search-post.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 @NgModule({
   imports: [
-    
+
     CommonModule,
     HttpClientModule,
     NbThemeModule.forRoot({ name: 'dark' }),
@@ -68,7 +69,7 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
     // Button,
   ],
   providers:[
-    AngularFireAuthGuard, AngularFireStorage, AngularFirestore
+    AngularFireAuthGuard, AngularFireStorage, AngularFirestore, AngularFireDatabase
   ],
   declarations: [BarterComponent,UserProfileComponent, BarterHomeComponent,DetailPostComponent, LoginComponent, BarterLayoutComponent, NewPostComponent, ForumPostComponent,EditPostComponent, SearchPostComponent],
   exports:[BarterComponent]

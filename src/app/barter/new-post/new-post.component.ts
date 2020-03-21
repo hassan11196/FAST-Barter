@@ -18,7 +18,7 @@ declare const require:any;
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-  
+
   editorConfig: AngularEditorConfig = {
     editable: true,
       spellcheck: true,
@@ -68,7 +68,7 @@ export class NewPostComponent implements OnInit {
   allPercentage: Observable<any>;
   files: Observable<any>;
   picsBase64Encoded: any[] = [];
-  
+
   // name = new FormControl('');
   htmlContent='';
   downloadURL: Observable<string>;
@@ -86,6 +86,7 @@ export class NewPostComponent implements OnInit {
   city='';
   phone="";
   type="";
+  $key:any;
   showCondition=true;
   constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) {
     auth.user$.subscribe( user => this.user = user);
@@ -109,30 +110,30 @@ export class NewPostComponent implements OnInit {
       pics: this.picsBase64Encoded,
       return_item: this.return_item,
       condition: this.condition,
-      comment:[]
-  
+      comment:[],
+      $key:this.$key
     }
-  
+
     console.log('Hitting Firebase');
     this.postcrud.addPost(p);
   }
   upload(event){
     this.uploads = [...this.uploads,...event.target.files];
     console.log(this.uploads);
-    
+
     const filelist = event.target.files;
     const reader = new FileReader();
-    
+
     // const allPercentage: Observable<number>[] = [];
 
     for (const file of filelist) {
       reader.readAsDataURL(file);
-      
+
       reader.onload = () => {
         this.picsBase64Encoded = [... this.picsBase64Encoded,reader.result];
         console.log(reader.result);
       };
-      
+
     //   const path = `files/${file.name}`;
     //   const ref = this.storage.ref(path);
     //   const task = this.storage.upload(path, file);
@@ -181,7 +182,7 @@ export class NewPostComponent implements OnInit {
     //   finalize(() => this.downloadURL = this.ref.getDownloadURL())
     //   )
     // .subscribe();
-    
+
   }
   postTitleChange(event){
     console.log(event);
@@ -197,7 +198,7 @@ export class NewPostComponent implements OnInit {
     console.log(val);
     if (val==0)
     this.condition = 'New';
-    else 
+    else
     this.condition = 'Used';
     console.log(this.condition);
   }

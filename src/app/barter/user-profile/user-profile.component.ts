@@ -17,7 +17,9 @@ export class UserProfileComponent implements OnInit {
   gicon = googleicon;
   user: any;
   posts = [];
+  postsList = [];
   name;
+  usersPost= [];
   constructor(private postcrud: PostCrudService, public auth: AuthService) {
     auth.user$.subscribe(event => this.name=event);
   }
@@ -26,29 +28,51 @@ export class UserProfileComponent implements OnInit {
     this.getPosts();
 
     console.log(this.user);
-    console.log(this.posts);
 
+    console.log(this.posts);
+      console.log(this.usersPost);
 
 
   }
   postdetails(post){
-    console.log(post.timestamp['seconds']) 
+    console.log(post.id)
     var detailPost={}
     detailPost=post;
     console.log(post)
     localStorage.setItem('detailPost', JSON.stringify(detailPost));
     }
   getPosts(){
+    let postList$ = this.postcrud.getPostList();
+    let posts = [];
+    postList$.subscribe(postArray => {
+       postArray.filter(action => {
+        const data = action.payload.doc.data();
+        return this.user.email == data.user.email
+      }).map(action => {
+        const data = action.payload.doc.data();
+        const id = action.payload.doc.id;
+        this.usersPost.push( { id, ...data });
+      });
+
+      })
+
+
+
+
     this.postcrud
       .getPosts()
       .subscribe(res => {
         res.forEach(post => {
           if (this.user.email == post.user.email) {
-
+            // console.log(post);
             this.posts.push(post);
           }
         })
       });
+
+
     }
+
+
 
 }

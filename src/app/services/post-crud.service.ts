@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Post } from './../models/post.model';
 import { Comment } from './../models/comment.model';
 
+import {AngularFireList, AngularFireDatabase} from '@angular/fire/database'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
 import { BehaviorSubject} from 'rxjs/BehaviorSubject';
@@ -11,19 +12,24 @@ import { BehaviorSubject} from 'rxjs/BehaviorSubject';
 })
 export class PostCrudService {
   private postCollection: AngularFirestoreCollection<Post>;
+  private postList$ : AngularFireList<any[]>;
   private commentCollection: AngularFirestoreCollection<Comment>;
   private search=new BehaviorSubject<string>('');
   currentSearch=this.search.asObservable();
   posts: Observable<Post[]>;
   comments:Observable<Comment[]>;
 
-constructor(private afs: AngularFirestore) {
+constructor(private afs: AngularFirestore, private afd:AngularFireDatabase) {
   this.postCollection = afs.collection<Post>('posts');
   this.posts = this.postCollection.valueChanges();
   this.commentCollection = afs.collection<Comment>('comments');
   this.comments = this.commentCollection.valueChanges();
- }
+  this.postList$ = afd.list('posts');
 
+ }
+ getPostList(){
+   return  this.afs.collection<any>('posts').stateChanges();
+ }
 
  addPost(post: Post){
    this.postCollection.add(post);
@@ -40,7 +46,7 @@ searchChange(search:string)
 searchPost(searchValue)
 {
   console.log(searchValue);
-    
+
   // let q = event.target.value;
   console.log('jjjj');
   this.postCollection = this.afs.collection<Post>('posts', ref => {
@@ -66,7 +72,7 @@ searchPost(searchValue)
 
     }
   });
-  
+
 
   // return this.afs.doc<Post>(`/post/1`).valueChanges();
   // db.collection('books').where(FieldPath.documentId(), '==', '88ft3QNysSExne4u9hm9').get()
@@ -77,7 +83,7 @@ searchPost(searchValue)
   this.posts = this.postCollection.valueChanges();
   console.log(this.posts);
   return this.posts;
-  
+
 }
 getComments(id) {
   console.log("Im IN "+ id);
@@ -85,8 +91,9 @@ getComments(id) {
   this.comments = this.commentCollection.valueChanges();
   return this.comments;
 }
-updatePost(timestamp, value){
-  this.afs.collection('posts').doc(timestamp).update(value);
+updatePost(id, value){
+  let status = this.afs.collection('posts').doc(id).update(value);
+  console.log(status);
 }
 //  GetStudent(id: string) {
 //   this.posts = this.postCollection.doc<Post>('/posts/' + id);
@@ -97,6 +104,6 @@ updatePost(timestamp, value){
 // GetStudentsList() {
 //   this.studentsRef = this.db.list('students-list');
 //   return this.studentsRef;
-// }  
+// }
 
 }
