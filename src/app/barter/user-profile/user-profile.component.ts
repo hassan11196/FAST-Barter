@@ -47,6 +47,10 @@ export class UserProfileComponent implements OnInit {
     postList$.subscribe(postArray => {
        postArray.filter(action => {
         const data = action.payload.doc.data();
+
+        if(data.user === undefined || this.user=== undefined){
+          return false;
+        }
         return this.user.email == data.user.email
       }).map(action => {
         const data = action.payload.doc.data();
@@ -65,6 +69,9 @@ export class UserProfileComponent implements OnInit {
         res.forEach(post => {
           if (this.user.email == post.user.email) {
             // console.log(post);
+            if(post.user === undefined || this.user=== undefined){
+              return false;
+            }
             this.posts.push(post);
           }
         })

@@ -5,7 +5,7 @@ import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from
 import { NewPostComponent} from './new-post/new-post.component';
 import { DetailPostComponent } from './detail-post/detail-post.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
-import { EditPostComponent } from './edit-post/edit-post.component'; 
+import { EditPostComponent } from './edit-post/edit-post.component';
 const RedirectToHome = ()=> redirectLoggedInTo(['home']);
 const RedirectToLogin = ()=> redirectUnauthorizedTo(['login']);
 
@@ -13,10 +13,10 @@ const routes: Routes = [
   { path:'', redirectTo: '/home', pathMatch:'full'},
   { path:'login', component: LoginComponent, canActivate:[AngularFireAuthGuard], data: {authGuardPipe: RedirectToHome}},
   { path:'home', component: BarterHomeComponent, canActivate:[AngularFireAuthGuard],  data: { authGuardPipe: RedirectToLogin}},
-  { path:'newpost', component: NewPostComponent },
-  { path:'profile',component:UserProfileComponent},
-  { path:'detailpost/:timestamp', component: DetailPostComponent },
-  { path:'editpost',component:EditPostComponent},
+  { path:'newpost', component: NewPostComponent,canActivate:[AngularFireAuthGuard],  data: { authGuardPipe: RedirectToLogin} },
+  { path:'profile',component:UserProfileComponent, canActivate:[AngularFireAuthGuard],  data: { authGuardPipe: RedirectToLogin}},
+  { path:'detailpost/:timestamp', component: DetailPostComponent,canActivate:[AngularFireAuthGuard],  data: { authGuardPipe: RedirectToLogin} },
+  { path:'editpost',component:EditPostComponent,canActivate:[AngularFireAuthGuard],  data: { authGuardPipe: RedirectToLogin}},
   // { path: '**',  },
 ];
 
