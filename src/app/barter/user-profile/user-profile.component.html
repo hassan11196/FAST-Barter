@@ -33,16 +33,16 @@
 
             <div class="col-md-9" id="checkout">
 
-                <div class="box">
+                <div class="box" style="border: 1px solid #034150; border-radius: 5px">
 
-                        <h1>My properties</h1>
+                        <h1 style="color: #034150">My properties</h1>
 
 
                         <div class="content">
                             <div class="table-responsive">
                                 <table  class="table">
                                     <thead>
-                                        <tr>
+                                        <tr style="color: #034150">
                                             <th colspan="2">Property</th>
                                             <th>Title</th>
                                             <th>Condition</th>
@@ -62,7 +62,7 @@
                                             <td>{{item.title}}</td>
                                             <td>{{item.condition}}</td>
                                             <td>{{item.description}}</td>
-                                            <td><button class="ui secondary button" [routerLink]="['/editpost']"(click)="postdetails(item)">
+                                            <td><button class="ui button" style="background-color: #BCF5F6" [routerLink]="['/editpost']"(click)="postdetails(item)">
                                               <i class="edit icon"></i>
                                               Edit Post
                                             </button></td>

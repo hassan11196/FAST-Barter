@@ -149,16 +149,16 @@ export class EditPostComponent implements OnInit {
     console.log("Post");
     console.log(this.postcrud);
 
-    // let p: any = {
-    //   title: this.postTitle,
-    //   description: this.postDescription,
-    //   user: this.user,
-    //   pics: [],
-    //   return_item: this.return_item,
-    //   condition: this.condition,
-    //   comment: [],
-    //   id: this.details.id,
-    // };
+    let p: any = {
+      title: this.postTitle,
+      description: this.postDescription,
+      user: this.user,
+      pics: [],
+      return_item: this.return_item,
+      condition: this.condition,
+      comment: [],
+      id: this.details.id,
+    };
 
 
     console.log("Hitting Firebase");

@@ -9,6 +9,7 @@ import { timestamp,finalize,tap,map } from 'rxjs/operators';
 import { from,combineLatest } from 'rxjs';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 declare const require:any;
 
@@ -111,11 +112,14 @@ export class NewPostComponent implements OnInit {
       return_item: this.return_item,
       condition: this.condition,
       comment:[],
-      $key:this.$key
+      // $key:this.$key,
+      state:this.state,
+      city:this.city,
     }
 
     console.log('Hitting Firebase');
     this.postcrud.addPost(p);
+    // Router.navigate(['/home']);
   }
   upload(event){
     this.uploads = [...this.uploads,...event.target.files];
