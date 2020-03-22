@@ -79,6 +79,8 @@ export class EditPostComponent implements OnInit {
     description: "",
     pics: [],
     condition: "",
+    state:"",
+    city:"",
     user: {
       photoURL: "",
       displayName: ""
@@ -102,10 +104,11 @@ export class EditPostComponent implements OnInit {
     // this.details.description = cart["description"];
     // this.details.pics = cart["pics"];
     // this.details.user = cart["user"];
-    // this.details.condition = cart["condition"];
     // this.details.timestamp = cart["timestamp"];
-    // this.details.id = cart['id'];
-    console.log(this.details.id);
+    this.condition = this.details.condition;
+    console.log(this.details.condition);
+    console.log(this.condition);
+
     // console.log(new Date())
     // var d= new Date()
     // d.setDate(this.details.timestamp['nanoseconds'])
@@ -121,16 +124,20 @@ export class EditPostComponent implements OnInit {
     console.log(val);
     if (val == 0) this.condition = "New";
     else this.condition = "Used";
+    console.log("condition")
     console.log(this.condition);
+    this.details.condition=this.condition;
   }
   postStateChange(event) {
     console.log(event.target.value);
     this.state = event.target.value;
+    this.details.state=this.state;
     console.log(this.state);
   }
   postcityChange(event) {
     console.log(event.target.value);
     this.city = event.target.value;
+    this.details.city=this.city;
     console.log(this.city);
   }
   userPhoneChange(event) {
@@ -164,7 +171,7 @@ export class EditPostComponent implements OnInit {
       id: this.details.id,
     };
 
-
+    console.log(this.details)
     console.log("Hitting Firebase");
 
     this.postcrud.updatePost(this.details.id, this.details);

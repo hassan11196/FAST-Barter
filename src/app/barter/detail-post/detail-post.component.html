@@ -9,11 +9,11 @@
   <div class="row">
     <!-- <br/><br/> -->
     <div class="col-md-5" style="padding-top:2rem">
-    <div class="card" style="width: 100%;height: 30rem">
+    <div class="card" style="width: 100%;height: 30rem" style="border:2px solid #034150">
       <carousel style="padding-left:1rem; padding-right:1rem; padding-bottom:1rem;padding-top:1rem;">
         <div *ngFor="let picture of details.pics">
           <slide style="height:10%">
-            <img [src]="picture" alt="Loading" width="100%" height="390rem" > 
+            <img [src]="picture" alt="Loading" width="100%" height="  90rem" > 
         </slide>
         </div>
       </carousel>
@@ -36,14 +36,14 @@
       <h3 style="padding-left:2rem;line-spacing:0rem;" ><span style="font-weight: bold;">Condition:</span><span style="padding-left:1rem; font-weight:lighter">{{details.condition}}</span></h3>
       <br>
       
-      <div class="card">
+      <div class="card" style="border:2px solid #034150">
         <h2 style="text-align: center; padding-top:1rem;">Seller Description</h2>
         <div class="ui comments" style="padding-left:1rem;">
           <div class="comment">
-            <a class="avatar">
-              <img [src]="details.user.photoURL"style="width:5.5rem;height:5.5rem;border-radius: 50%;">
+            <a class="avatar" style="width:5.5rem">
+              <img [src]="details.user.photoURL"style="height:5.5rem;border-radius: 50%;">
             </a>
-            <div class="content" style="padding-left:3rem;padding-top:0.3rem">
+            <div class="content" style="padding-left:4rem;padding-top:0.3rem">
               <h2 >{{details.user.displayName}}</h2>
       
               <div class="text">
@@ -65,9 +65,9 @@
 
         <br>       
 
-        <div class="container card">
+        <div class="container card" style="border:2px solid #034150">
           <br>
-          <div style="padding:1rem;background-color:gray; padding-top: 1rem;color:white;"><h3>Reviews</h3></div>
+          <div style="padding:1rem;background-color: #425f61 ; padding-top: 1rem; "><h3 style="color:#bcf5f6;">Reviews</h3></div>
         <div class="ui comments" style="padding-top:2rem;padding-left:2rem;">
           <div *ngFor="let comment of comments | async" class="comment">
             <a class="avatar">
@@ -96,7 +96,7 @@
           </div>
           <form class="ui reply form" style="padding-bottom:2rem;">
             <div class="field">
-              <textarea placeholder="Write a comment..." style="width:100%" (change)="commentDescriptionChange($event )"></textarea>
+              <textarea placeholder="Write a comment..." style="width:100%; border: 1px solid #425f61" (change)="commentDescriptionChange($event )"></textarea>
             </div>
             <div >
               <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder"></h5>
@@ -117,6 +117,7 @@
             </div>
           </div>   
              </div>
+             <br>
             <div class="ui primary submit labeled icon button" id = 'button11' (click)="commentSave($event)">
               <i class="icon edit"></i> Add Comment
             </div>

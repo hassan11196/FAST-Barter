@@ -83,7 +83,7 @@ export class NewPostComponent implements OnInit {
   user = null;
   id = '';
   return_item='';
-  condition='';
+  condition='New';
   state='';
   city='';
   phone="";
@@ -114,7 +114,6 @@ export class NewPostComponent implements OnInit {
       return_item: this.return_item,
       condition: this.condition,
       comment:[],
-      // $key:this.$key,
       state:this.state,
       city:this.city,
     }
