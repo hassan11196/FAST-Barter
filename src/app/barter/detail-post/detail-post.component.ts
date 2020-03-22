@@ -20,6 +20,8 @@ export class DetailPostComponent implements OnInit {
   size:number=0;
   timestamp:string='';
   postId:string='';
+  itemUploaded=false;
+
 
   details={
     timestamp:0,

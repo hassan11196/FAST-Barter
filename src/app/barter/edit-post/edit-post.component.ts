@@ -6,6 +6,8 @@ import { Post } from "./../../models/post.model";
 import { AngularFireStorage } from "@angular/fire/storage";
 import { AngularFirestore } from "@angular/fire/firestore";
 // import {moment} from '@moment.js';
+import { Router } from '@angular/router';
+
 @Component({
   selector: "app-edit-post",
   templateUrl: "./edit-post.component.html",
@@ -13,6 +15,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 })
 export class EditPostComponent implements OnInit {
   uploads = [];
+  itemUploaded=false;
   uploadProgress;
 
   editorConfig: AngularEditorConfig = {
@@ -86,7 +89,8 @@ export class EditPostComponent implements OnInit {
     private postcrud: PostCrudService,
     auth: AuthService,
     public afStorage: AngularFirestore,
-    public storage: AngularFireStorage
+    public storage: AngularFireStorage,
+    public router:Router
   ) {
     auth.user$.subscribe(user => (this.user = user));
   }
@@ -164,5 +168,6 @@ export class EditPostComponent implements OnInit {
     console.log("Hitting Firebase");
 
     this.postcrud.updatePost(this.details.id, this.details);
+    this.router.navigate(['/profile']);
   }
 }

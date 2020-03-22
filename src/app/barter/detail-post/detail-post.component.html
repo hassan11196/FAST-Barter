@@ -103,13 +103,13 @@
               <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
              
               <br>
-          <div  class="progress">
+          <div *ngIf="itemUploaded" class="progress">
             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
             
         
           </div>
           
-          <div style="padding-left:1rem;" *ngIf="uploads" class="alert alert-info" role="alert">
+          <div style="padding-left:1rem;" *ngIf="itemUploaded" class="alert alert-info" role="alert">
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic.name}}

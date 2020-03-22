@@ -105,13 +105,13 @@
           <input style="height:3rem" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Price">
         </div> -->
           </div>
-          <div class="progress" style="padding-left:2rem; padding-right:2rem; padding-top:1rem">
+          <div  *ngIf="itemUploaded" class="progress" style="padding-left:2rem; padding-right:2rem; padding-top:1rem">
             <div style="padding-left:2rem; padding-right:2rem; padding-top:1rem"
               class="progress-bar progress-bar-striped bg-success" role="progressbar"
               [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
               aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <div *ngIf="uploads" class="alert alert-info" role="alert">
+          <div *ngIf="itemUploaded" class="alert alert-info" role="alert">
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic?.name}}
@@ -144,7 +144,7 @@
 
 
           <div style="text-align: center; padding-bottom:1rem;">
-            <button type="submit" value="submit" class="ui secondary button">
+            <button type="submit" value="submit"   class="ui secondary button">
               Save Details
             </button>
           </div>

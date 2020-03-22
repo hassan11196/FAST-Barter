@@ -20,6 +20,7 @@ declare const require:any;
 })
 export class NewPostComponent implements OnInit {
 
+  itemUploaded=false;
   editorConfig: AngularEditorConfig = {
     editable: true,
       spellcheck: true,
@@ -89,7 +90,8 @@ export class NewPostComponent implements OnInit {
   type="";
   $key:any;
   showCondition=true;
-  constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) {
+  constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,
+    public storage: AngularFireStorage,public router:Router) {
     auth.user$.subscribe( user => this.user = user);
     //this.afStorage=afStorage;
   }
@@ -119,7 +121,8 @@ export class NewPostComponent implements OnInit {
 
     console.log('Hitting Firebase');
     this.postcrud.addPost(p);
-    // Router.navigate(['/home']);
+    this.router.navigate(['/home']);
+    
   }
   upload(event){
     this.uploads = [...this.uploads,...event.target.files];
