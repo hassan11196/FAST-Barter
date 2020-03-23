@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from './../../services/auth.service';
 
 declare var require: any
-const googleicon = require('./../../icons/google-icon.svg');
+const googleicon = require('./../../icons/4.png');
 
 @Component({
   selector: 'app-login',

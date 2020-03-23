@@ -30,19 +30,17 @@
   </div>
   </div>
   <div class="col-md-7">
+    <div class="card" style="border:2px solid #034150;background-color:#bcf5f6">
       <!-- <h2 style="text-align: center; font-weight:bold">Product Details</h2> -->
-      <h2 style="padding-left:2rem; line-spacing:0rem;font-weight:bold;text-transform:uppercase;padding-top:1rem;" >{{details.title}}</h2>
+      <h2 style="padding-left:2rem;font-weight:bold;text-transform:uppercase;padding-top:1rem;color:#034150" >{{details.title}}</h2>
       
-      <h4 style="padding-left:2rem;line-spacing:0rem; ">{{details.description}}</h4>
-      <h3 style="padding-left:2rem;line-spacing:0rem;" ><span style="font-weight: bold;">Condition:</span><span style="padding-left:1rem; font-weight:normal">{{details.condition}}</span></h3>
-      <br>
-      <h3 style="padding-left:2rem;line-spacing:0rem;" ><span style="font-weight: bold;">Location:</span>
+      <h5 style="padding-left:2rem;">{{details.description}}</h5>
+      <h4 style="padding-left:2rem;" ><span style="font-weight: bold;color:#034150">Condition:</span><span style="padding-left:1rem; font-weight:normal">{{details.condition}}</span></h4>
+      <h4 style="padding-left:2rem;" ><span style="font-weight: bold;color:#034150">Location:</span>
         <span style="padding-left:1rem; font-weight:normal">{{details.state}},{{details.city}}</span>
-        </h3>
-<br>
-      
-      <div class="card" style="border:2px solid #034150">
-        <h2 style="text-align: center; padding-top:1rem;">Seller Description</h2>
+        </h4>
+<!-- <br> -->
+        <!-- <h2 style="text-align: center; padding-top:1rem;">Seller Description</h2> -->
         <div class="ui comments" style="padding-left:1rem;">
           <div class="comment">
             <a class="avatar" style="width:5.5rem">
@@ -60,6 +58,7 @@
         <br>
  
       </div>
+      <!-- </div> -->
     </div>
 </div>
 </div>
@@ -70,7 +69,7 @@
 
         <br>       
 
-        <div class="container card " style="border:2px solid #034150">
+        <div class="container card " style="border:2px solid #034150;background-color:#bcf5f6">
           <br>
           <div style="padding:1rem;background-color: #425f61 ; padding-top: 1rem; "><h3 style="color:#bcf5f6;">Reviews</h3></div>
         <div class="ui comments" style="padding-top:2rem;padding-left:2rem;">
@@ -107,7 +106,7 @@
               <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder"></h5>
               <div class="js-upload" uk-form-custom>
                 <input type="file" multiple (change)="upload($event)" accept=".png,.jpg" />
-                <button uk-icon="icon: cloud-upload" class="uk-button uk-button-default" type="button" tabindex="-1"> Upload </button>
+                <button uk-icon="icon: cloud-upload" class="uk-button uk-button-default" style="background-color: #034150;border-radius:5px;color:#84d8e5" type="button" tabindex="-1"> Upload </button>
             </div>
 
               <br>
