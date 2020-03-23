@@ -6,6 +6,8 @@ import { Post } from "./../../models/post.model";
 import { AngularFireStorage } from "@angular/fire/storage";
 import { AngularFirestore } from "@angular/fire/firestore";
 // import {moment} from '@moment.js';
+import { Router } from '@angular/router';
+
 @Component({
   selector: "app-edit-post",
   templateUrl: "./edit-post.component.html",
@@ -13,6 +15,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 })
 export class EditPostComponent implements OnInit {
   uploads = [];
+  itemUploaded=false;
   uploadProgress;
 
   editorConfig: AngularEditorConfig = {
@@ -69,6 +72,7 @@ export class EditPostComponent implements OnInit {
   phone = "";
   type = "";
   $key:any;
+  img:boolean=true;
   cart: any;
   details = {
     timestamp: "",
@@ -76,17 +80,21 @@ export class EditPostComponent implements OnInit {
     description: "",
     pics: [],
     condition: "",
+    state:"",
+    city:"",
     user: {
       photoURL: "",
       displayName: ""
     },
     id:""
+  
   };
   constructor(
     private postcrud: PostCrudService,
     auth: AuthService,
     public afStorage: AngularFirestore,
-    public storage: AngularFireStorage
+    public storage: AngularFireStorage,
+    public router:Router
   ) {
     auth.user$.subscribe(user => (this.user = user));
   }
@@ -98,14 +106,19 @@ export class EditPostComponent implements OnInit {
     // this.details.description = cart["description"];
     // this.details.pics = cart["pics"];
     // this.details.user = cart["user"];
-    // this.details.condition = cart["condition"];
     // this.details.timestamp = cart["timestamp"];
-    // this.details.id = cart['id'];
-    console.log(this.details.id);
+    this.condition = this.details.condition;
+    console.log(this.details.condition);
+    console.log(this.condition);
+
     // console.log(new Date())
     // var d= new Date()
     // d.setDate(this.details.timestamp['nanoseconds'])
     // console.log(d)
+  }
+  deletePic(event){
+    this.details.pics = []
+    this.img=false;
   }
   postTitleChange(event) {
     console.log(event.target.value);
@@ -117,16 +130,20 @@ export class EditPostComponent implements OnInit {
     console.log(val);
     if (val == 0) this.condition = "New";
     else this.condition = "Used";
+    console.log("condition")
     console.log(this.condition);
+    this.details.condition=this.condition;
   }
   postStateChange(event) {
     console.log(event.target.value);
     this.state = event.target.value;
+    this.details.state=this.state;
     console.log(this.state);
   }
   postcityChange(event) {
     console.log(event.target.value);
     this.city = event.target.value;
+    this.details.city=this.city;
     console.log(this.city);
   }
   userPhoneChange(event) {
@@ -149,20 +166,21 @@ export class EditPostComponent implements OnInit {
     console.log("Post");
     console.log(this.postcrud);
 
-    // let p: any = {
-    //   title: this.postTitle,
-    //   description: this.postDescription,
-    //   user: this.user,
-    //   pics: [],
-    //   return_item: this.return_item,
-    //   condition: this.condition,
-    //   comment: [],
-    //   id: this.details.id,
-    // };
+    let p: any = {
+      title: this.postTitle,
+      description: this.postDescription,
+      user: this.user,
+      pics: [],
+      return_item: this.return_item,
+      condition: this.condition,
+      comment: [],
+      id: this.details.id,
+    };
 
-
+    console.log(this.details)
     console.log("Hitting Firebase");
 
     this.postcrud.updatePost(this.details.id, this.details);
+    this.router.navigate(['/profile']);
   }
 }

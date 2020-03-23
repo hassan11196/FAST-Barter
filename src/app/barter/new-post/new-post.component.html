@@ -21,7 +21,7 @@
         <div class="form-group">
             <textarea (change)="postDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Description"></textarea>
         </div>
-    
+
       </div>
      <div class="container">
   <div class="card">
@@ -30,7 +30,7 @@
       <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
     </div>
   <div class="progress">
-    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
   </div>
   <div *ngIf="uploads" class="alert alert-info" role="alert">
@@ -39,7 +39,7 @@
         Picture uploaded: {{pic.name}}
       </p>
     </div>
-    
+
 </div>
 </div>
       <div class="modal-footer">
@@ -102,16 +102,19 @@
             <!-- </div>
         <div class="field"style="padding-right:1.5rem;">
         <div>
-          <input style="height:3rem" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Price">        
+          <input style="height:3rem" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Price">
         </div> -->
           </div>
-          <div class="progress" style="padding-left:2rem; padding-right:2rem; padding-top:1rem">
+          <div *ngIf="itemUploaded" class="progress" style="padding-left:2rem; padding-right:2rem; padding-top:1rem">
             <div style="padding-left:2rem; padding-right:2rem; padding-top:1rem"
               class="progress-bar progress-bar-striped bg-success" role="progressbar"
               [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
               aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <div *ngIf="uploads" class="alert alert-info" role="alert">
+          <div *ngIf="limit" class="alert alert-info" role="alert">
+          <p style="color:red">Picture Size Exceeded</p>
+          </div>
+          <div *ngIf="itemUploaded" class="alert alert-info" role="alert">
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic?.name}}
@@ -133,7 +136,7 @@
 
               <input placeholder="Enter City" class="form-control" name="city" style="width:100%; height:3rem"
                 (change)="postcityChange($event)" required >
-                
+
             </div>
 
           </div>
@@ -165,7 +168,7 @@
 
 
           <div style="text-align: center; padding-bottom:1rem;">
-            <button type="submit" class="ui secondary button" value="submit" [routerLink]="['/home']">
+            <button type="submit" class="ui secondary button" value="submit">
               Post Now
             </button>
           </div>
@@ -175,4 +178,4 @@
   </div>
   <br>
   <br>
-</div>
+</div>  

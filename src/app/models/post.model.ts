@@ -1,4 +1,3 @@
-
 import {User} from './user.model';
 
 export interface Post {
@@ -10,6 +9,7 @@ export interface Post {
     condition: string,
     return_item: string,
     comment:string[],
-    $key:any,
-
+    state:string,
+    city:string,
+    // $key:any,
 }

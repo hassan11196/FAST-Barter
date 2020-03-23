@@ -65,7 +65,7 @@
           <div class="form-group" style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
             <!-- <label>  Title</label>   -->
             <input type="text" (change)="postTitleChange($event)"  id="defaultContactFormName" class="form-control mb-4" value="{{details.title}}"
-              placeholder="Title" required>
+              maxlength="30" placeholder="Title" required>
 
           </div>
           <!-- <div class="form-group" style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
@@ -74,25 +74,29 @@
           <div style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
             <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" [(ngModel)]="details.description"
               name="first" required></angular-editor>
-
           </div>
+          <br>
           <div class="grouped fields" style="padding-left:1rem;">
-            <label>Condition: </label>
+            <label>Condition: {{details.condition}} </label>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="condition" checked="checked" (change)="postConditionChange($event,0)">
+                <input type="radio" name="condition" checked="checked" required (change)="postConditionChange($event,0)">
                 <label>New</label>
               </div>
             </div>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="condition" (change)="postConditionChange($event,1)">
+                <input type="radio" name="condition" (change)="postConditionChange($event,1)" required>
                 <label>Used</label>
               </div>
             </div>
 
 
           </div>
+           <div *ngIf="img" class="img-wrap">
+  <span (click)="deletePic($event)" class="close" style="color:red">&times;</span>
+  <img src="{{details.pics}}" style="width: 60%; height: 200px;margin-left:15%" alt="">
+    </div>
           <div class="field" style="padding-left:1rem;padding-right:1rem;">
             <!-- <div class="card-body"> -->
             <!-- <h5 class="card-title">Select picture for upload:</h5> -->
@@ -105,13 +109,15 @@
           <input style="height:3rem" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Price">
         </div> -->
           </div>
-          <div class="progress" style="padding-left:2rem; padding-right:2rem; padding-top:1rem">
+          <div  *ngIf="itemUploaded" class="progress" style="padding-left:2rem; padding-right:2rem; padding-top:1rem">
             <div style="padding-left:2rem; padding-right:2rem; padding-top:1rem"
               class="progress-bar progress-bar-striped bg-success" role="progressbar"
               [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
               aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <div *ngIf="uploads" class="alert alert-info" role="alert">
+          <div *ngIf="itemUploaded" class="alert alert-info" role="alert">
+            
+           
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic?.name}}
@@ -126,12 +132,12 @@
           </h4>
           <div class="two fields" style="padding-left: 2rem;padding-right:1rem;">
             <div class="field">
-              <input class="form-control" name="state" style="width:96%; height:3rem"
+              <input class="form-control" name="state" value={{details.state}} style="width:96%; height:3rem"
                 placeholder="Enter State" (change)="postStateChange($event)" required>
                             </div>
             <div class="field" style="padding-right:1.5rem;" >
 
-              <input placeholder="Enter City" class="form-control" name="city" style="width:100%; height:3rem"
+              <input placeholder="Enter City" class="form-control" value={{details.city}} name="city" style="width:100%; height:3rem"
               (change)="postcityChange($event)" required>
 
             </div>
@@ -144,7 +150,7 @@
 
 
           <div style="text-align: center; padding-bottom:1rem;">
-            <button type="submit" value="submit" class="ui secondary button" >
+            <button type="submit" value="submit"   class="ui secondary button">
               Save Details
             </button>
           </div>

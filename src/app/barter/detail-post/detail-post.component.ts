@@ -20,6 +20,8 @@ export class DetailPostComponent implements OnInit {
   size:number=0;
   timestamp:string='';
   postId:string='';
+  itemUploaded=false;
+
 
   details={
     timestamp:0,
@@ -84,6 +86,7 @@ export class DetailPostComponent implements OnInit {
     this.details.description=cart['description'];
     this.details.pics=cart['pics'];
     this.details.user=cart['user'];
+    this.details.condition=cart['condition']
     this.timestamp=this.route.snapshot.paramMap.get("timestamp");
     this.id ="posts/" +  this.timestamp;
     console.log(this.timestamp);

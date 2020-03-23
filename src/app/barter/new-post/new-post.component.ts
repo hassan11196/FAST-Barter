@@ -9,6 +9,7 @@ import { timestamp,finalize,tap,map } from 'rxjs/operators';
 import { from,combineLatest } from 'rxjs';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 declare const require:any;
 
@@ -19,6 +20,7 @@ declare const require:any;
 })
 export class NewPostComponent implements OnInit {
 
+  itemUploaded=false;
   editorConfig: AngularEditorConfig = {
     editable: true,
       spellcheck: true,
@@ -81,14 +83,16 @@ export class NewPostComponent implements OnInit {
   user = null;
   id = '';
   return_item='';
-  condition='';
+  condition='New';
   state='';
   city='';
   phone="";
   type="";
+  limit:boolean = false;
   $key:any;
   showCondition=true;
-  constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,public storage: AngularFireStorage) {
+  constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,
+    public storage: AngularFireStorage,public router:Router) {
     auth.user$.subscribe( user => this.user = user);
     //this.afStorage=afStorage;
   }
@@ -98,6 +102,17 @@ export class NewPostComponent implements OnInit {
 
    }
   postSave(event){
+
+  
+    if(this.picsBase64Encoded.toString().length>1040000)
+    {
+      this.limit=true;
+      this.picsBase64Encoded=[];
+    return
+  }
+  else{
+    this.limit=false;
+  
     console.log('Post');
     // const mid =document.getElementById('link').getAttribute('href')
     console.log(this.postcrud);
@@ -111,11 +126,14 @@ export class NewPostComponent implements OnInit {
       return_item: this.return_item,
       condition: this.condition,
       comment:[],
-      $key:this.$key
+      state:this.state,
+      city:this.city,
     }
 
     console.log('Hitting Firebase');
     this.postcrud.addPost(p);
+    this.router.navigate(['/home']);
+  }  
   }
   upload(event){
     this.uploads = [...this.uploads,...event.target.files];

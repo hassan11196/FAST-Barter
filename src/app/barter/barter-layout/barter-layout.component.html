@@ -42,8 +42,8 @@
 <!--/.Navbar -->
 
 
-<nav ngxNavbarDynamicExpand class="navbar-light bg-light">
-  <a class="navbar-brand" href="/">Tabdealit</a>
+<nav ngxNavbarDynamicExpand class="navbar-light" style="background-color:#034150; color: #034150">
+  <a class="navbar-brand" href="/" style="color:#bcf5f6; font-weight:bold ">Tabdealit</a>
 
   <button
     class="navbar-toggler"
@@ -59,22 +59,22 @@
     </span>
   </button>
   <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse" >
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item" style="color:#034150">
         <a class="nav-link" href="#"
-          >Home </a
+        style="color:#bcf5f6;" >Home </a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/profile">Profile</a>
+        <a class="nav-link" href="/profile" style="color:#bcf5f6;">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="auth.user$ | async " (click)="auth.signOut()"><i class="power off icon"></i>
+        <a class="nav-link" *ngIf="auth.user$ | async " (click)="auth.signOut()" style="color:#bcf5f6;"><i class="power off icon"style="color:#bcf5f6;"></i>
           Logout</a>      </li>
     </ul>
     <div *ngIf="auth.user$ | async as user" style="display:inline-flex">
 
-      <h3 style="padding-top:1rem;padding-right:1rem;">Howdy, {{ user.displayName }}</h3>
+      <h3 style="padding-top:1rem;padding-right:1rem; color:#bcf5f6;">Howdy, {{ user.displayName }}</h3>
       <img [src]="user.photoURL" style="width:3.5rem;height:3.5rem;border-radius: 50%;">
     </div>
   </ngx-navbar-collapse>
