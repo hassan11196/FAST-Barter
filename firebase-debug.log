@@ -1,0 +1,59 @@
+[debug] [2020-03-13T04:56:40.260Z] ----------------------------------------------------------------------
+[debug] [2020-03-13T04:56:40.262Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init functions
+[debug] [2020-03-13T04:56:40.262Z] CLI Version:   7.13.0
+[debug] [2020-03-13T04:56:40.262Z] Platform:      linux
+[debug] [2020-03-13T04:56:40.262Z] Node Version:  v10.16.3
+[debug] [2020-03-13T04:56:40.262Z] Time:          Fri Mar 13 2020 09:56:40 GMT+0500 (Pakistan Standard Time)
+[debug] [2020-03-13T04:56:40.262Z] ----------------------------------------------------------------------
+[debug] [2020-03-13T04:56:40.262Z] 
+[debug] [2020-03-13T04:56:40.268Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-13T04:56:40.268Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/zen/FAST-Barter
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using FAST-barter.
+[debug] [2020-03-13T04:56:40.274Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-03-13T04:56:40.275Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-03-13T04:56:40.957Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-13T04:56:40.984Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/FAST-barter  
+ 
+[debug] [2020-03-13T04:56:41.819Z] <<< HTTP RESPONSE 400
+[debug] [2020-03-13T04:56:41.819Z] <<< HTTP RESPONSE BODY
+[debug] [2020-03-13T04:56:41.820Z] HTTP Error: 400, Request contains an invalid argument.
+[debug] [2020-03-13T04:56:42.604Z] FirebaseError: HTTP Error: 400, Request contains an invalid argument.
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:38:12)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:39:35)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:286:20)
+    at IncomingMessage.emit (events.js:203:15)
+    at IncomingMessage.EventEmitter.emit (domain.js:448:20)
+    at endReadableNT (_stream_readable.js:1145:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+[error] 
+[error] Error: Failed to get Firebase project FAST-barter. Please make sure the project exists and your account has permission to access it.

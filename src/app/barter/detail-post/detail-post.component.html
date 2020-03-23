@@ -34,8 +34,12 @@
       <h2 style="padding-left:2rem; line-spacing:0rem;font-weight:bold;text-transform:uppercase;padding-top:1rem;" >{{details.title}}</h2>
       
       <h4 style="padding-left:2rem;line-spacing:0rem; ">{{details.description}}</h4>
-      <h3 style="padding-left:2rem;line-spacing:0rem;" ><span style="font-weight: bold;">Condition:</span><span style="padding-left:1rem; font-weight:lighter">{{details.condition}}</span></h3>
+      <h3 style="padding-left:2rem;line-spacing:0rem;" ><span style="font-weight: bold;">Condition:</span><span style="padding-left:1rem; font-weight:normal">{{details.condition}}</span></h3>
       <br>
+      <h3 style="padding-left:2rem;line-spacing:0rem;" ><span style="font-weight: bold;">Location:</span>
+        <span style="padding-left:1rem; font-weight:normal">{{details.state}},{{details.city}}</span>
+        </h3>
+<br>
       
       <div class="card" style="border:2px solid #034150">
         <h2 style="text-align: center; padding-top:1rem;">Seller Description</h2>
@@ -48,7 +52,7 @@
               <h2 >{{details.user.displayName}}</h2>
       
               <div class="text">
-                <span><i class="phone icon"></i>+92XXXXXXXXXX</span>
+                <span><i class="mail icon"></i>{{details.user.email}}</span>
               </div>
             </div>
           </div>
