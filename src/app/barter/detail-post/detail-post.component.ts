@@ -33,7 +33,8 @@ export class DetailPostComponent implements OnInit {
     condition:'',
     user:{
       photoURL:'',
-      displayName:''
+      displayName:'',
+      email:''
 
     },
   }
