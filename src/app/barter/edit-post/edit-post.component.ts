@@ -111,7 +111,6 @@ export class EditPostComponent implements OnInit {
     this.postConditionChange(0,this.details.condition);
     this.uploads=[...this.uploads,this.details.pics];
     this.condition=this.details.condition;
-    this.itemUploaded=true;
     
   
   }
