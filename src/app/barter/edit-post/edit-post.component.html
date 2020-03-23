@@ -97,7 +97,17 @@
             <!-- <div class="card-body"> -->
             <!-- <h5 class="card-title">Select picture for upload:</h5> -->
             <!-- <label>Upload photos</label> -->
-            <input type="file" required multiple=true  (change)="upload($event)" accept=".png,.jpg"/>
+            <!-- <input type="file" required multiple=true  (change)="upload($event)" accept=".png,.jpg"/> -->
+
+
+            <div class="js-upload uk-placeholder uk-text-center">
+              <span uk-icon="icon: cloud-upload"></span>
+              <span class="uk-text-middle"> Upload item photo by dropping them here or </span>
+              <div uk-form-custom>
+                <input type="file" required multiple (change)="upload($event)" accept=".png,.jpg" />
+                <span class="uk-link">selecting one</span>
+              </div>
+          </div>
             <!-- </div> -->
             <!-- </div>
         <div class="field"style="padding-right:1.5rem;">
@@ -122,7 +132,7 @@
          
 
           <h4 class="ui horizontal divider header">
-            <i class="user icon"></i>
+            <i class="map icon"></i>
             Item Location
           </h4>
           <div class="two fields" style="padding-left: 2rem;padding-right:1rem;">

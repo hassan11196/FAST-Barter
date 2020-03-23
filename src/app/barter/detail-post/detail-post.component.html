@@ -99,14 +99,17 @@
              
             </div>
           </div>
-          <form class="ui reply form" style="padding-bottom:2rem;">
+          <form class="ui reply form" style="padding-bottom:2rem;" ngNativeValidate>
             <div class="field">
-              <textarea placeholder="Write a comment..." style="width:100%; border: 1px solid #425f61" (change)="commentDescriptionChange($event )"></textarea>
+              <textarea placeholder="Write a comment..." style="width:100%; border: 1px solid #425f61" [(ngModel)]="commentDescription" name="commentDescription" required></textarea>
             </div>
             <div >
               <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder"></h5>
-              <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
-             
+              <div class="js-upload" uk-form-custom>
+                <input type="file" multiple (change)="upload($event)" accept=".png,.jpg" />
+                <button uk-icon="icon: cloud-upload" class="uk-button uk-button-default" type="button" tabindex="-1"> Upload </button>
+            </div>
+
               <br>
           <div *ngIf="itemUploaded" class="progress">
             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 

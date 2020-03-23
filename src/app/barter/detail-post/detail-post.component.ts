@@ -52,7 +52,7 @@ export class DetailPostComponent implements OnInit {
    task:AngularFireUploadTask;
 
   user=null;
-  commentDescription = '';
+  commentDescription:string;
   comments_user = null;
   id = '';
   post=null;
@@ -139,8 +139,9 @@ export class DetailPostComponent implements OnInit {
 
     console.log('Hitting Firebase');
     this.postcrud.addComment(p);
-    this.commentDescription="";
+    this.commentDescription=null;
     this.uploads=[];
+    this.picsBase64Encoded.length=0;
   }
   upload(event){
     this.uploads = [...this.uploads,...event.target.files];
@@ -159,14 +160,10 @@ export class DetailPostComponent implements OnInit {
 
     }
 
-  }
-  commentDescriptionChange(event){
-    console.log(event);
-    this.commentDescription = event.target.value;
-    console.log("Ahsan")
-    console.log(this.commentDescription);
+    this.itemUploaded=true;
 
   }
+
 
 
 

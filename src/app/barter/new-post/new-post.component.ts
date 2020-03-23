@@ -79,7 +79,7 @@ export class NewPostComponent implements OnInit {
   ref:AngularFireStorageReference;
   task:AngularFireUploadTask;
   postTitle = '';
-  postDescription = '';
+  postDescription:string;
   user = null;
   id = '';
   return_item='';

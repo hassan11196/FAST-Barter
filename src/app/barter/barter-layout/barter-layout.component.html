@@ -74,7 +74,7 @@
     </ul>
     <div *ngIf="auth.user$ | async as user" style="display:inline-flex">
 
-      <h3 style="padding-top:1rem;padding-right:1rem; color:#bcf5f6;">Howdy, {{ user.displayName }}</h3>
+      <h3 style="padding-top:1rem;padding-right:1rem; color:#bcf5f6;">{{ user.displayName }}</h3>
       <img [src]="user.photoURL" style="width:3.5rem;height:3.5rem;border-radius: 50%;">
     </div>
   </ngx-navbar-collapse>
