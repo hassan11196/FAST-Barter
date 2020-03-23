@@ -111,7 +111,7 @@
               [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
               aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <div *ngIf="itemUploaded" class="alert alert-info" role="alert">
+          <div *ngIf="itemUploaded" class="alert alert-info" >
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic?.name}}
@@ -121,8 +121,8 @@
           </div>
 
           <h4 class="ui horizontal divider header">
-            <i class="user icon"></i>
-            User Details
+            <i class="map icon"></i>
+            Item Location
           </h4>
           <div class="two fields" style="padding-left: 2rem;padding-right:1rem;">
             <div class="field">
@@ -138,30 +138,7 @@
 
           </div>
 
-          <h4 class="ui horizontal divider header">
-            <i class="check circle icon"></i>
-            Confirmation
-          </h4>
-          <!-- <h3 style="padding-top:1rem;padding-right:1rem;">Howdy, {{ user.displayName }}</h3> -->
-          <div class="two fields" style="padding-left:2rem;padding-top:1rem;">
-            <div class="field" style="width:10%">
-              <img [src]="user.photoURL" style="width:5.5rem;height:5.5rem;border-radius: 50%;">
-            </div>
-            <div class="field" style="padding-top: 0.5rem;">
-              <input style="height:4.5rem; width: 50%; border:1px solid black; font-weight:bold "
-                value={{user.displayName}} type="name" id="defaultContactFormName" class="form-control mb-4"
-                placeholder="Name">
-            </div>
-          </div>
-          <div>
-            <h3 style="padding-left:2rem;">Let's verify your account</h3>
-            <h5 style="padding-left:2rem;">We will send you a confirmation code by sms on the next step.</h5>
-            <div style="padding-left:2rem;">
-              <input style="height:2.5rem; width: 40%; border:1px solid black; font-weight:bold;" type="number"
-                id="defaultContactFormName" class="form-control mb-4" placeholder="Phone Number i.e +92XXXXXXXXX">
-            </div>
-          </div>
-
+         
 
 
           <div style="text-align: center; padding-bottom:1rem;">

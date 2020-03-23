@@ -5,7 +5,7 @@ import { AuthService } from "./../../services/auth.service";
 import { Post } from "./../../models/post.model";
 import { AngularFireStorage } from "@angular/fire/storage";
 import { AngularFirestore } from "@angular/fire/firestore";
-// import {moment} from '@moment.js';
+import { Observable} from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,6 +17,9 @@ export class EditPostComponent implements OnInit {
   uploads = [];
   itemUploaded=false;
   uploadProgress;
+  picsBase64Encoded: any[] = [];
+  allPercentage: Observable<any>;
+  files: Observable<any>;
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -95,24 +98,45 @@ export class EditPostComponent implements OnInit {
     public router:Router
   ) {
     auth.user$.subscribe(user => (this.user = user));
+
   }
 
   ngOnInit() {
     this.cart = {};
     this.details = JSON.parse(localStorage.getItem("detailPost"));
-    // this.details.title = cart["title"];
-    // this.details.description = cart["description"];
-    // this.details.pics = cart["pics"];
-    // this.details.user = cart["user"];
-    // this.details.timestamp = cart["timestamp"];
-    this.condition = this.details.condition;
-    console.log(this.details.condition);
-    console.log(this.condition);
 
-    // console.log(new Date())
-    // var d= new Date()
-    // d.setDate(this.details.timestamp['nanoseconds'])
-    // console.log(d)
+    console.log(this.details.id);
+    this.files = this.afStorage.collection('files').valueChanges();
+    console.log(this.details.condition);
+    this.postConditionChange(0,this.details.condition);
+    this.uploads=[...this.uploads,this.details.pics];
+    this.condition=this.details.condition;
+    this.itemUploaded=true;
+    
+  
+  }
+
+  upload(event){
+    this.uploads = [...this.uploads,...event.target.files];
+    console.log(this.uploads);
+
+    const filelist = event.target.files;
+    const reader = new FileReader();
+
+
+    for (const file of filelist) {
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.picsBase64Encoded = [... this.picsBase64Encoded,reader.result];
+        console.log(reader.result);
+      };
+
+
+    }
+    this.itemUploaded=true;
+
+
   }
   postTitleChange(event) {
     console.log(event.target.value);
@@ -164,7 +188,7 @@ export class EditPostComponent implements OnInit {
       title: this.postTitle,
       description: this.postDescription,
       user: this.user,
-      pics: [],
+      pics: this.picsBase64Encoded,
       return_item: this.return_item,
       condition: this.condition,
       comment: [],

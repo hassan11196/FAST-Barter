@@ -26,6 +26,8 @@ export class DetailPostComponent implements OnInit {
   details={
     timestamp:0,
     title:"",
+    city:"",
+    state:"",
     description:"",
     pics:[],
     condition:'',
@@ -102,6 +104,9 @@ export class DetailPostComponent implements OnInit {
           this.details.pics=post2[index]['pics']
           this.details.user=post2[index]['user']
           this.details.condition=post2[index]['condition']
+          this.details.state=post2[index]['state'];
+          this.details.city=post2[index]['city'];
+          console.log(this.details.condition);
           return post2[index];
          }
 

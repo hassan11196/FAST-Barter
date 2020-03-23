@@ -80,13 +80,13 @@
             <label>Condition: {{details.condition}} </label>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="condition" checked="checked" required (change)="postConditionChange($event,0)">
+                <input type="radio" value="New" name="condition" [ngModel]="condition">
                 <label>New</label>
               </div>
             </div>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="condition" (change)="postConditionChange($event,1)" required>
+                <input type="radio" value="Used" name="condition" [ngModel]="condition">
                 <label>Used</label>
               </div>
             </div>
@@ -97,7 +97,7 @@
             <!-- <div class="card-body"> -->
             <!-- <h5 class="card-title">Select picture for upload:</h5> -->
             <!-- <label>Upload photos</label> -->
-            <input type="file" multiple=true  accept=".png,.jpg"/>
+            <input type="file" required multiple=true  (change)="upload($event)" accept=".png,.jpg"/>
             <!-- </div> -->
             <!-- </div>
         <div class="field"style="padding-right:1.5rem;">
@@ -119,10 +119,11 @@
             </div>
 
           </div>
+         
 
           <h4 class="ui horizontal divider header">
             <i class="user icon"></i>
-            User Details
+            Item Location
           </h4>
           <div class="two fields" style="padding-left: 2rem;padding-right:1rem;">
             <div class="field">
