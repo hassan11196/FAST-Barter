@@ -85,6 +85,7 @@ export class DetailPostComponent implements OnInit {
     this.details.pics=cart['pics'];
     this.details.user=cart['user'];
     this.timestamp=this.route.snapshot.paramMap.get("timestamp");
+    this.id ="posts/" +  this.timestamp;
     console.log(this.timestamp);
     this.fetchedPost=this.postcrud.posts.subscribe((post2:any)=> {
       console.log(post2);
@@ -104,6 +105,9 @@ export class DetailPostComponent implements OnInit {
     this.comments = this.postcrud.getComments(this.id);
 
         console.log(this.fetchedPost);
+    console.log("Comments");
+    // console.log(this.comments.pics['0']);
+    console.log(this.fetchedPost);
     // cart = this.postcrud.getPostByTimeStamp(this.timestamp);
     console.log(cart);
 
@@ -123,8 +127,11 @@ export class DetailPostComponent implements OnInit {
       parent: this.id.toString(),
     }
 
+
     console.log('Hitting Firebase');
     this.postcrud.addComment(p);
+    this.commentDescription="";
+    this.uploads=[];
   }
   upload(event){
     this.uploads = [...this.uploads,...event.target.files];
@@ -147,6 +154,7 @@ export class DetailPostComponent implements OnInit {
   commentDescriptionChange(event){
     console.log(event);
     this.commentDescription = event.target.value;
+    console.log("Ahsan")
     console.log(this.commentDescription);
 
   }

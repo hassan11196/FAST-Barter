@@ -9,5 +9,7 @@ export interface Post {
     pics: ArrayBuffer[]|string[],
     condition: string,
     return_item: string,
+    comment:string[],
+    $key:any,
 
 }

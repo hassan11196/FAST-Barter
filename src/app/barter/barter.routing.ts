@@ -5,6 +5,7 @@ import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from
 import { NewPostComponent} from './new-post/new-post.component';
 import { DetailPostComponent } from './detail-post/detail-post.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import { EditPostComponent } from './edit-post/edit-post.component'; 
 const RedirectToHome = ()=> redirectLoggedInTo(['home']);
 const RedirectToLogin = ()=> redirectUnauthorizedTo(['login']);
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path:'newpost', component: NewPostComponent },
   { path:'profile',component:UserProfileComponent},
   { path:'detailpost/:timestamp', component: DetailPostComponent },
+  { path:'editpost',component:EditPostComponent},
   // { path: '**',  },
 ];
 

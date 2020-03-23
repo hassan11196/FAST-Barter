@@ -14,7 +14,9 @@ If you find article that helped you, you can add them here so that it may also h
 
 [https://codesearchonline.com/index.php/angular-firebase-cheat-sheet/](https://codesearchonline.com/index.php/angular-firebase-cheat-sheet/)
 
+[https://alligator.io/angular/firebase-crud-operations/](https://alligator.io/angular/firebase-crud-operations/)
 
+[https://alligator.io/angular/cloud-firestore-angularfire/](https://alligator.io/angular/cloud-firestore-angularfire/)
 
 
 

@@ -7,7 +7,9 @@ import { AuthService } from './../../services/auth.service';
 })
 export class BarterHomeComponent implements OnInit {
   text:any="Muhammad Ahsan";
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService) {
+    
+   }
 
   ngOnInit() {
   }

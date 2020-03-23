@@ -21,7 +21,7 @@
         <div class="form-group">
             <textarea (change)="postDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Description"></textarea>
         </div>
-    
+
       </div>
      <div class="container">
   <div class="card">
@@ -30,7 +30,7 @@
       <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
     </div>
   <div class="progress">
-    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
   </div>
   <div *ngIf="uploads" class="alert alert-info" role="alert">
@@ -39,7 +39,7 @@
         Picture uploaded: {{pic.name}}
       </p>
     </div>
-    
+
 </div>
 </div>
       <div class="modal-footer">
@@ -53,7 +53,7 @@
 </div> -->
 
 <div>
-  <h1 style="text-align: center; padding-top:1rem;">POST YOUR AD</h1>
+  <h1 style="text-align: center; padding-top:1rem;">EDIT DETAILS</h1>
   <div class="container">
     <div class="card">
       <div class="content">
@@ -61,10 +61,10 @@
           <i class="tag icon"></i>
           Description
         </h4>
-        <form class="ui form" (submit)="postSave($event)" ngNativeValidate>
+        <form class="ui form" (submit)="editPost($event)" ngNativeValidate>
           <div class="form-group" style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
             <!-- <label>  Title</label>   -->
-            <input name="postTitle" type="text" (change)="postTitleChange($event)" id="defaultContactFormName" class="form-control mb-4"
+            <input type="text" (change)="postTitleChange($event)"  id="defaultContactFormName" class="form-control mb-4" value="{{details.title}}"
               placeholder="Title" required>
 
           </div>
@@ -72,8 +72,8 @@
             <textarea (change)="postDescriptionChange($event)" class="md-textarea form-control" id="exampleFormControlTextarea2" rows="6" placeholder="Description"></textarea>
         </div> -->
           <div style="padding-left: 1rem; padding-right:1rem; padding-top:1rem">
-            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" [(ngModel)]="postDescription"
-              name="postDescription" required ></angular-editor>
+            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" [(ngModel)]="details.description"
+              name="first" required></angular-editor>
 
           </div>
           <div class="grouped fields" style="padding-left:1rem;">
@@ -97,12 +97,12 @@
             <!-- <div class="card-body"> -->
             <!-- <h5 class="card-title">Select picture for upload:</h5> -->
             <!-- <label>Upload photos</label> -->
-            <input type="file" required multiple=true (change)="upload($event)" accept=".png,.jpg" />
+            <input type="file" multiple=true  accept=".png,.jpg"/>
             <!-- </div> -->
             <!-- </div>
         <div class="field"style="padding-right:1.5rem;">
         <div>
-          <input style="height:3rem" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Price">        
+          <input style="height:3rem" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Price">
         </div> -->
           </div>
           <div class="progress" style="padding-left:2rem; padding-right:2rem; padding-top:1rem">
@@ -127,46 +127,25 @@
           <div class="two fields" style="padding-left: 2rem;padding-right:1rem;">
             <div class="field">
               <input class="form-control" name="state" style="width:96%; height:3rem"
-                (change)="postStateChange($event)"placeholder="Enter State" required >
+                placeholder="Enter State" (change)="postStateChange($event)" required>
                             </div>
             <div class="field" style="padding-right:1.5rem;" >
 
               <input placeholder="Enter City" class="form-control" name="city" style="width:100%; height:3rem"
-                (change)="postcityChange($event)" required >
-                
+              (change)="postcityChange($event)" required>
+
             </div>
 
           </div>
 
-          <h4 class="ui horizontal divider header">
-            <i class="check circle icon"></i>
-            Confirmation
-          </h4>
-          <!-- <h3 style="padding-top:1rem;padding-right:1rem;">Howdy, {{ user.displayName }}</h3> -->
-          <div class="two fields" style="padding-left:2rem;padding-top:1rem;">
-            <div class="field" style="width:10%">
-              <img [src]="user.photoURL" style="width:5.5rem;height:5.5rem;border-radius: 50%;">
-            </div>
-            <div class="field" style="padding-top: 0.5rem;">
-              <input style="height:4.5rem; width: 50%; border:1px solid black; font-weight:bold "
-                value={{user.displayName}} type="name" id="defaultContactFormName" class="form-control mb-4"
-                placeholder="Name">
-            </div>
-          </div>
-          <div>
-            <h3 style="padding-left:2rem;">Let's verify your account</h3>
-            <h5 style="padding-left:2rem;">We will send you a confirmation code by sms on the next step.</h5>
-            <div style="padding-left:2rem;">
-              <input style="height:2.5rem; width: 40%; border:1px solid black; font-weight:bold;" type="number"
-                id="defaultContactFormName" class="form-control mb-4" placeholder="Phone Number i.e +92XXXXXXXXX">
-            </div>
-          </div>
+
+
 
 
 
           <div style="text-align: center; padding-bottom:1rem;">
-            <button type="submit" class="ui secondary button" value="submit" [routerLink]="['/home']">
-              Post Now
+            <button type="submit" value="submit" class="ui secondary button" >
+              Save Details
             </button>
           </div>
         </form>

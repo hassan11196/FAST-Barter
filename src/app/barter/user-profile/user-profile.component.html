@@ -7,108 +7,108 @@
   </div>
 </h2>
 </div> -->
-<div class='row'>
+<style>
+  th{
+      font-size: 18px;
+      font-weight: bold;
+      padding: 15px 15px 15px 15px;
+  }
+  td{
+      font-size: 14px;
+  }
+
+</style>
+<div id="all" >
+
+    <div id="content">
+        <div class="container"  style="margin-top:20px">
+
+            <!-- <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a>
+                    </li>
+                    <li>My properties</li>
+                </ul>
+            </div> -->
+
+            <div class="col-md-9" id="checkout">
+
+                <div class="box">
+
+                        <h1>My properties</h1>
 
 
-  <div class="col-md-8">
+                        <div class="content">
+                            <div class="table-responsive">
+                                <table  class="table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Property</th>
+                                            <th>Title</th>
+                                            <th>Condition</th>
+                                            <th>Description</th>
 
-    <h1 class="text-center" style="font-size: 40px;padding-top:5rem;">{{user.displayName}}</h1>
-    <div style="padding-left:1rem;padding-right:1rem;">
-    <div class="ui divider" ></div>
-  </div>
-    <!-- <h4 style="padding-left:1rem;" class="ui horizontal divider header">
-      <i class="user icon"></i>
-    </h4> -->
-    <div class="text-center">
-    <h2 class="ui icon header text-center" >
-      <i class="user icon"></i>
-      <div class="content">
-        User Profile
-        <div class="sub header" >Manage Your Posts.</div>
-      </div>
-    </h2>
-  </div>
-    <div *ngFor="let item of posts" style="padding-left:2rem;padding-right:2rem;">
-      <div class="card">
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let item of usersPost">
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    <img src="{{item.pics[0]}}" alt="img1">
+                                                </a>
+                                            </td>
 
-        <div class="row">
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
+                                            <td></td>
+                                            <td>{{item.title}}</td>
+                                            <td>{{item.condition}}</td>
+                                            <td>{{item.description}}</td>
+                                            <td><button class="ui secondary button" [routerLink]="['/editpost']"(click)="postdetails(item)">
+                                              <i class="edit icon"></i>
+                                              Edit Post
+                                            </button></td>
+                                        </tr>
 
-              <br>
-              <img src={{gicon}} style=" width:95%;height:75%;border-radius: 50%;">
-              <br>
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.content -->
+
+
+                </div>
+                <!-- /.box -->
+
+
             </div>
-          </span>
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
-              <br>
-              <h3>{{item.title}}</h3>
-              <h4>{{item.condition}}</h4>
+            <!-- /.col-md-9 -->
 
-              <p>{{item.description}}</p>
-              <button class="ui secondary button">
-                <i class="edit icon"></i>
-                Edit Post
-              </button>
-            </div>
-          </span>
+            <div class="col-md-3">
+
+
+                  <div class="card hovercard">
+                  <div class="cardheader">
+
+                  </div>
+                  <div class="avatar">
+                      <img alt="" src="{{user.photoURL}}">
+                  </div>
+                  <div class="info">
+                      <div class="title">
+                          <a target="_blank">{{user.displayName}}</a>
+                      </div>
+                      <div class="desc">User</div>
+
+                  </div>
+                </div>
+
+
+            <!-- /.col-md-3 -->
+
         </div>
-
-      </div>
-      <br>
-      <!-- <div class="card">
-
-        <div class="row">
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
-
-              <br>
-              <img src={{gicon}} style=" width:95%;height:75%;border-radius: 50%;">
-              <br>
-            </div>
-          </span>
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
-              <br>
-              <h3>Cricket Bat</h3>
-              <p>Condition: Used</p>
-              <button class="ui secondary button">
-                <i class="edit icon"></i>
-                Edit Post
-              </button>
-            </div>
-          </span>
-        </div>
-
-      </div>
-      <br>
-      <div class="card">
-
-        <div class="row">
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
-
-              <br>
-              <img src={{gicon}} style=" width:95%;height:75%;border-radius: 50%;">
-              <br>
-            </div>
-          </span>
-          <span>
-            <div style="padding-left:2rem;padding-bottom:2rem;">
-              <br>
-              <h3>Cricket Bat</h3>
-              <p>Condition: Used</p>
-              <button class="ui secondary button">
-                <i class="edit icon"></i>
-                Edit Post
-              </button>
-            </div>
-          </span>
-        </div>
-
-      </div> -->
+        <!-- /.container -->
     </div>
-  </div>
-
-</div>
+    <!-- /#content -->
+    </div>

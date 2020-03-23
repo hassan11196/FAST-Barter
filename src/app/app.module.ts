@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireStorageModule, AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
 
 
 
@@ -25,20 +26,20 @@ import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
       AngularFirestoreModule,
       AngularFirestoreModule.enablePersistence(),
       AngularFireStorageModule,
-      
+
 
       AngularFireAuthModule,
       BrowserModule,
       BrowserAnimationsModule,
       BarterModule,
       FormsModule,
-      
+
       // AppRoutingModule,
    ],
    providers: [AngularFireAuthGuard, AngularFireStorage, AngularFirestore],
    bootstrap: [
       AppComponent,
-      
+
    ]
 })
 export class AppModule { }
