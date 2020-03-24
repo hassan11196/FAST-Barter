@@ -91,6 +91,8 @@ export class DetailPostComponent implements OnInit {
     this.details.description=cart['description'];
     this.details.pics=cart['pics'];
     this.details.user=cart['user'];
+    this.details.state=cart['state'];
+    this.details.city=cart['city'];
     this.details.condition=cart['condition']
     this.timestamp=this.route.snapshot.paramMap.get("timestamp");
     this.id ="posts/" +  this.timestamp;
