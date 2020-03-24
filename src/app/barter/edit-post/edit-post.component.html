@@ -109,7 +109,7 @@
               <span class="uk-text-middle"> Upload item photo by dropping them here or </span>
               <div uk-form-custom>
                 <input type="file" required multiple (change)="upload($event)" accept=".png,.jpg" />
-                <span class="uk-link">selecting one</span>
+                <span class="uk-link">Click Here</span>
               </div>
           </div>
             <!-- </div> -->
@@ -126,8 +126,8 @@
               aria-valuemin="0" aria-valuemax="100"></div>
           </div>
           <div *ngIf="itemUploaded" class="alert alert-info" role="alert">
-            
-           
+
+
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic?.name}}
@@ -135,7 +135,7 @@
             </div>
 
           </div>
-         
+
 
           <h4 class="ui horizontal divider header">
             <i class="map icon"></i>
