@@ -75,6 +75,7 @@ export class EditPostComponent implements OnInit {
   phone = "";
   type = "";
   $key:any;
+  img:boolean=true;
   cart: any;
   details = {
     timestamp: "",
@@ -89,6 +90,7 @@ export class EditPostComponent implements OnInit {
       displayName: ""
     },
     id:""
+  
   };
   constructor(
     private postcrud: PostCrudService,
@@ -136,6 +138,10 @@ export class EditPostComponent implements OnInit {
     this.itemUploaded=true;
 
 
+  }
+  deletePic(event){
+    this.details.pics = []
+    this.img=false;
   }
   postTitleChange(event) {
     console.log(event.target.value);

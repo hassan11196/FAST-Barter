@@ -121,7 +121,10 @@
               [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
               aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <div *ngIf="itemUploaded" class="alert alert-info" >
+          <div *ngIf="limit" class="alert alert-info" role="alert">
+          <p style="color:red">Picture Size Exceeded</p>
+          </div>
+          <div *ngIf="itemUploaded" class="alert alert-info" role="alert">
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic?.name}}
@@ -148,7 +151,7 @@
 
           </div>
 
-         
+
 
 
           <div style="text-align: center; padding-bottom:1rem;">
@@ -162,4 +165,4 @@
   </div>
   <br>
   <br>
-</div>  
+</div>

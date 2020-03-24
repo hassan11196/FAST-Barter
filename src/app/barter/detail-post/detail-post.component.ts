@@ -84,9 +84,7 @@ export class DetailPostComponent implements OnInit {
     console.log(cart);
     // this.details=cart[];
     console.log(cart)
-    console.log("Ahsan")
-    console.log(cart['customId'])
-    
+    this.id =  cart['customId']
     this.details.title=cart['title'];
     this.details.description=cart['description'];
     this.details.pics=cart['pics'];
@@ -114,6 +112,8 @@ export class DetailPostComponent implements OnInit {
       }
     });
     this.comments = this.postcrud.getComments(this.id);
+
+        console.log(this.fetchedPost);
     console.log("Comments");
     // console.log(this.comments.pics['0']);
     console.log(this.fetchedPost);

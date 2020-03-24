@@ -20,8 +20,8 @@ export class PostCrudService {
 
 constructor(private afs: AngularFirestore) {
   this.postCollection = afs.collection<Post>('posts');
-  this.posts = this.postCollection.valueChanges();
-  this.commentCollection = afs.collection<Comment>('comments');
+  this.posts = this.postCollection.valueChanges({idField: 'customId'});
+  this.commentCollection = this.afs.collection<Comment>('comments',ref => ref.where('customId', '==', "1122" ));
   this.comments = this.commentCollection.valueChanges();
  }
  getPostList(){
@@ -82,15 +82,17 @@ searchPost(searchValue)
   return this.posts;
 
 }
+
+updatePost(id, value){
+  let status = this.afs.collection('posts').doc(id).update(value);
+  console.log(status);
+}
+
 getComments(id) {
   console.log("Im IN "+ id);
   this.commentCollection = this.afs.collection<Comment>('comments',ref => ref.where('parent', '==', id ));
   this.comments = this.commentCollection.valueChanges();
   return this.comments;
-}
-updatePost(id, value){
-  let status = this.afs.collection('posts').doc(id).update(value);
-  console.log(status);
 }
 //  GetStudent(id: string) {
 //   this.posts = this.postCollection.doc<Post>('/posts/' + id);

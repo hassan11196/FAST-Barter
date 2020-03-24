@@ -5,7 +5,7 @@
 <div style="background-image: linear-gradient(45deg,#84d8e5, 10%,#034150);">
 <div style="">
   <div class="container">
-    <br/> 
+    <br/>
 
   <div class="row">
     <!-- <br/><br/> -->
@@ -14,7 +14,7 @@
       <carousel style="padding-left:1rem; padding-right:1rem; padding-bottom:1rem;padding-top:1rem;">
         <div *ngFor="let picture of details.pics">
           <slide style="height:10%">
-            <img [src]="picture" alt="Loading" width="100%" height="  90rem" > 
+            <img [src]="picture" alt="Loading" width="100%" height="  90rem" >
         </slide>
         </div>
       </carousel>
@@ -24,7 +24,7 @@
         <div class="card" style="height:5rem; width:5rem;">
           <img [src]="picture" alt="Loading" width="100%" height="90%" >
         </div>
-        
+
       </div>
     </div> -->
   </div>
@@ -33,7 +33,7 @@
     <div class="card" style="border:2px solid #034150;background-color:#bcf5f6">
       <!-- <h2 style="text-align: center; font-weight:bold">Product Details</h2> -->
       <h2 style="padding-left:2rem;font-weight:bold;text-transform:uppercase;padding-top:1rem;color:#034150" >{{details.title}}</h2>
-      
+
       <h5 style="padding-left:2rem;">{{details.description}}</h5>
       <h4 style="padding-left:2rem;" ><span style="font-weight: bold;color:#034150">Condition:</span><span style="padding-left:1rem; font-weight:normal">{{details.condition}}</span></h4>
       <h4 style="padding-left:2rem;" ><span style="font-weight: bold;color:#034150">Location:</span>
@@ -48,7 +48,7 @@
             </a>
             <div class="content" style="padding-left:4rem;padding-top:0.3rem">
               <h2 >{{details.user.displayName}}</h2>
-      
+
               <div class="text">
                 <span><i class="mail icon"></i>{{details.user.email}}</span>
               </div>
@@ -56,7 +56,7 @@
           </div>
         </div>
         <br>
- 
+
       </div>
       <!-- </div> -->
     </div>
@@ -67,7 +67,7 @@
        <div>
 
 
-        <br>       
+        <br>
 
         <div class="container card " style="border:2px solid #034150;background-color:#bcf5f6">
           <br>
@@ -89,13 +89,13 @@
                 <carousel *ngIf="comment.parent" style="width:100%;height:70%">
                   <div *ngFor="let picture of comment.pics">
                     <slide style="width:100%;height:70%">
-                      <img style="margin-left:50px;width:50%;height:50%" [src]="picture" alt="Loading" width="100%" height="250rem"> 
+                      <img style="margin-left:50px;width:50%;height:50%" [src]="picture" alt="Loading" width="100%" height="250rem">
                   </slide>
                   </div>
                 </carousel>
               </div>
               </div>
-             
+
             </div>
           </div>
           <form class="ui reply form" style="padding-bottom:2rem;" ngNativeValidate>
@@ -111,18 +111,18 @@
 
               <br>
           <div *ngIf="itemUploaded" class="progress">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
-            
-        
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+
+
           </div>
-          
+
           <div style="padding-left:1rem;" *ngIf="itemUploaded" class="alert alert-info" role="alert">
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic.name}}
               </p>
             </div>
-          </div>   
+          </div>
              </div>
              <br>
             <div class="ui primary submit labeled icon button" id = 'button11' (click)="commentSave($event)">
@@ -133,7 +133,7 @@
       </div>
 
 
-        
+
       <!-- <div class="container"> -->
  <!-- <div class="card">
     <div class="card-body">
@@ -141,30 +141,51 @@
   <div class="row">
     <div *ngFor="let comment of comments | async">
         <div class="card" id="card" style=" margin-left:20px;width: 76rem; height: 15rem">
-       
+
           <div class="card-body">
           <p class="card-text" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; ">{{comment.description}}</p>
           </div>
           <carousel *ngIf="comment.parent">
             <div *ngFor="let picture of comment.pics">
               <slide >
-                <img style="margin-left:50px;width:30%;height:50%" [src]="picture" alt="Loading" width="100%" height="250rem"> 
+                <img style="margin-left:50px;width:30%;height:50%" [src]="picture" alt="Loading" width="100%" height="250rem">
             </slide>
             </div>
-            
+
 
           </carousel> -->
 
           <!-- <img *ngIf="post.picId != null" class="card-img-top" src={{post.picId[0]}} alt="Card image cap"> -->
             <!-- <p>{{post.id}}</p> -->
-         
+
         <!-- </div>
         <br>
     </div>
   </div>
 
- </div>
-</div> -->
+
+  <div class="row">
+    <div *ngFor="let comment of comments | async">
+        <div class="card" id="card" style=" margin-left:20px;width: 76rem; height: 15rem">
+
+          <div class="card-body">
+          <p class="card-text" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; ">{{comment.description}}</p>
+          </div>
+          <carousel *ngIf="comment.parent">
+            <div *ngFor="let picture of comment.pics">
+              <slide >
+                <img style="margin-left:50px;width:30%;height:50%" [src]="picture" alt="Loading" width="100%" height="250rem">
+            </slide>
+            </div>
+
+
+          </carousel>
+
+          <!-- <img *ngIf="post.picId != null" class="card-img-top" src={{post.picId[0]}} alt="Card image cap"> -->
+            <!-- <p>{{post.id}}</p> -->
+
+        </div>
+
 <!-- <div class="card">
     <div class="card-body">
         <div class="form-group">
@@ -175,10 +196,10 @@
    <div class="container">
       <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder">Select picture for upload:</h5>
       <input type="file" multiple=true (change)="upload($event)" accept=".png,.jpg" />
-     
-    
+
+
   <div class="progress">
-    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div> 
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 
   </div>
@@ -188,7 +209,7 @@
         Picture uploaded: {{pic.name}}
       </p>
     </div>
-   
+
      </div>
       <button id = 'button11' (click)="commentSave($event)" style="float:right" class="ui secondary button" data-dismiss="modal" >
           Add Comment
@@ -201,11 +222,7 @@
 
 
 
-        
-     <br><br>     
 
-        </div>
-        <br>
-        <br>
-        <br>
-      </div>
+     <br><br>
+
+

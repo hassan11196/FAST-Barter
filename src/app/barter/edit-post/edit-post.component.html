@@ -93,6 +93,10 @@
 
 
           </div>
+           <div *ngIf="img" class="img-wrap">
+  <span (click)="deletePic($event)" class="close" style="color:red">&times;</span>
+  <img src="{{details.pics}}" style="width: 60%; height: 200px;margin-left:15%" alt="">
+    </div>
           <div class="field" style="padding-left:1rem;padding-right:1rem;">
             <!-- <div class="card-body"> -->
             <!-- <h5 class="card-title">Select picture for upload:</h5> -->
@@ -122,6 +126,8 @@
               aria-valuemin="0" aria-valuemax="100"></div>
           </div>
           <div *ngIf="itemUploaded" class="alert alert-info" role="alert">
+            
+           
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic?.name}}

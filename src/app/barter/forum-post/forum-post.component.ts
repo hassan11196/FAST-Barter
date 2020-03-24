@@ -28,11 +28,11 @@ export class ForumPostComponent implements OnInit {
   show() {
     console.log("hello");
   }
-  postdetails(post) {
-
-    console.log(post.timestamp['seconds'])
-    var cart = {}
-    cart = post;
+   postdetails(post){
+     
+    console.log(post.timestamp['seconds']) 
+    var cart={}
+    cart=post;
     localStorage.setItem('cart', JSON.stringify(cart));
 
   }

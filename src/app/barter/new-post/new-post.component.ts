@@ -88,6 +88,7 @@ export class NewPostComponent implements OnInit {
   city='';
   phone="";
   type="";
+  limit:boolean = false;
   $key:any;
   showCondition=true;
   constructor(private postcrud: PostCrudService, auth:AuthService,public afStorage:AngularFirestore,
@@ -101,6 +102,17 @@ export class NewPostComponent implements OnInit {
 
    }
   postSave(event){
+
+  
+    if(this.picsBase64Encoded.toString().length>1040000)
+    {
+      this.limit=true;
+      this.picsBase64Encoded=[];
+    return
+  }
+  else{
+    this.limit=false;
+  
     console.log('Post');
     // const mid =document.getElementById('link').getAttribute('href')
     console.log(this.postcrud);
@@ -121,7 +133,7 @@ export class NewPostComponent implements OnInit {
     console.log('Hitting Firebase');
     this.postcrud.addPost(p);
     this.router.navigate(['/home']);
-    
+  }  
   }
   upload(event){
     this.uploads = [...this.uploads,...event.target.files];
