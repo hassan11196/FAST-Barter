@@ -33,8 +33,11 @@
     <div class="card" style="border:2px solid #034150;background-color:#bcf5f6">
       <!-- <h2 style="text-align: center; font-weight:bold">Product Details</h2> -->
       <h2 style="padding-left:2rem;font-weight:bold;text-transform:uppercase;padding-top:1rem;color:#034150" >{{details.title}}</h2>
-      
-      <h5 style="padding-left:2rem;">{{details.description}}</h5>
+      <!-- <div>{{details.description}}</div> -->
+      <div style="padding-left:2rem;"><h4 style="font-weight: bold;color:#034150">Description</h4> 
+        <div [innerHTML]=details.description></div>
+    </div>
+      <!-- <h5 style="padding-left:2rem;">{{details.description}}</h5> -->
       <h4 style="padding-left:2rem;" ><span style="font-weight: bold;color:#034150">Condition:</span><span style="padding-left:1rem; font-weight:normal">{{details.condition}}</span></h4>
       <h4 style="padding-left:2rem;" ><span style="font-weight: bold;color:#034150">Location:</span>
         <span style="padding-left:1rem; font-weight:normal">{{details.state}},{{details.city}}</span>
