@@ -49,6 +49,7 @@ export class ForumPostComponent implements OnInit {
         console.log(this.searchValue);
         this.postcrud.searchPost(this.searchValue)
           .subscribe(res => {
+            this.postsList=[]
             res.forEach(post => {
 
 
