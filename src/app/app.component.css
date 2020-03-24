@@ -1,3 +1,7 @@
 /* *{
     background-color: grey;
 } */
+
+div[ng-view]{
+    height: 100%;
+}

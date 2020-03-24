@@ -1,6 +1,3 @@
-#logoutbox{
-  align-content: right;
-  right: true;
-  float: right;
-
+div[ng-view]{
+  height: 100%;
 }
