@@ -47,7 +47,6 @@
                                             <th colspan="2">Property</th>
                                             <th>Title</th>
                                             <th>Condition</th>
-                                            <th>Description</th>
 
                                         </tr>
                                     </thead>
@@ -62,7 +61,6 @@
                                             <td></td>
                                             <td>{{item.title}}</td>
                                             <td>{{item.condition}}</td>
-                                            <td>{{item.description}}</td>
                                             <td><button class="ui button" style="background-color: #BCF5F6;width:140px;" [routerLink]="['/editpost']"(click)="postdetails(item)">
                                               <i class="edit icon"></i>
                                               Edit Post
@@ -90,7 +88,7 @@
 
 
                   <div class="card hovercard">
-                  <div class="cardheader">
+                  <div class="cardheader" style="background-color: #497d88;">
 
                   </div>
                   <div class="avatar">
@@ -100,7 +98,7 @@
                       <div class="title">
                           <a target="_blank">{{user.displayName}}</a>
                       </div>
-                      <div class="desc">User</div>
+                      <div style="color: #f8f8f8;">User</div>
 
                   </div>
                 </div>
