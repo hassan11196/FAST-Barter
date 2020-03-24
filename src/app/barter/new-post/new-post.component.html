@@ -122,9 +122,9 @@
               aria-valuemin="0" aria-valuemax="100"></div>
           </div>
           <div *ngIf="limit" class="alert alert-info" role="alert">
-          <p style="color:red">Picture Size Exceeded</p>
+          <p style="color:red">Picture Size Exceeded.Select New Picture</p>
           </div>
-          <div *ngIf="itemUploaded" class="alert alert-info" role="alert">
+          <div *ngIf="itemUploaded && !limit" class="alert alert-info" role="alert">
             <div *ngFor="let pic of uploads">
               <p>
                 Picture uploaded: {{pic?.name}}

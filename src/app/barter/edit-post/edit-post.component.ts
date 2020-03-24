@@ -188,7 +188,7 @@ export class EditPostComponent implements OnInit {
   editPost(event) {
     console.log("Post");
     console.log(this.postcrud);
-
+    this.details.pics=this.picsBase64Encoded;
     let p: any = {
       title: this.postTitle,
       description: this.postDescription,

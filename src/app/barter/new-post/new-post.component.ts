@@ -10,6 +10,7 @@ import { from,combineLatest } from 'rxjs';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { read } from 'fs';
 
 declare const require:any;
 
@@ -104,15 +105,7 @@ export class NewPostComponent implements OnInit {
   postSave(event){
 
   
-    if(this.picsBase64Encoded.toString().length>1040000)
-    {
-      this.limit=true;
-      this.picsBase64Encoded=[];
-    return
-  }
-  else{
-    this.limit=false;
-  
+
     console.log('Post');
     // const mid =document.getElementById('link').getAttribute('href')
     console.log(this.postcrud);
@@ -134,8 +127,9 @@ export class NewPostComponent implements OnInit {
     this.postcrud.addPost(p);
     this.router.navigate(['/home']);
   }  
-  }
+
   upload(event){
+    this.limit=false;
     this.uploads = [...this.uploads,...event.target.files];
     console.log(this.uploads);
 
@@ -148,11 +142,21 @@ export class NewPostComponent implements OnInit {
       reader.readAsDataURL(file);
 
       reader.onload = () => {
+        if(reader.result.toString().length>1040000){
+          console.log("Bogg")
+          this.limit=true;
+          this.picsBase64Encoded=[];
+          this.uploads=[]
+          return;
+        }
+        else{
+          this.limit=false
+        }
         this.picsBase64Encoded = [... this.picsBase64Encoded,reader.result];
-        console.log(reader.result);
+        //console.log(reader.result);
       };
       this.itemUploaded=true;
-
+    
 
 
     }
