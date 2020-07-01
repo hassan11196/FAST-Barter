@@ -28,7 +28,7 @@ Click here to go to [TabDealIt](https://www.tabdealit.ml) .
 
 ## For Contributors:
 
-### Referneces: 
+### References: 
 If you find article that helped you, you can add them here so that it may also help others working on the project.
 
 
